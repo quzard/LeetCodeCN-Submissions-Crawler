@@ -1,37 +1,38 @@
 // 背包问题
 func coinChange1(coins []int, amount int) int {
-    dp := make([]int, amount+1)
-	dp[0] = 0
-	n := len(coins)
-
-    for i:=1; i<=amount; i++{
-        res := math.MaxInt64
-        for j:=0; j<n; j++{
-            if i == coins[j]{
+    if amount == 0{
+        return 0
+    }
+    dp := make([]int, amount + 1)
+    for i := 1; i <= amount; i++{
+        dp[i] = math.MaxInt32
+        for _, coin := range coins{
+            if coin == i{
                 dp[i] = 1
                 break
-            }else if i > coins[j]{
-                if dp[i - coins[j]] > 0{
-                    res = min(res, dp[i - coins[j]])
+            }else if coin < i{
+                if dp[i - coin] >= 1{
+                    dp[i] = min(dp[i], dp[i - coin] + 1)
                 }
             }
-            if res != math.MaxInt64{
-                dp[i] = res + 1
-            }else{
-                dp[i] = -1
-            }
+        }
+        if dp[i] == math.MaxInt32{
+            dp[i] = 0
         }
     }
-    return dp[amount]
+    if dp[len(dp) - 1] == 0{
+        return -1
+    }
+    return dp[len(dp) - 1]
 }
 
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
+func min(a, b int)int{
+    if a < b{
+        return a
+    }
+    return b
 }
+
 
 func coinChange(coins []int, amount int) int {
 	dp := make([]int, amount+1)
