@@ -143,6 +143,11 @@ def process_writing_question(content):
 
 # 获取最新题解TimeStamp与url id的对应
 def getTimeStamp(client):
+    detailed_question_url = "https://leetcode-cn.com/graphql"
+    question_headers = {'User-Agent': user_agent,
+                        'Connection': 'keep-alive',
+                        'Content-Type': 'application/json',
+                        'Referer': 'https://leetcode-cn.com/problems/'}
     count = 0
     while True:
         # "sortField": "LAST_SUBMITTED_AT"
