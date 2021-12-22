@@ -35,7 +35,7 @@ with open(config_path, "r") as f: #读取用户名，密码，本地存储目录
     USERNAME = config['username']
     PASSWORD = config['password']
     OUTPUT_DIR = config['outputDir']
-    TIME_CONTROL = 3600 * 24 * config['time']
+    TIME_CONTROL = 3600 * config['time']
 
 FILE_FORMAT = {"C++": ".cpp", "Python3": ".py", "Python": ".py", "MySQL": ".sql", "Go": ".go", "Java": ".java",
                 "C": ".c", "JavaScript": ".js", "PHP": ".php", "C#": ".cs", "Ruby": ".rb", "Swift": ".swift",
@@ -149,17 +149,13 @@ def getTimeStamp(client):
                         'Content-Type': 'application/json',
                         'Referer': 'https://leetcode-cn.com/problems/'}
     count = 0
+    cnt = 0
     while True:
-        # "sortField": "LAST_SUBMITTED_AT"
-        # "sortOrder": "DESCENDING"
-
-        # "sortOrder": "ASCENDING",
-        # "sortField": "QUESTION_FRONTEND_ID",
         cur_time = time.time()
         params = {'operationName': "userProfileQuestions",
         'variables': {"status": "ACCEPTED",
-                    "sortOrder": "ASCENDING",
-                    "sortField": "QUESTION_FRONTEND_ID",
+                    "sortOrder": "DESCENDING",
+                    "sortField": "LAST_SUBMITTED_AT",
                     "first": 20,
                     "difficulty": [],
                     "skip": count
@@ -197,19 +193,25 @@ def getTimeStamp(client):
         json_data = json.dumps(params).encode('utf8')
         response = client.post(detailed_question_url, data=json_data, headers=question_headers, timeout=10, verify=False)
         if response.status_code != 200:
+            print("总共", cnt, "道题目")
+            time.sleep(5)
             return
         content = response.json()
         if len(content['data']['userProfileQuestions']['questions']) == 0:
+            print("总共", cnt, "道题目")
+            time.sleep(5)
             return
         for question in content['data']['userProfileQuestions']['questions']:
             if cur_time - question['lastSubmittedAt'] > TIME_CONTROL: # 时间管理，本行代表只记录最近的TIME_CONTROL天内的提交记录
-                continue
+                print("总共", cnt, "道题目")
+                time.sleep(5)
+                return
             frontendId[question['lastSubmittedAt']] = question['frontendId']
             titleSlug[question['lastSubmittedAt']] = question['titleSlug']
             print(question['frontendId'], '\t', question['translatedTitle'])
+            cnt+=1
         count += 20
         time.sleep(2)
-
 def scraping(client):
     page_num = START_PAGE
     visited = set()
@@ -234,7 +236,7 @@ def scraping(client):
                 continue
 
             if cur_time - submission['timestamp'] > TIME_CONTROL: # 时间管理，本行代表只记录最近的TIME_CONTROL天内的提交记录
-                print("Finished scraping for the desired time.")
+                print("完成所需时间的下载")
                 return
 
             try:
@@ -310,14 +312,11 @@ def generatePath(problem_id, problem_title, submission_language):
 def main():
     print('Login')
     client = login(USERNAME, PASSWORD)
-
-    print('Start scrapping')
+    print('获取 时间戳')
     getTimeStamp(client)
+    print('开始下载')
     scraping(client)
-    print('End scrapping')
-
     gitPush()
-    print('Git push finished')
 
 if __name__ == '__main__':
     frontendId = {}
