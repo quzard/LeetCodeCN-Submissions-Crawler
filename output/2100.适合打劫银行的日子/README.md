@@ -62,3 +62,5 @@
 	<li><code>1 &lt;= security.length &lt;= 10<sup>5</sup></code></li>
 	<li><code>0 &lt;= security[i], time &lt;= 10<sup>5</sup></code></li>
 </ul>
+
+**标签:**  [数组](https://leetcode-cn.com/tag/array) [动态规划](https://leetcode-cn.com/tag/dynamic-programming) [前缀和](https://leetcode-cn.com/tag/prefix-sum) 

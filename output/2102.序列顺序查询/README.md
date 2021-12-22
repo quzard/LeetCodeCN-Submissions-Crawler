@@ -69,3 +69,5 @@ tracker.get();              // 从好到坏的景点为：branford, orlando, alp
 	<li>任意时刻，调用&nbsp;<code>get</code>&nbsp;的次数都不超过调用&nbsp;<code>add</code>&nbsp;的次数。</li>
 	<li><strong>总共</strong>&nbsp;调用&nbsp;<code>add</code> 和&nbsp;<code>get</code>&nbsp;不超过&nbsp;<code>4 * 10<sup>4</sup></code>&nbsp;</li>
 </ul>
+
+**标签:**  [设计](https://leetcode-cn.com/tag/design) [数据流](https://leetcode-cn.com/tag/data-stream) [有序集合](https://leetcode-cn.com/tag/ordered-set) [堆（优先队列）](https://leetcode-cn.com/tag/heap-priority-queue) 
