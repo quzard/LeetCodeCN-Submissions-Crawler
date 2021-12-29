@@ -14,7 +14,7 @@ leetcode_url = 'https://leetcode-cn.com/'
 sign_in_url = leetcode_url + 'accounts/login/'
 submissions_url = leetcode_url + 'submissions/'
 
-config_path = "./config.json"
+config_path = "./configMy.json"
 user_agent = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) ' \
              'Chrome/33.0.1750.152 Safari/537.36 '
 
