@@ -57,3 +57,5 @@
 	<li>所有&nbsp;<code>recipes</code> 和&nbsp;<code>supplies</code>&nbsp;中的值互不相同。</li>
 	<li><code>ingredients[i]</code>&nbsp;中的字符串互不相同。</li>
 </ul>
+
+**标签:**  [图](https://leetcode-cn.com/tag/graph) [拓扑排序](https://leetcode-cn.com/tag/topological-sort) [数组](https://leetcode-cn.com/tag/array) [哈希表](https://leetcode-cn.com/tag/hash-table) [字符串](https://leetcode-cn.com/tag/string) 
