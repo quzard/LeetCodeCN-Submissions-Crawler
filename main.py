@@ -22,7 +22,7 @@ with open(config_path, "r") as f:  # 读取用户名，密码，本地存储目�
     config = json.loads(f.read())
     USERNAME = config['username']
     PASSWORD = config['password']
-    OUTPUT_DIR = config['outputDir']
+    OUTPUT = config['outputDir']
     TIME_CONTROL = 3600 * config['time']
 
 FILE_FORMAT = {"C++": ".cpp", "Python3": ".py", "Python": ".py", "MySQL": ".sql", "Go": ".go", "Java": ".java",
@@ -133,6 +133,86 @@ def getTimeStamp(client):
         time.sleep(1)
 
 
+def getFavorite(client):
+    detailed_question_url = "https://leetcode-cn.com/graphql/"
+    page = 1
+    cnt = 0
+    while True:
+        question_headers = {'User-Agent': user_agent,
+                    'Connection': 'keep-alive',
+                    'Content-Type': 'application/json',
+                    'Referer': 'https://leetcode-cn.com/problemset/all/?listId=950fuM5M&page=' + str(page) +'&sorting=W3sic29ydE9yZGVyIjoiREVTQ0VORElORyIsIm9yZGVyQnkiOiJGUkVRVUVOQ1kifV0%3D'
+                    }
+        params = {'variables': {"categorySlug": "",
+                                "filters": {
+                                "listId": "950fuM5M",
+                                "orderBy": "FREQUENCY",
+                                "sortOrder": "DESCENDING"
+                                },
+                                "limit": 100,
+                                "skip": (page-1)*100
+                                },
+                  'query':
+                      '''
+                      query problemsetQuestionList($categorySlug: String, $limit: Int, $skip: Int, $filters: QuestionListFilterInput) {
+                      problemsetQuestionList(
+                        categorySlug: $categorySlug
+                        limit: $limit
+                        skip: $skip
+                        filters: $filters
+                      ) {
+                        hasMore
+                        total
+                        questions {
+                          acRate
+                          difficulty
+                          freqBar
+                          frontendQuestionId
+                          isFavor
+                          paidOnly
+                          solutionNum
+                          status
+                          title
+                          titleCn
+                          titleSlug
+                          topicTags {
+                            name
+                            nameTranslated
+                            id
+                            slug
+                          }
+                          extra {
+                            hasVideoSolution
+                            topCompanyTags {
+                              imgUrl
+                              slug
+                              numSubscribed
+                            }
+                          }
+                        }
+                      }
+                    }
+                    '''
+                  }
+        json_data = json.dumps(params).encode('utf8')
+        response = client.post(detailed_question_url, data=json_data, headers=question_headers, timeout=10,
+                               verify=False)
+        if response.status_code != 200:
+            print("总共", cnt, "道题目")
+            time.sleep(1)
+            return
+        content = response.json()
+        if len(content['data']['problemsetQuestionList']['questions']) == 0:
+            print("总共", cnt, "道题目")
+            time.sleep(1)
+            return
+        for question in content['data']['problemsetQuestionList']['questions']:
+            favorite.add(question['titleCn'].replace(" ", ""))
+            cnt += 1
+            print(cnt, ":",question['frontendQuestionId'], '\t', question['titleCn'])
+        page += 1
+        time.sleep(1)
+
 def scraping(client):
     page_num = START_PAGE
     visited = set()
@@ -168,15 +248,23 @@ def scraping(client):
                     problem_id = frontendId[submission['timestamp']]
                     if problem_id + submission_language not in visited:
                         visited.add(problem_id + submission_language)  # 保障每道题只记录每种语言最新的AC解
-                        full_paths = generatePath(problem_id, problem_title, submission_language, tags)
+                        
                         print(cnt, ": ", problem_id, problem_title, submission_language)
                         cnt+=1
                         del frontendId[submission['timestamp']]
                         time.sleep(1)
                         code = downloadCode(submission, client)
+                        full_paths = generatePath(problem_id, problem_title, submission_language, tags, False)
                         for full_path in full_paths:
                             with open(full_path, "w") as f:  # 开始写到本地
                                 f.write(code)
+                        if problem_title.replace(" ", "") in favorite:
+                            full_paths = generatePath(problem_id, problem_title, submission_language, tags, True)
+                            for full_path in full_paths:
+                                with open(full_path, "w") as f:  # 开始写到本地
+                                    f.write(code)
+
+
             except FileNotFoundError as e:
                 print("文件夹不存在")
 
@@ -238,7 +326,7 @@ def process_writing_question(content):
     simple_url = content['data']['question']['titleSlug']
     tags = content['data']['question']['topicTags']
 
-    full_paths = generatePath(frontend_id, title_cn.replace(" ", ""), "md", tags)
+    full_paths = generatePath(frontend_id, title_cn.replace(" ", ""), "md", tags, False)
     for full_path in full_paths:
         f_cn = open(full_path, 'w', encoding='UTF-8')
         f_cn.write("# [{}. {}]({})\n".format(frontend_id, title_cn, question_url + simple_url))
@@ -251,6 +339,20 @@ def process_writing_question(content):
                 f_cn.write("[{}]({}) ".format(tag['translatedName'], tag_url + tag['slug']))
 
         f_cn.close()
+    if title_cn.replace(" ", "") in favorite:
+        full_paths = generatePath(frontend_id, title_cn.replace(" ", ""), "md", tags, True)
+        for full_path in full_paths:
+            f_cn = open(full_path, 'w', encoding='UTF-8')
+            f_cn.write("# [{}. {}]({})\n".format(frontend_id, title_cn, question_url + simple_url))
+
+            f_cn.write(content_cn if content_cn else "")
+
+            if len(tags) > 0:
+                f_cn.write("\n**标签:**  ")
+                for tag in tags:
+                    f_cn.write("[{}]({}) ".format(tag['translatedName'], tag_url + tag['slug']))
+
+            f_cn.close()
 
 def downloadCode(submission, client):
     # print(submission)
@@ -270,7 +372,11 @@ def downloadCode(submission, client):
     return submission_details["code"]
 
 
-def generatePath(problem_id, problem_title, submission_language, tags):
+def generatePath(problem_id, problem_title, submission_language, tags, isFavorite):
+    if isFavorite:
+        OUTPUT_DIR = OUTPUT + "/收藏"
+    else:
+        OUTPUT_DIR = OUTPUT
     if not os.path.exists(OUTPUT_DIR):
         os.mkdir(OUTPUT_DIR)
     if not os.path.exists(OUTPUT_DIR + "/全部"):
@@ -321,7 +427,7 @@ def generatePath(problem_id, problem_title, submission_language, tags):
 
 def gitPush():
     today = time.strftime('%Y-%m-%d', time.localtime(time.time()))
-    os.chdir(OUTPUT_DIR)
+    os.chdir(OUTPUT)
     instructions = ["git add .", "git status", "git commit -m \"" + today + "\"", "git push -u origin master"]
     for ins in instructions:
         os.system(ins)
@@ -333,6 +439,8 @@ def main():
     client = login(USERNAME, PASSWORD)
     print('获取 时间戳')
     getTimeStamp(client)
+    print('获取 favorite')
+    getFavorite(client)
     print('开始下载')
     scraping(client)
     gitPush()
@@ -341,5 +449,6 @@ def main():
 if __name__ == '__main__':
     frontendId = {}
     titleSlug = {}
+    favorite = set()
     main()
     print(frontendId)
