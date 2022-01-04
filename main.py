@@ -59,75 +59,6 @@ def login(username, password):  # 本函数修改自https://gist.github.com/fyea
     return client
 
 
-# 下载题目
-def get_question_detail(simple_url):
-    session = requests.Session()
-    detailed_question_url = "https://leetcode-cn.com/graphql"
-    question_headers = {'User-Agent': user_agent,
-                        'Connection': 'keep-alive',
-                        'Content-Type': 'application/json',
-                        'Referer': 'https://leetcode-cn.com/problems/' + simple_url}
-    params = {'operationName': "getQuestionDetail",
-              'variables': {'titleSlug': simple_url},
-              'query':
-                  '''
-                  query getQuestionDetail($titleSlug: String!) {
-                            question(titleSlug: $titleSlug) {
-                                questionId
-                                questionFrontendId
-                                titleSlug
-                                title
-                                translatedTitle 
-                                difficulty
-                                categoryTitle
-                                similarQuestions
-                                topicTags {
-                                    name
-                                    slug
-                                    translatedName
-                                }
-                                content
-                                translatedContent
-                            }
-                  }
-                  '''
-              }
-    json_data = json.dumps(params).encode('utf8')
-    response = session.post(detailed_question_url, data=json_data, headers=question_headers, timeout=10)
-    content = response.json()
-    if content['data']['question']['translatedTitle'] is None:
-        session.close()
-        return
-    process_writing_question(content)
-    session.close()
-
-
-# 保存题目
-def process_writing_question(content):
-    question_url = "https://leetcode-cn.com/problems/"
-    tag_url = "https://leetcode-cn.com/tag/"
-
-    frontend_id = content['data']['question']['questionFrontendId']
-    title_cn = content['data']['question']['translatedTitle']
-    content_cn = content['data']['question']['translatedContent']
-    simple_url = content['data']['question']['titleSlug']
-    tags = content['data']['question']['topicTags']
-
-    full_path = generatePath(frontend_id, title_cn.replace(" ", ""), "md")
-
-    f_cn = open(full_path, 'w', encoding='UTF-8')
-    f_cn.write("# [{}. {}]({})\n".format(frontend_id, title_cn, question_url + simple_url))
-
-    f_cn.write(content_cn if content_cn else "")
-
-    if len(tags) > 0:
-        f_cn.write("\n**标签:**  ")
-        for tag in tags:
-            f_cn.write("[{}]({}) ".format(tag['translatedName'], tag_url + tag['slug']))
-
-    f_cn.close()
-
-
 # 获取最新题解TimeStamp与url id的对应
 def getTimeStamp(client):
     detailed_question_url = "https://leetcode-cn.com/graphql"
@@ -182,30 +113,30 @@ def getTimeStamp(client):
                                verify=False)
         if response.status_code != 200:
             print("总共", cnt, "道题目")
-            time.sleep(5)
+            time.sleep(1)
             return
         content = response.json()
         if len(content['data']['userProfileQuestions']['questions']) == 0:
             print("总共", cnt, "道题目")
-            time.sleep(5)
+            time.sleep(1)
             return
         for question in content['data']['userProfileQuestions']['questions']:
             if cur_time - question['lastSubmittedAt'] > TIME_CONTROL:  # 时间管理，本行代表只记录最近的TIME_CONTROL天内的提交记录
                 print("总共", cnt, "道题目")
-                time.sleep(5)
+                time.sleep(1)
                 return
             frontendId[question['lastSubmittedAt']] = question['frontendId']
             titleSlug[question['lastSubmittedAt']] = question['titleSlug']
             print(question['frontendId'], '\t', question['translatedTitle'])
             cnt += 1
         count += 20
-        time.sleep(2)
+        time.sleep(1)
 
 
 def scraping(client):
     page_num = START_PAGE
     visited = set()
-
+    cnt = 1
     while True:
         print("Now for page:", str(page_num))
         submissions_url = "https://leetcode-cn.com/api/submissions/?offset=" + str(page_num) + "&limit=40&lastkey="
@@ -228,32 +159,101 @@ def scraping(client):
             if cur_time - submission['timestamp'] > TIME_CONTROL:  # 时间管理，本行代表只记录最近的TIME_CONTROL天内的提交记录
                 print("完成所需时间的下载")
                 return
-
             try:
                 if submission['timestamp'] in frontendId:
                     # 下载题目
                     url = titleSlug[submission['timestamp']]
-                    get_question_detail(url)
+                    tags = get_question_detail(url)
                     # 下载题解
                     problem_id = frontendId[submission['timestamp']]
                     if problem_id + submission_language not in visited:
                         visited.add(problem_id + submission_language)  # 保障每道题只记录每种语言最新的AC解
-                        full_path = generatePath(problem_id, problem_title, submission_language)
+                        full_paths = generatePath(problem_id, problem_title, submission_language, tags)
+                        print(cnt, ": ", problem_id, problem_title, submission_language)
+                        cnt+=1
+                        del frontendId[submission['timestamp']]
                         time.sleep(1)
                         code = downloadCode(submission, client)
-                        with open(full_path, "w") as f:  # 开始写到本地
-                            f.write(code)
-                            print("Writing ends!", full_path)
-
+                        for full_path in full_paths:
+                            with open(full_path, "w") as f:  # 开始写到本地
+                                f.write(code)
             except FileNotFoundError as e:
                 print("文件夹不存在")
 
-        time.sleep(2)
+        time.sleep(1)
         page_num += 40
 
+# 下载题目
+def get_question_detail(simple_url):
+    session = requests.Session()
+    detailed_question_url = "https://leetcode-cn.com/graphql"
+    question_headers = {'User-Agent': user_agent,
+                        'Connection': 'keep-alive',
+                        'Content-Type': 'application/json',
+                        'Referer': 'https://leetcode-cn.com/problems/' + simple_url}
+    params = {'operationName': "getQuestionDetail",
+              'variables': {'titleSlug': simple_url},
+              'query':
+                  '''
+                  query getQuestionDetail($titleSlug: String!) {
+                            question(titleSlug: $titleSlug) {
+                                questionId
+                                questionFrontendId
+                                titleSlug
+                                title
+                                translatedTitle 
+                                difficulty
+                                categoryTitle
+                                similarQuestions
+                                topicTags {
+                                    name
+                                    slug
+                                    translatedName
+                                }
+                                content
+                                translatedContent
+                            }
+                  }
+                  '''
+              }
+    json_data = json.dumps(params).encode('utf8')
+    response = session.post(detailed_question_url, data=json_data, headers=question_headers, timeout=10)
+    content = response.json()
+    if content['data']['question']['translatedTitle'] is None:
+        session.close()
+        return
+    process_writing_question(content)
+    session.close()
+    return content['data']['question']['topicTags']
+
+
+# 保存题目
+def process_writing_question(content):
+    question_url = "https://leetcode-cn.com/problems/"
+    tag_url = "https://leetcode-cn.com/tag/"
+
+    frontend_id = content['data']['question']['questionFrontendId']
+    title_cn = content['data']['question']['translatedTitle']
+    content_cn = content['data']['question']['translatedContent']
+    simple_url = content['data']['question']['titleSlug']
+    tags = content['data']['question']['topicTags']
+
+    full_paths = generatePath(frontend_id, title_cn.replace(" ", ""), "md", tags)
+    for full_path in full_paths:
+        f_cn = open(full_path, 'w', encoding='UTF-8')
+        f_cn.write("# [{}. {}]({})\n".format(frontend_id, title_cn, question_url + simple_url))
+
+        f_cn.write(content_cn if content_cn else "")
+
+        if len(tags) > 0:
+            f_cn.write("\n**标签:**  ")
+            for tag in tags:
+                f_cn.write("[{}]({}) ".format(tag['translatedName'], tag_url + tag['slug']))
+
+        f_cn.close()
 
 def downloadCode(submission, client):
-    print(submission)
+    # print(submission)
     headers = {
         'Connection': 'keep-alive',
         'Content-Type': 'application/json',
@@ -270,16 +270,22 @@ def downloadCode(submission, client):
     return submission_details["code"]
 
 
-def generatePath(problem_id, problem_title, submission_language):
+def generatePath(problem_id, problem_title, submission_language, tags):
+    if not os.path.exists(OUTPUT_DIR):
+        os.mkdir(OUTPUT_DIR)
+    if not os.path.exists(OUTPUT_DIR + "/全部"):
+        os.mkdir(OUTPUT_DIR + "/全部")
+    if not os.path.exists(OUTPUT_DIR + "/标签"):
+        os.mkdir(OUTPUT_DIR + "/标签")
+
     if problem_id[0].isdigit():  # 如果题目是传统的数字题号
-        problem_id = int(problem_id)
-        newPath = OUTPUT_DIR + "/" + '{:0=4}'.format(problem_id) + "." + problem_title  # 存放的文件夹名
+        newPath = OUTPUT_DIR + "/全部/" + '{:0=4}'.format(int(problem_id)) + "." + problem_title  # 存放的文件夹名
         if submission_language == "md":
             filename = "README.md"  # 存放的文件名
         else:
-            filename = '{:0=4}'.format(problem_id) + "-" + problem_title + FILE_FORMAT[submission_language]  # 存放的文件名
+            filename = '{:0=4}'.format(int(problem_id)) + "-" + problem_title + FILE_FORMAT[submission_language]  # 存放的文件名
     else:  # 如果题目是新的面试题
-        newPath = OUTPUT_DIR + "/" + problem_id + "." + problem_title
+        newPath = OUTPUT_DIR + "/全部/" + problem_id + "." + problem_title
         if submission_language == "md":
             filename = "README.md"  # 存放的文件名
         else:
@@ -287,8 +293,29 @@ def generatePath(problem_id, problem_title, submission_language):
 
     if not os.path.exists(newPath):
         os.mkdir(newPath)
+    full_path = []
+    full_path.append(os.path.join(newPath, filename))  # 把文件夹和文件组合成新的地址
 
-    full_path = os.path.join(newPath, filename)  # 把文件夹和文件组合成新的地址
+    if len(tags) > 0:
+        for tag in tags:
+            tag = tag['translatedName']
+            if not os.path.exists(OUTPUT_DIR + "/标签/" + tag):
+                os.mkdir(OUTPUT_DIR + "/标签/" + tag)
+            if problem_id[0].isdigit():  # 如果题目是传统的数字题号
+                newPath = OUTPUT_DIR + "/标签/" + tag + "/" + '{:0=4}'.format(int(problem_id)) + "." + problem_title  # 存放的文件夹名
+                if submission_language == "md":
+                    filename = "README.md"  # 存放的文件名
+                else:
+                    filename = '{:0=4}'.format(int(problem_id)) + "-" + problem_title + FILE_FORMAT[submission_language]  # 存放的文件名
+            else:  # 如果题目是新的面试题
+                newPath = OUTPUT_DIR + "/标签/" + tag + "/" + problem_id + "." + problem_title
+                if submission_language == "md":
+                    filename = "README.md"  # 存放的文件名
+                else:
+                    filename = problem_id + "-" + problem_title + FILE_FORMAT[submission_language]  # 存放的文件名
+            if not os.path.exists(newPath):
+                os.mkdir(newPath)
+            full_path.append(os.path.join(newPath, filename))  # 把文件夹和文件组合成新的地址
     return full_path
 
 
@@ -315,3 +342,4 @@ if __name__ == '__main__':
     frontendId = {}
     titleSlug = {}
     main()
+    print(frontendId)
