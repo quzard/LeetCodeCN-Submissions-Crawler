@@ -141,7 +141,7 @@ def getFavorite(client):
         question_headers = {'User-Agent': user_agent,
                     'Connection': 'keep-alive',
                     'Content-Type': 'application/json',
-                    'Referer': 'https://leetcode-cn.com/problemset/all/?listId=950fuM5M&page=' + str(page) +'&sorting=W3sic29ydE9yZGVyIjoiREVTQ0VORElORyIsIm9yZGVyQnkiOiJGUkVRVUVOQ1kifV0%3D'
+                    'Referer': 'https://leetcode-cn.com/problemset'
                     }
         params = {'variables': {"categorySlug": "",
                                 "filters": {
