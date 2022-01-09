@@ -10,8 +10,7 @@ func threeSumClosest(nums []int, target int) int {
         if i > 0 && nums[i] == nums[i - 1]{
             continue
         }
-        l := i + 1
-        r := len(nums) - 1
+        l, r := i + 1, len(nums) - 1
         for l < r{
             sum := nums[l] + nums[r] + nums[i]
             if sum == target{

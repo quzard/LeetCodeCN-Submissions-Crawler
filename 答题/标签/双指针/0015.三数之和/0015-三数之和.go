@@ -8,8 +8,7 @@ func threeSum(nums []int) [][]int {
         if i > 0 && nums[i - 1] == nums[i]{
             continue
         }
-        left := i + 1
-        right := len(nums) - 1
+        left, right := i + 1, len(nums) - 1
         target := -nums[i]
         // 找 nums[left] + nums[right] = -nums[i]
         for left < right{
