@@ -8,21 +8,21 @@
  */
 
 func buildTree(preorder []int, inorder []int) *TreeNode {
-    if len(preorder) == 0 || len(preorder) != len(inorder){
+    // preorder 前序 中左右
+    // inorder  中序 左中右
+    if len(preorder) == 0{
         return nil
     }
-    if len(preorder) == 1{
-        return &TreeNode{Val: preorder[0]}
-    }
-    head := &TreeNode{Val: preorder[0]}
+    root := &TreeNode{Val: preorder[0]}
     i:=0
-    for i = 0; i< len(inorder);i++{
+    for i< len(inorder){
         if inorder[i] == preorder[0]{
             break
         }
+        i++
     }
-    head.Left = buildTree(preorder[1:1+i], inorder[:i])
-    head.Right = buildTree(preorder[i+1:], inorder[i+1:])
+    root.Left = buildTree(preorder[1:1+i], inorder[:i])
+    root.Right = buildTree(preorder[i+1:], inorder[i+1:])
    
-    return head
+    return root
 }
