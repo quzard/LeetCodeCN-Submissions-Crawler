@@ -213,6 +213,15 @@ def getFavorite(client):
         page += 1
         time.sleep(1)
 
+def getPaid_only(client):
+    problems_url = "https://leetcode-cn.com/api/problems/all/"
+    headers = {'User-Agent': user_agent, 'Connection': 'keep-alive'}
+    response = client.get(problems_url, headers=headers, timeout=10)
+    questions_list = json.loads(response.content.decode('utf-8'))['stat_status_pairs']
+    for question in questions_list:
+        if question['paid_only']:
+            paid_only.add(question['stat']['question__title_slug'])
+
 def scraping(client):
     page_num = START_PAGE
     visited = set()
@@ -243,7 +252,13 @@ def scraping(client):
                 if submission['timestamp'] in frontendId:
                     # 下载题目
                     url = titleSlug[submission['timestamp']]
-                    tags = get_question_detail(url)
+                    tags = None
+                    if url in paid_only:
+                        tags = get_question_detail(client, url)
+                    else:
+                        session = requests.session()
+                        tags = get_question_detail(session, url)
+                        session.close
                     # 下载题解
                     problem_id = frontendId[submission['timestamp']]
                     if problem_id + submission_language not in visited:
@@ -272,46 +287,98 @@ def scraping(client):
         page_num += 40
 
 # 下载题目
-def get_question_detail(simple_url):
-    session = requests.Session()
+def get_question_detail(client, simple_url):
     detailed_question_url = "https://leetcode-cn.com/graphql"
     question_headers = {'User-Agent': user_agent,
                         'Connection': 'keep-alive',
                         'Content-Type': 'application/json',
-                        'Referer': 'https://leetcode-cn.com/problems/' + simple_url}
-    params = {'operationName': "getQuestionDetail",
+                        'Referer': 'https://leetcode-cn.com/problems/' + simple_url + '/submissions/'}
+    params = {'operationName': "questionData",
               'variables': {'titleSlug': simple_url},
               'query':
                   '''
-                  query getQuestionDetail($titleSlug: String!) {
-                            question(titleSlug: $titleSlug) {
-                                questionId
-                                questionFrontendId
-                                titleSlug
-                                title
-                                translatedTitle 
-                                difficulty
-                                categoryTitle
-                                similarQuestions
-                                topicTags {
-                                    name
-                                    slug
-                                    translatedName
-                                }
-                                content
-                                translatedContent
-                            }
-                  }
+                  query questionData($titleSlug: String!) {
+                    question(titleSlug: $titleSlug) {
+                        questionId
+                        questionFrontendId
+                        categoryTitle
+                        boundTopicId
+                        title
+                        titleSlug
+                        content
+                        translatedTitle
+                        translatedContent
+                        isPaidOnly
+                        difficulty
+                        likes
+                        dislikes
+                        isLiked
+                        similarQuestions
+                        contributors {
+                        username
+                        profileUrl
+                        avatarUrl
+                        __typename
+                        }
+                        langToValidPlayground
+                        topicTags {
+                        name
+                        slug
+                        translatedName
+                        __typename
+                        }
+                        companyTagStats
+                        codeSnippets {
+                        lang
+                        langSlug
+                        code
+                        __typename
+                        }
+                        stats
+                        hints
+                        solution {
+                        id
+                        canSeeDetail
+                        __typename
+                        }
+                        status
+                        sampleTestCase
+                        metaData
+                        judgerAvailable
+                        judgeType
+                        mysqlSchemas
+                        enableRunCode
+                        envInfo
+                        book {
+                        id
+                        bookName
+                        pressName
+                        source
+                        shortDescription
+                        fullDescription
+                        bookImgUrl
+                        pressImgUrl
+                        productUrl
+                        __typename
+                        }
+                        isSubscribed
+                        isDailyQuestion
+                        dailyRecordStatus
+                        editorType
+                        ugcQuestionId
+                        style
+                        exampleTestcases
+                        __typename
+                    }
+                }
                   '''
               }
     json_data = json.dumps(params).encode('utf8')
-    response = session.post(detailed_question_url, data=json_data, headers=question_headers, timeout=10)
+    response = client.post(detailed_question_url, data=json_data, headers=question_headers, timeout=10)
     content = response.json()
     if content['data']['question']['translatedTitle'] is None:
-        session.close()
         return
     process_writing_question(content)
-    session.close()
     return content['data']['question']['topicTags']
 
 
@@ -437,18 +504,22 @@ def gitPush():
 def main():
     print('Login')
     client = login(USERNAME, PASSWORD)
+    print('获取 Paid_only')
+    getPaid_only(client)
     print('获取 时间戳')
     getTimeStamp(client)
     print('获取 favorite')
     getFavorite(client)
     print('开始下载')
     scraping(client)
+    client.close()
     gitPush()
 
 
 if __name__ == '__main__':
     frontendId = {}
     titleSlug = {}
+    paid_only = set()
     favorite = set()
     main()
     print(frontendId)
