@@ -36,6 +36,16 @@ SLEEP_TIME = 5  # in second，登录失败时的休眠时间
 
 
 # ~~~~~~~~~~~~以上是可以修改的参数~~~~~~~~~~~~~~~~·
+def getPaid_only():
+    client = requests.session()
+    problems_url = "https://leetcode-cn.com/api/problems/all/"
+    headers = {'User-Agent': user_agent, 'Connection': 'keep-alive'}
+    response = client.get(problems_url, headers=headers, timeout=10)
+    questions_list = json.loads(response.content.decode('utf-8'))['stat_status_pairs']
+    for question in questions_list:
+        if question['paid_only']:
+            paid_only.add(question['stat']['question__title_slug'])
+    client.close()
 
 # 登陆
 def login(username, password):  # 本函数修改自https://gist.github.com/fyears/487fc702ba814f0da367a17a2379e8ba，感谢@fyears
@@ -212,15 +222,6 @@ def getFavorite(client):
             print(cnt, ":",question['frontendQuestionId'], '\t', question['titleCn'])
         page += 1
         time.sleep(1)
-
-def getPaid_only(client):
-    problems_url = "https://leetcode-cn.com/api/problems/all/"
-    headers = {'User-Agent': user_agent, 'Connection': 'keep-alive'}
-    response = client.get(problems_url, headers=headers, timeout=10)
-    questions_list = json.loads(response.content.decode('utf-8'))['stat_status_pairs']
-    for question in questions_list:
-        if question['paid_only']:
-            paid_only.add(question['stat']['question__title_slug'])
 
 def scraping(client):
     page_num = START_PAGE
@@ -502,10 +503,10 @@ def gitPush():
 
 
 def main():
+    print('获取 Paid_only')
+    getPaid_only()
     print('Login')
     client = login(USERNAME, PASSWORD)
-    print('获取 Paid_only')
-    getPaid_only(client)
     print('获取 时间戳')
     getTimeStamp(client)
     print('获取 favorite')
