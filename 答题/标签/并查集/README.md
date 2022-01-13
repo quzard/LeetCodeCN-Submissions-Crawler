@@ -97,5 +97,10 @@ func UnionFind(n int, edges [][]int) int {
 
 ## 案例
 
-### [323. 无向图中连通分量的数目](https://leetcode-cn.com/problems/number-of-connected-components-in-an-undirected-graph)
-
+| 序号 | 题目                                                         |
+| ---- | ------------------------------------------------------------ |
+| 1    | [128. 最长连续序列(中等)](https://leetcode-cn.com/problems/longest-consecutive-sequence) |
+| 2    | [323. 无向图中连通分量的数目(中等)](https://leetcode-cn.com/problems/number-of-connected-components-in-an-undirected-graph/) |
+| 3    | [200. 岛屿数量(中等)](https://leetcode-cn.com/problems/number-of-islands) |
+| 4    | [695. 岛屿的最大面积(中等)](https://leetcode-cn.com/problems/max-area-of-island) |
+| 5    | [130. 被围绕的区域(中等)](https://leetcode-cn.com/problems/surrounded-regions) |
