@@ -31,9 +31,12 @@ func trap(arr []int){
 	for i := 0; i < n; i++ {
     // arr[stack[i]] 单调递减
 		for len(stack) > 0 && arr[i] > arr[stack[len(stack)-1]] {
-			top := stack[len(stack)-1]
 			stack = stack[:len(stack)-1]
-			ans[i] = i - top
+		}
+		if len(stack) > 0 {
+			ans[i] = i - stack[len(stack)-1]
+		} else {
+			ans[i] = -1
 		}
 		stack = append(stack, i)
 	}
