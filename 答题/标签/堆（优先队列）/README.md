@@ -114,15 +114,13 @@ func maxHeapify(a []int, i, heapSize int) {
    1. `h := &IntHeap{}`
    2. `heap.Init(h)`
 5. pop: `heap.Pop(&intHeap)`
-6. 
-   push: `heap.Push(&intHeap, num)`
+6. push: `heap.Push(&intHeap, num)`
 
 ```go
 package main
 
 import (
 	"container/heap"
-	"fmt"
 )
 
 type IntHeap []int
@@ -175,9 +173,9 @@ func (h *IntHeap) Push(x interface{}) {
 }
 
 func (h *IntHeap) Pop() interface{} {
-	e := h.IntSlice[h.Len()-1]
+	num := h.IntSlice[h.Len()-1]
 	h.IntSlice = h.IntSlice[:h.Len()-1]
-	return e
+	return num
 }
 ```
 
