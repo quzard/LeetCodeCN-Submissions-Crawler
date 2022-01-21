@@ -42,25 +42,39 @@ func quickSort(nums []int, start, end int) {
 算法描述：首先建一个堆，然后调整堆，调整过程是将节点和子节点进行比较，将 其中最大的值变为父节点，递归调整调整次数lgn,最后将根节点和尾节点交换再n次 调整**O(nlgn)**.
 
 ```go
-func buildMaxHeap(arr []int) []int {
-	heapSize := len(arr)
-	for i := heapSize / 2; i >= 0; i++ {
+func sortArray(nums []int) []int {
+	heapSort(nums)
+	return nums
+}
+
+func heapSort(nums []int) {
+	end := len(nums) - 1
+	buildMaxHeap(nums, end)
+	for i := end; i >= 0; i-- {
+		nums[0], nums[i] = nums[i], nums[0]
+		end--
+		maxHeapify(nums, 0, end)
+	}
+}
+
+func buildMaxHeap(a []int, heapSize int) {
+	for i := heapSize / 2; i >= 0; i-- {
 		// 保证a[i] >= a[i*2+1] 左子节点 && a[i] >= a[i*2+2] 右子节点
 		maxHeapify(a, i, heapSize)
 	}
 }
 
-func maxHeapify(arr []int, i, heapSize int) {
-	l, r, large := i*2+1, i*2+2, i
-	if l < heapSize && arr[l] > arr[large] {
-		large = l
+func maxHeapify(a []int, i, heapSize int) {
+	l, r, largest := i*2+1, i*2+2, i
+	if l <= heapSize && a[l] > a[largest] {
+		largest = l
 	}
-	if r < heapSize && arr[r] > arr[large] {
-		large = r
+	if r <= heapSize && a[r] > a[largest] {
+		largest = r
 	}
-	if large != i {
-		arr[i], arr[large] = arr[large], arr[i]
-		maxHeapify(arr, large, heapSize)
+	if largest != i {
+		a[i], a[largest] = a[largest], a[i]
+		maxHeapify(a, largest, heapSize)
 	}
 }
 ```
@@ -85,20 +99,24 @@ func (h *IntHeap) Less(i, j int) bool {
 	return h.arr[i] < h.arr[j]
 }
 
-func (h *IntHeap) Push(num int) {
-	h.arr = append(h.arr, num)
+func (h *IntHeap) Push(num interface{}) {
+	h.arr = append(h.arr, num.(int))
 }
 
-func (h *IntHeap) Pop() int {
-	num := h.arr[0]
-	h.arr = h.arr[1:]
+func (h *IntHeap) Pop() interface{} {
+	num := h.arr[h.Len()-1]
+	h.arr = h.arr[:h.Len()-1]
 	return num
 }
 
 func SortHeap(arr []int) []int {
 	h := &IntHeap{arr: arr}
-	heap.Init(&h)
-	return h.arr
+	heap.Init(h)
+	res := make([]int, len(arr))
+	for i := 0; i < len(res); i++ {
+		res[i] = heap.Pop(h).(int)
+	}
+	return res
 }
 ```
 
