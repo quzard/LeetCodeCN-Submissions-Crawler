@@ -8,17 +8,22 @@
  */
 func rightSideView(root *TreeNode) []int {
     res := []int{}
-    var dfs func(root *TreeNode, height int)
-    dfs = func(root *TreeNode, height int){
-        if root == nil{
-            return
-        }
-        if len(res) < height{
-            res = append(res, root.Val)
-        }
-        dfs(root.Right, height + 1)
-        dfs(root.Left, height + 1)
+    if root == nil {
+        return res
     }
-    dfs(root, 1)
+    l := []*TreeNode{root}
+    for len(l) > 0 {
+        newL := []*TreeNode{}
+        for _, node := range l {
+            if node.Left != nil {
+                newL = append(newL, node.Left)
+            }
+            if node.Right != nil {
+                newL = append(newL, node.Right)
+            }
+        }
+        res = append(res, l[len(l)-1].Val)
+        l = newL
+    }
     return res
 }

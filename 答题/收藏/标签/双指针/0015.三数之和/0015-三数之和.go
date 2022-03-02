@@ -1,34 +1,34 @@
 func threeSum(nums []int) [][]int {
-    sort.Ints(nums)
     res := [][]int{}
-    for i:=0; i < len(nums); i++{
-        if nums[i] > 0{
-            break
+    if len(nums) < 3 {
+        return res
+    }
+    sort.Ints(nums)
+    for i := 0; i < len(nums) - 2; i++ {
+        if nums[i] > 0 {
+            return res
         }
-        if i > 0 && nums[i - 1] == nums[i]{
+        if i > 0 && nums[i] == nums[i - 1] {
             continue
         }
-        left, right := i + 1, len(nums) - 1
-        target := -nums[i]
-        // 找 nums[left] + nums[right] = -nums[i]
-        for left < right{
-            if nums[left] + nums[right] == target {
-                res = append(res, []int{nums[i], nums[left], nums[right]})
-                left++
-                right--
-                for left < right && nums[left] == nums[left - 1]{
-                    left++
+        l, r := i + 1, len(nums) - 1 
+        for l < r {
+            if nums[i] + nums[l] + nums[r] == 0 {
+                res = append(res, []int{nums[i], nums[l], nums[r]})
+                l++
+                r--
+                for l < r && nums[l] == nums[l - 1]{
+                    l++
                 }
-                for left < right && nums[right] == nums[right + 1]{
-                    right--
+                for l < r && nums[r] == nums[r + 1]{
+                    r--
                 }
-            }else if nums[left] + nums[right] < target {
-                left ++
-            }else {
-                right --
+            } else if nums[i] + nums[l] + nums[r] < 0 {
+                l++
+            } else {
+                r--
             }
         }
-
     }
     return res
 }

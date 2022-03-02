@@ -6,33 +6,34 @@
  * }
  */
 func reverseBetween(head *ListNode, left int, right int) *ListNode {
-    h := head
-    var tail *ListNode
-    var dfs func(l *ListNode, i int)
-    dfs = func(l *ListNode, i int){
-        if i == 0{
-            h.Next = l
-            h = l
-            tail = l.Next
-        }else{
-            dfs(l.Next, i-1)
-            h.Next = l
-            h = l
-        }
+    if head == nil {
+        return nil
     }
-    if left == 1{
-        head = &ListNode{Next:head}
-        h = head
-        dfs(h.Next, right - left)
-        h.Next = tail
-        return head.Next
-    }else{
-        for i:=1; i < left - 1; i++{
-            h = h.Next
+    var tail *ListNode
+    newHead := &ListNode{}
+    cur := newHead
+    cnt := 1
+    var dfs func (node *ListNode) 
+    dfs = func (node *ListNode){
+        if cnt == right {
+            cur.Next = node
+            cur = cur.Next
+            tail = node.Next
+            return
         }
-        dfs(h.Next, right - left)
-        h.Next = tail
-        return head
+        cnt++
+        dfs(node.Next)
+        cur.Next = node
+        cur = cur.Next
     }
     
+    for cnt != left {
+        cnt++
+        cur.Next = head
+        head = head.Next
+        cur = cur.Next
+    }
+    dfs(head)
+    cur.Next = tail
+    return newHead.Next
 }

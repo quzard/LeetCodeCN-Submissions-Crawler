@@ -1,28 +1,35 @@
 type CQueue struct {
-    data []int
+    l1 []int
+    l2 []int
 }
 
 
 func Constructor() CQueue {
     return CQueue{
-        data: []int{},
+        l1 : []int{}, 
+        l2 : []int{},
     }
 }
 
 
 func (this *CQueue) AppendTail(value int)  {
-    this.data = append(this.data, value)
+    this.l1 = append(this.l1, value)
 }
 
 
 func (this *CQueue) DeleteHead() int {
-    if len(this.data) == 0{
-        return -1
-    }else{
-        ans := this.data[0]
-        this.data = this.data[1:]
-        return ans
+    if len(this.l2) == 0 {
+        for len(this.l1) > 0 {
+            this.l2 = append(this.l2, this.l1[len(this.l1)-1])
+            this.l1 = this.l1[:len(this.l1)-1]
+        }
     }
+    if len(this.l2) == 0 {
+        return -1
+    }
+    value := this.l2[len(this.l2)-1]
+    this.l2 = this.l2[:len(this.l2)-1]
+    return value
 }
 
 

@@ -1,56 +1,58 @@
 func lengthOfLIS1(nums []int) int {
+    if len(nums) < 2 {
+        return len(nums)
+    }
+    res := 0
     dp := make([]int, len(nums))
-    res := 1
-    for i:=0; i<len(nums);i++{
-        for j:=0; j<i;j++{
-            if nums[i] > nums[j]{
+    for i := 0; i < len(nums); i++ {
+        dp[i] = 1
+        for j := i - 1; j >= 0; j-- {
+            if nums[j] < nums[i] {
                 dp[i] = max(dp[i], dp[j] + 1)
-            }else if nums[i] == nums[j]{
-                dp[i] = max(dp[i], dp[j])
             }
-        }
-        if dp[i] == 0{
-            dp[i]++
         }
         res = max(res, dp[i])
     }
-    fmt.Print(dp)
     return res
 }
 
-func max(a, b int)int{
-    if a < b{
-        return b
+func max(a, b int) int {
+    if a > b {
+        return a
     }
-    return a
+    return b
 }
 
-
-
-
-
-
-func getMax(x int, y int) int {
-	if x > y {
-		return x
-	}
-	return y
+func lengthOfLIS2(nums []int) int {
+    l := []int{}
+    for i := 0; i < len(nums); i++ {
+        if len(l) == 0 || l[len(l)-1] < nums[i] {
+            l = append(l, nums[i])
+        }
+        if l[len(l)-1] == nums[i] {
+            continue
+        }
+        j := 0
+        // 找到第一个dp[j] >= nums[i]
+        for ; j < len(l) && l[j] < nums[i]; j++ {}
+        l[j] = nums[i]
+    }
+    return len(l)
 }
+
 func lengthOfLIS(nums []int) int {
-	//输入：nums = [10,9,2,5,3,7,101,18]
-	//输出：4
-	//解释：最长递增子序列是 [2,3,7,101]，因此长度为 4 。
-	var dp []int // 存放最终的递增子序列
+	// dp[i]表示长度为 i 的最长上升子序列的末尾元素的最小值，
+	var dp []int 
 	for _, num := range nums {
 		if len(dp) == 0 || num > dp[len(dp)-1] {
 			// 如果dp为空或当前num大于dp中最大的数,直接加入目前最长递增子序列
 			dp = append(dp, num)
 		} else {
-			// 贪心算法
+			// 贪心算法 找到第一个dp[pos] >= num
 			l, r := 0, len(dp)-1
 			pos := 0
 			for l <= r {
-				mid := (l + r) >> 1
+				mid := l + (r - l) / 2
 				if dp[mid] >= num {
 					pos = mid
 					r = mid - 1
@@ -63,4 +65,3 @@ func lengthOfLIS(nums []int) int {
 	}
 	return len(dp)
 }
-

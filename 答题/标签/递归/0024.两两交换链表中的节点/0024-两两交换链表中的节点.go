@@ -5,34 +5,39 @@
  *     Next *ListNode
  * }
  */
-func swapPairs1(head *ListNode) *ListNode {
-	var dfs func(cur *ListNode, odd bool) *ListNode
-	dfs = func(cur *ListNode, odd bool) *ListNode {
-		if cur == nil {
-			return nil
-		}
-		if cur.Next == nil {
-			return cur
-		}
-		var next, temp *ListNode
-		next = dfs(cur.Next, !odd)
-		if odd && next != nil {
-			temp = next.Next
-			next.Next = cur
-			cur.Next = temp
-			return next
-		}
-		cur.Next = next
-		return cur
-	}
-	return dfs(head, true)
+func swapPairs(head *ListNode) *ListNode {
+
+    if head == nil  || head.Next == nil{
+        return  head
+    }
+
+    newHead := head.Next
+    head.Next = swapPairs(newHead.Next)
+    newHead.Next = head
+
+    return newHead
 }
 
-func swapPairs(head *ListNode) *ListNode {
-	dummyNode := &ListNode{0, head}
-	cur := dummyNode
-	for cur.Next != nil && cur.Next.Next != nil {
-		cur, cur.Next, cur.Next.Next, cur.Next.Next.Next = cur.Next, cur.Next.Next, cur.Next.Next.Next, cur.Next
-	}
-	return dummyNode.Next
+func swapPairs1(head *ListNode) *ListNode {
+    if head == nil {
+        return nil
+    }
+    newHead := &ListNode{}
+    cur := newHead
+    var temp *ListNode
+    for head != nil && head.Next != nil {
+        temp = head.Next.Next
+        cur.Next = head.Next
+        cur = cur.Next
+        cur.Next = head
+        cur = cur.Next
+        cur.Next = nil
+        head = temp
+    }
+    if head != nil{
+        cur.Next = head
+        cur = cur.Next
+        cur.Next = nil
+    }
+    return newHead.Next
 }

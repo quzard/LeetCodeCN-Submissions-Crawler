@@ -1,6 +1,6 @@
 var res []int
 // 桶排序
-func getLeastNumbers1(arr []int, k int) []int {
+func getLeastNumbers(arr []int, k int) []int {
     if k == 0 {
         return []int{}
     }
@@ -18,35 +18,28 @@ func getLeastNumbers1(arr []int, k int) []int {
     return res
 }
 
-func less(a, b int) bool {
-    return res[a] < res[b]
-}
-
-func swim(k int) {
-    for k > 1 {
-        // k / 2 < k
-        if less(k / 2, k) {
-            res[k], res[k/2] = res[k/2], res[k]
-            k = k / 2
-        } else {
+func swim(i int) {
+    for i > 0 {
+        j := i /2
+        if res[j] > res[i] {
             break
         }
+        res[j], res[i] = res[i], res[j]
+        i = j
     }
 }
 
-func sink(k int) {
-    for 2*k < len(res) - 1{
-        j := 2 * k
-        // j < j + 1 选择较大的那个
-        if less(j, j + 1) {
+func sink(i int) {
+    for i * 2 < len(res) - 1{
+        j := i * 2
+        if res[j + 1] >= res[j] {
             j++
         }
-        // j <= k
-        if !less(k, j) {
+        if res[i] >= res[j] {
             break
         }
-        res[k], res[j] = res[j], res[k]
-        k = j
+        res[j], res[i] = res[i], res[j]
+        i = j
     }
 }
 
@@ -79,7 +72,7 @@ func (h IntHeap) Peek() int {
     return h[0]
 }
 // 堆排序
-func getLeastNumbers(arr []int, k int) []int {
+func getLeastNumbers1(arr []int, k int) []int {
     if k == 0 {
         return []int{}
     }

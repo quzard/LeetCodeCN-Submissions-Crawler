@@ -1,30 +1,31 @@
-//字典树
+
 func findKthNumber(n int, k int) int {
     var getCount func(pre int) int
     getCount = func(pre int) int {
-        count := 0
         next := pre + 1
-        for pre <= n{
-            count += min(n + 1, next) - pre
+        cnt := 0
+        for pre <= n {
+            cnt += min(n + 1, next) - pre
             pre *= 10
             next *= 10
         }
-        return count
+        return cnt
     }
-    count := 1
+    cnt := 1
     pre := 1
-    for count < k{
+    for cnt < k {
         c := getCount(pre)
-        if count + c > k{
-            count++
+        if c + cnt > k {
             pre *= 10
-        }else{
+            cnt++
+        } else {
             pre++
-            count += c
+            cnt += c
         }
     }
     return pre
 }
+
 
 func min(a, b int) int{
     if a < b{

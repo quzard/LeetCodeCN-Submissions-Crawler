@@ -6,22 +6,23 @@
  * }
  */
 func reverseList(head *ListNode) *ListNode {
-    if head == nil{
-        return nil
+    if head == nil {
+        return head
     }
-    newHead := &ListNode{}
-    var dfs func(now *ListNode)
-    dfs = func(now *ListNode){
-        if now.Next == nil{
-            newHead.Next = now
-            head = newHead.Next
+    res := &ListNode{}
+    cur := res
+    var dfs func(node *ListNode)
+    dfs = func (node *ListNode) {
+        if node.Next == nil {
+            cur.Next = node
+            cur = cur.Next
             return
         }
-        dfs(now.Next)
-        now.Next = nil
-        head.Next = now
-        head = head.Next
+        dfs(node.Next)
+        cur.Next = node
+        cur = cur.Next
     }
     dfs(head)
-    return newHead.Next
+    cur.Next = nil
+    return res.Next
 }

@@ -1,40 +1,33 @@
 func spiralOrder(matrix [][]int) []int {
-    if len(matrix) == 0{
+    if len(matrix) == 0 || len(matrix[0]) == 0 {
         return []int{}
     }
-    dirs := [][]int{
-        []int{0,1}, // 左上角 0 
-        []int{1,0}, // 右上角 1
-        []int{0,-1}, // 右下角 2
-        []int{-1,0}, // 左下角 3
-    }
-    res := []int{}
-    count := len(matrix) * len(matrix[0])
-    x, y := 0, 0
-    up, down, left, right := 0, len(matrix) - 1, 0, len(matrix[0]) - 1
-    dir := 0
-    for{
-        if count == 0{
-            break
+    res := make([]int, 0, len(matrix) * len(matrix[0]))
+    cnt := len(matrix) * len(matrix[0])
+    top, down, left, right := 0, len(matrix) - 1, 0, len(matrix[0]) - 1
+    for cnt > 0 {
+        for i := left; i <= right; i++ {
+            res = append(res, matrix[top][i])
+            cnt--
         }
-        count--
-        
-        res = append(res, matrix[x][y])
-        if x == up && y == right && dir == 0{ // 右上角 1
-            up++
-            dir = 1
-        }else if x == up && y == left && dir == 3{  // 左上角 0
-            left++
-            dir = 0
-        }else if x == down && y == left && dir == 2{ // 左下角 3
-            down--
-            dir = 3
-        }else if x == down && y == right && dir == 1{ // 右下角 2
-            right--
-            dir = 2
+        for i := top + 1; i <= down; i++ {
+            res = append(res, matrix[i][right])
+            cnt--
         }
-        x += dirs[dir][0]
-        y += dirs[dir][1]
+        if top < down && left < right {
+            for i := right - 1; i >= left; i-- {
+                res = append(res, matrix[down][i])
+                cnt--
+            }
+            for i := down - 1; i > top; i-- {
+                res = append(res, matrix[i][left])
+                cnt--
+            }
+        }
+        top++
+        left++
+        right--
+        down--
     }
     return res
 }

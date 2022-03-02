@@ -1,43 +1,20 @@
-func maxSubArray2(nums []int) int {
-    res := nums[0]
-    sum := nums[0]
-    for i:=1; i<len(nums); i++{
-        if sum + nums[i] <= 0 || sum + nums[i] < nums[i]{
+func maxSubArray(nums []int) int {
+    sum := math.MinInt32
+    res := math.MinInt32
+    for i := 0; i < len(nums); i++ {
+        if sum + nums[i] < nums[i] {
             sum = nums[i]
-        }else{
+        } else {
             sum += nums[i]
         }
-        if res < sum{
-            res = sum
-        }
+        res = max(res, sum)
     }
     return res
 }
 
-func maxSubArray(nums []int) int {
-    max, sum := -1 << 32, 0
-    for i := 0; i < len(nums); i++ {
-        sum += nums[i]
-        if max < sum {
-            max = sum
-        }
-        if sum < 0 {
-            sum = 0
-        }
+func max(a, b int) int {
+    if a > b {
+        return a
     }
-    return max
-}
-
-func maxSubArray1(nums []int) int {
-    res := nums[0]
-    for i := 1; i < len(nums); i ++ {
-        if nums[i] + nums[i - 1] > nums[i] {
-            nums[i] += nums[i - 1]
-        }
-        if nums[i] > res {
-            res = nums[i]
-        }
-    }
-
-    return res
+    return b
 }

@@ -49,7 +49,7 @@ func isMatch(s string, p string) bool {
 			if p[j-1] == '*' {
 				f[i][j] = f[i][j-2]
 				if !f[i][j] && matches(i, j-1) {
-					f[i][j] = f[i][j] || f[i-1][j]
+					f[i][j] =  f[i-1][j]
 				}
 			} else if matches(i, j) {
 				f[i][j] = f[i-1][j-1]

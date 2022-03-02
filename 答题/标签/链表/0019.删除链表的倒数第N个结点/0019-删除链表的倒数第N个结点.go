@@ -5,45 +5,27 @@
  *     Next *ListNode
  * }
  */
-func removeNthFromEnd1(head *ListNode, n int) *ListNode {
-    now := head
-    hashMap := map[int]*ListNode{}
-    index := 0
-    for{
-        if now != nil{
-            index++
-            hashMap[index] = now
-            now = now.Next
-        }else{
-            break
-        }
-    }
-    if n < index{
-        hashMap[index - n].Next = hashMap[index - n + 1].Next
-    }else{
-        return head.Next
-    }
-    return head
-}
-
-
-
-
 func removeNthFromEnd(head *ListNode, n int) *ListNode {
-   flag := &ListNode {
-       Val: -1 ,
-       Next: head,
-   }
-   left := flag
-   right := flag
-
-    for num := 0 ;num < n;num++ {
-        right = right.Next
+    if head == nil {
+        return nil
     }
-    for right.Next != nil {
-        left = left.Next
-        right = right.Next
+    var dfs func (cur *ListNode) *ListNode
+    dfs = func (cur *ListNode) *ListNode {
+        if cur.Next == nil {
+            if n == 1 {
+                n--
+                return nil
+            }
+            n--
+            return cur
+        }
+        cur.Next = dfs(cur.Next)
+        if n == 1 {
+            n--
+            return cur.Next
+        }
+        n--
+        return cur
     }
-    left.Next = left.Next.Next
-    return flag.Next
+    return dfs(head)
 }

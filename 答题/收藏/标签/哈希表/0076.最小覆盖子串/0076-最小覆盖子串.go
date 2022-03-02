@@ -77,7 +77,8 @@ func minWindow1(s string, t string) string {
 
 
 
-func minWindow(s string, t string) string {
+
+func minWindow2(s string, t string) string {
 	if len(s) == 0 || len(t) == 0 || len(s) < len(t) {
 		return ""
 	}
@@ -103,4 +104,33 @@ func minWindow(s string, t string) string {
     }
 
 	return res
+}
+
+func minWindow(s string, t string) string {
+    if len(s) == 0 || len(t) == 0 || len(s) < len(t) {
+        return ""
+    }
+    m := make([]int, 256)
+    cnt := len(t)
+    for _, n := range t {
+        m[n]++
+    }
+    l := 0
+    res := ""
+    length := len(s) + 1
+    for i := 0; i < len(s); i++ {
+        m[s[i]]--
+        if m[s[i]] >= 0 {
+            cnt--
+        }
+        for l < i && m[s[l]] < 0 {
+            m[s[l]]++
+            l++
+        }
+        if cnt == 0 && i - l + 1 < length{
+            res = s[l:i+1]
+            length = i - l + 1
+        }
+    }
+    return res
 }

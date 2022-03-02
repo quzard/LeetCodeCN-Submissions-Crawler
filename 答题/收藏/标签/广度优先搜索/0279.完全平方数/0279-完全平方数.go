@@ -1,13 +1,13 @@
-func numSquares(n int) int {
-    dp := make([]int, n + 1)
-    for i:=1; i<=n; i++{
-        res := math.MaxInt64
-        for j:=1; j*j<=i; j++{
-            res = min(res, dp[i - j*j])
+func numSquares1(n int) int {
+    f := make([]int, n+1)
+    for i := 1; i <= n; i++ {
+        minn := math.MaxInt32
+        for j := 1; j*j <= i; j++ {
+            minn = min(minn, f[i-j*j])
         }
-        dp[i] = res + 1
+        f[i] = minn + 1
     }
-    return dp[n]
+    return f[n]
 }
 
 func min(a, b int) int {
@@ -17,8 +17,6 @@ func min(a, b int) int {
     return b
 }
 
-
-//数学方法
 // 判断是否为完全平方数
 func isPerfectSquare(x int) bool {
     y := int(math.Sqrt(float64(x)))
@@ -33,7 +31,7 @@ func checkAnswer4(x int) bool {
     return x%8 == 7
 }
 
-func numSquares1(n int) int {
+func numSquares(n int) int {
     if isPerfectSquare(n) {
         return 1
     }

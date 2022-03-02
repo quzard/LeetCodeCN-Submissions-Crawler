@@ -6,29 +6,32 @@
  *     Right *TreeNode
  * }
  */
-
-var res [][]int
-
-func dfs(root *TreeNode, high int){
-    if root == nil{
-        return
-    }
-    if len(res) < high + 1{
-        res = append(res, []int{})
-    }
-    if high %2 == 0{
-        res[high] = append(res[high], root.Val)
-        dfs(root.Left, high + 1)
-        dfs(root.Right, high + 1)
-    }else{
-        res[high] = append(append([]int{}, root.Val),res[high]...)
-        dfs(root.Left, high + 1)
-        dfs(root.Right, high + 1)
-    }
-}
-
 func zigzagLevelOrder(root *TreeNode) [][]int {
-    res = [][]int{}
-    dfs(root, 0)
+    res := [][]int{}
+    if root == nil {
+        return res
+    }
+    nodes := []*TreeNode{root}
+    f := false
+    for len(nodes) > 0 {
+        newNodes := []*TreeNode{}
+        l := []int{}
+        for _, node := range nodes {
+            if f {
+                l = append([]int{node.Val}, l...)
+            } else {
+                l = append(l, node.Val)
+            }
+            if node.Left != nil {
+                newNodes = append(newNodes, node.Left)
+            }
+            if node.Right != nil {
+                newNodes = append(newNodes, node.Right)
+            }
+        }
+        f = !f
+        res = append(res, l)
+        nodes = newNodes
+    }
     return res
 }

@@ -1,84 +1,83 @@
-func init() { debug.SetGCPercent(-1) }
-
 type LRUCache struct {
-    size int
     capacity int
-    cache map[int]*DLinkedNode
-    head, tail *DLinkedNode
+    size     int
+    head     *Node
+    tail     *Node
+    m     map[int]*Node
 }
 
-type DLinkedNode struct {
-    key, value int
-    prev, next *DLinkedNode
-}
-
-func initDLinkedNode(key, value int) *DLinkedNode {
-    return &DLinkedNode{
-        key: key,
-        value: value,
-    }
-}
 
 func Constructor(capacity int) LRUCache {
-    l := LRUCache{
-        cache: map[int]*DLinkedNode{},
-        head: initDLinkedNode(0, 0),
-        tail: initDLinkedNode(0, 0),
+    head := &Node{}
+    tail := &Node{}
+    head.Next = tail
+    tail.Pre = head
+    return LRUCache{
         capacity: capacity,
+        size: 0,
+        head: head,
+        tail: tail,
+        m: map[int]*Node{},
     }
-    l.head.next = l.tail
-    l.tail.prev = l.head
-    return l
 }
 
+
 func (this *LRUCache) Get(key int) int {
-    if _, ok := this.cache[key]; !ok {
-        return -1
+    if _, ok := this.m[key]; ok {
+        value := this.m[key].Val
+        this.MoveToHead(this.m[key])
+        return value
     }
-    node := this.cache[key]
-    this.moveToHead(node)
-    return node.value
+    return -1
 }
 
 
 func (this *LRUCache) Put(key int, value int)  {
-    if _, ok := this.cache[key]; !ok {
-        node := initDLinkedNode(key, value)
-        this.cache[key] = node
-        this.addToHead(node)
+    if _, ok := this.m[key]; ok {
+        this.m[key].Val = value
+        this.MoveToHead(this.m[key])
+    } else if this.size < this.capacity {
         this.size++
-        if this.size > this.capacity {
-            removed := this.removeTail()
-            delete(this.cache, removed.key)
-            this.size--
-        }
+        node := &Node{Val : value, Key: key}
+        this.m[key] = node
+        this.AddToHead(node)
     } else {
-        node := this.cache[key]
-        node.value = value
-        this.moveToHead(node)
+        node := &Node{Val : value, Key: key}
+        this.m[key] = node
+        this.AddToHead(node)
+        this.RemoveTail()
     }
 }
 
-func (this *LRUCache) addToHead(node *DLinkedNode) {
-    node.prev = this.head
-    node.next = this.head.next
-    this.head.next.prev = node
-    this.head.next = node
+func (this *LRUCache) MoveToHead(node *Node) {
+    this.DeleteNode(node)
+    this.AddToHead(node)
 }
 
-func (this *LRUCache) removeNode(node *DLinkedNode) {
-    node.prev.next = node.next
-    node.next.prev = node.prev
+func (this *LRUCache) AddToHead(node *Node) {
+    this.head.Next, node.Pre, node.Next, this.head.Next.Pre = node, this.head, this.head.Next, node
 }
 
-func (this *LRUCache) moveToHead(node *DLinkedNode) {
-    this.removeNode(node)
-    this.addToHead(node)
+func (this *LRUCache) DeleteNode(node *Node) {
+    node.Pre.Next, node.Next.Pre = node.Next, node.Pre
 }
 
-func (this *LRUCache) removeTail() *DLinkedNode {
-    node := this.tail.prev
-    this.removeNode(node)
-    return node
+func (this *LRUCache) RemoveTail() {
+    node := this.tail.Pre
+    this.DeleteNode(node)
+    delete(this.m, node.Key)
 }
 
+type Node struct {
+    Val int
+    Key int
+    Next *Node
+    Pre *Node
+}
+
+/**
+ * Your LRUCache object will be instantiated and called as such:
+ * obj := Constructor(capacity);
+ * param_1 := obj.Get(key);
+ * obj.Put(key,value);
+ */

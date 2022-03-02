@@ -1,20 +1,23 @@
 func reverse(x int) int {
-    num := x
-    if num < 0{
-        num = -num
+    f := false
+    if x < 0 {
+        f = true
+        x = -x
     }
-    numReverse := 0
-    for num != 0{
-        numReverse = numReverse * 10
-        numReverse += num % 10
-        num = num /10
+    r := 0
+    for x > 0 {
+        if r * 10 + x % 10 > math.MaxInt32 {
+            return 0
+        }
+        r = r * 10 + x % 10
+        x /= 10
     }
-    if numReverse >= math.MaxInt32 -1 {
-        return 0
+
+    if f {
+        if -r < math.MinInt32{
+            return 0
+        }
+        return -r
     }
-    if x < 0{
-        numReverse = -numReverse
-    }
-    
-    return numReverse
+    return r
 }
