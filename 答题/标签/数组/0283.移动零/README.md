@@ -1,4 +1,4 @@
-# [283. 移动零](https://leetcode-cn.com/problems/move-zeroes)
+# [283. 移动零](https://leetcode.cn/problems/move-zeroes)
 <p>给定一个数组 <code>nums</code>，编写一个函数将所有 <code>0</code> 移动到数组的末尾，同时保持非零元素的相对顺序。</p>
 
 <p><strong>请注意</strong>&nbsp;，必须在不复制数组的情况下原地对数组进行操作。</p>
@@ -32,4 +32,4 @@
 
 <p><b>进阶：</b>你能尽量减少完成的操作次数吗？</p>
 
-**标签:**  [数组](https://leetcode-cn.com/tag/array) [双指针](https://leetcode-cn.com/tag/two-pointers) 
+**标签:**  [数组](https://leetcode.cn/tag/array) [双指针](https://leetcode.cn/tag/two-pointers) 

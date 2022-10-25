@@ -1,4 +1,4 @@
-# [2122. 还原原数组](https://leetcode-cn.com/problems/recover-the-original-array)
+# [2122. 还原原数组](https://leetcode.cn/problems/recover-the-original-array)
 <p>Alice 有一个下标从 <strong>0</strong> 开始的数组 <code>arr</code> ，由 <code>n</code> 个正整数组成。她会选择一个任意的 <strong>正整数 </strong><code>k</code> 并按下述方式创建两个下标从 <strong>0</strong> 开始的新整数数组 <code>lower</code> 和 <code>higher</code> ：</p>
 
 <ol>
@@ -53,4 +53,4 @@
 	<li>生成的测试用例保证存在 <strong>至少一个</strong> 有效数组 <code>arr</code></li>
 </ul>
 
-**标签:**  [数组](https://leetcode-cn.com/tag/array) [哈希表](https://leetcode-cn.com/tag/hash-table) [枚举](https://leetcode-cn.com/tag/enumeration) [排序](https://leetcode-cn.com/tag/sorting) 
+**标签:**  [数组](https://leetcode.cn/tag/array) [哈希表](https://leetcode.cn/tag/hash-table) [枚举](https://leetcode.cn/tag/enumeration) [排序](https://leetcode.cn/tag/sorting) 

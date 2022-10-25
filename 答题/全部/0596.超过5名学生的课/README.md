@@ -1,4 +1,4 @@
-# [596. 超过5名学生的课](https://leetcode-cn.com/problems/classes-more-than-5-students)
+# [596. 超过5名学生的课](https://leetcode.cn/problems/classes-more-than-5-students)
 <p>表:&nbsp;<code>Courses</code></p>
 
 <pre>
@@ -14,7 +14,7 @@
 
 <p>&nbsp;</p>
 
-<p>编写一个SQL查询来报告 <strong>至少有5个学生</strong> 的所有类。</p>
+<p>编写一个SQL查询来报告 <strong>至少有5个学生</strong> 的所有班级。</p>
 
 <p>以 <strong>任意顺序 </strong>返回结果表。</p>
 
@@ -52,4 +52,4 @@ Courses table:
 -生物课有1名学生，所以我们不包括它。
 -计算机课有1个学生，所以我们不包括它。</pre>
 
-**标签:**  [数据库](https://leetcode-cn.com/tag/database) 
+**标签:**  [数据库](https://leetcode.cn/tag/database) 

@@ -1,4 +1,4 @@
-# [695. 岛屿的最大面积](https://leetcode-cn.com/problems/max-area-of-island)
+# [695. 岛屿的最大面积](https://leetcode.cn/problems/max-area-of-island)
 <p>给你一个大小为 <code>m x n</code> 的二进制矩阵 <code>grid</code> 。</p>
 
 <p><strong>岛屿</strong>&nbsp;是由一些相邻的&nbsp;<code>1</code>&nbsp;(代表土地) 构成的组合，这里的「相邻」要求两个 <code>1</code> 必须在 <strong>水平或者竖直的四个方向上 </strong>相邻。你可以假设&nbsp;<code>grid</code> 的四个边缘都被 <code>0</code>（代表水）包围着。</p>
@@ -35,4 +35,4 @@
 	<li><code>grid[i][j]</code> 为 <code>0</code> 或 <code>1</code></li>
 </ul>
 
-**标签:**  [深度优先搜索](https://leetcode-cn.com/tag/depth-first-search) [广度优先搜索](https://leetcode-cn.com/tag/breadth-first-search) [并查集](https://leetcode-cn.com/tag/union-find) [数组](https://leetcode-cn.com/tag/array) [矩阵](https://leetcode-cn.com/tag/matrix) 
+**标签:**  [深度优先搜索](https://leetcode.cn/tag/depth-first-search) [广度优先搜索](https://leetcode.cn/tag/breadth-first-search) [并查集](https://leetcode.cn/tag/union-find) [数组](https://leetcode.cn/tag/array) [矩阵](https://leetcode.cn/tag/matrix) 

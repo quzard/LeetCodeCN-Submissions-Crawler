@@ -1,4 +1,4 @@
-# [404. 左叶子之和](https://leetcode-cn.com/problems/sum-of-left-leaves)
+# [404. 左叶子之和](https://leetcode.cn/problems/sum-of-left-leaves)
 <p>给定二叉树的根节点&nbsp;<code>root</code>&nbsp;，返回所有左叶子之和。</p>
 
 <p>&nbsp;</p>
@@ -31,4 +31,4 @@
 
 <p>&nbsp;</p>
 
-**标签:**  [树](https://leetcode-cn.com/tag/tree) [深度优先搜索](https://leetcode-cn.com/tag/depth-first-search) [广度优先搜索](https://leetcode-cn.com/tag/breadth-first-search) [二叉树](https://leetcode-cn.com/tag/binary-tree) 
+**标签:**  [树](https://leetcode.cn/tag/tree) [深度优先搜索](https://leetcode.cn/tag/depth-first-search) [广度优先搜索](https://leetcode.cn/tag/breadth-first-search) [二叉树](https://leetcode.cn/tag/binary-tree) 

@@ -1,4 +1,4 @@
-# [204. 计数质数](https://leetcode-cn.com/problems/count-primes)
+# [204. 计数质数](https://leetcode.cn/problems/count-primes)
 <p>给定整数 <code>n</code> ，返回 <em>所有小于非负整数&nbsp;<code>n</code>&nbsp;的质数的数量</em> 。</p>
 
 <p>&nbsp;</p>
@@ -33,4 +33,4 @@
 	<li><code>0 &lt;= n &lt;= 5 * 10<sup>6</sup></code></li>
 </ul>
 
-**标签:**  [数组](https://leetcode-cn.com/tag/array) [数学](https://leetcode-cn.com/tag/math) [枚举](https://leetcode-cn.com/tag/enumeration) [数论](https://leetcode-cn.com/tag/number-theory) 
+**标签:**  [数组](https://leetcode.cn/tag/array) [数学](https://leetcode.cn/tag/math) [枚举](https://leetcode.cn/tag/enumeration) [数论](https://leetcode.cn/tag/number-theory) 

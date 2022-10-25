@@ -1,25 +1,25 @@
 func generateParenthesis(n int) []string {
     res := []string{}
-    s := []byte{}
+    word := []byte{}
     var dfs func(l, r int)
     dfs = func(l, r int) {
-        if len(s) == n * 2 {
-            res = append(res, string(s))
+        if len(word) == n*2 {
+            res = append(res, string(word))
             return
         }
         if l < n {
-            s = append(s, '(')
+            word = append(word, '(')
             l++
             dfs(l, r)
             l--
-            s = s[:len(s)-1]
+            word = word[:len(word)-1]
         }
         if l > r {
-            s = append(s, ')')
+            word = append(word, ')')
             r++
             dfs(l, r)
             r--
-            s = s[:len(s)-1]
+            word = word[:len(word)-1]
         }
     }
     dfs(0, 0)

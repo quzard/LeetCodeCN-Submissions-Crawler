@@ -1,4 +1,4 @@
-# [278. 第一个错误的版本](https://leetcode-cn.com/problems/first-bad-version)
+# [278. 第一个错误的版本](https://leetcode.cn/problems/first-bad-version)
 <p>你是产品经理，目前正在带领一个团队开发新的产品。不幸的是，你的产品的最新版本没有通过质量检测。由于每个版本都是基于之前的版本开发的，所以错误的版本之后的所有版本都是错的。</p>
 
 <p>假设你有 <code>n</code> 个版本 <code>[1, 2, ..., n]</code>，你想找出导致之后所有版本出错的第一个错误的版本。</p>
@@ -33,4 +33,4 @@
 	<li><code>1 <= bad <= n <= 2<sup>31</sup> - 1</code></li>
 </ul>
 
-**标签:**  [二分查找](https://leetcode-cn.com/tag/binary-search) [交互](https://leetcode-cn.com/tag/interactive) 
+**标签:**  [二分查找](https://leetcode.cn/tag/binary-search) [交互](https://leetcode.cn/tag/interactive) 

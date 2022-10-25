@@ -1,33 +1,33 @@
 func findMedianSortedArrays(nums1 []int, nums2 []int) float64 {
-    length := len(nums1) + len(nums2)
-    if length % 2 == 0 {
-        return (float64(find(nums1 , nums2 , length / 2)) + float64(find(nums1 , nums2 , length / 2 + 1)))/2
-    } else {
-        return float64(find(nums1 , nums2 , length / 2 + 1)) 
+    n := len(nums1) + len(nums2)
+    if n % 2 == 1 {
+        return findK(nums1, nums2, n / 2 + 1)
     }
+    return (findK(nums1, nums2, n / 2 + 1) + findK(nums1, nums2, n / 2)) / 2
 }
 
-func find(nums1 []int, nums2 []int, k int) int{
-    l1, l2 := 0, 0
-    for l1 < len(nums1) || l2 < len(nums2) {
-        if l1 == len(nums1) {
-            return nums2[l2+k-1]
+func findK(nums1 []int, nums2 []int, k int) float64 {
+    i, j := 0, 0
+    for k > 0 {
+        if i == len(nums1) {
+            return float64(nums2[j+k-1])
         }
-        if l2 == len(nums2) {
-            return nums1[l1+k-1]
+        if j == len(nums2) {
+            return float64(nums1[i+k-1])
         }
         if k == 1 {
-            return min(nums1[l1], nums2[l2])
+            return float64(min(nums1[i], nums2[j]))
         }
-        m1 := min(l1 + k / 2, len(nums1))- 1
-        m2 := min(l2 + k / 2, len(nums2))- 1
-        if nums1[m1] < nums2[m2] {
-            k -= m1 - l1 + 1
-            l1 = m1 + 1
+        mid1 := min(len(nums1)-1, i + k / 2 -1)
+        mid2 := min(len(nums2)-1, j + k / 2 -1)
+        if nums1[mid1] < nums2[mid2] {
+            k = k - (mid1 - i + 1)
+            i = mid1 + 1
         } else {
-            k -= m2 - l2 + 1
-            l2 = m2 + 1
+            k = k - (mid2 - j + 1)
+            j = mid2 + 1
         }
+        
     }
     return 0
 }

@@ -1,4 +1,4 @@
-# [74. 搜索二维矩阵](https://leetcode-cn.com/problems/search-a-2d-matrix)
+# [74. 搜索二维矩阵](https://leetcode.cn/problems/search-a-2d-matrix)
 <p>编写一个高效的算法来判断 <code>m x n</code> 矩阵中，是否存在一个目标值。该矩阵具有如下特性：</p>
 
 <ul>
@@ -33,4 +33,4 @@
 	<li><code>-10<sup>4</sup> <= matrix[i][j], target <= 10<sup>4</sup></code></li>
 </ul>
 
-**标签:**  [数组](https://leetcode-cn.com/tag/array) [二分查找](https://leetcode-cn.com/tag/binary-search) [矩阵](https://leetcode-cn.com/tag/matrix) 
+**标签:**  [数组](https://leetcode.cn/tag/array) [二分查找](https://leetcode.cn/tag/binary-search) [矩阵](https://leetcode.cn/tag/matrix) 

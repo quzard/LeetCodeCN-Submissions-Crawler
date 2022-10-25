@@ -1,4 +1,4 @@
-# [145. 二叉树的后序遍历](https://leetcode-cn.com/problems/binary-tree-postorder-traversal)
+# [145. 二叉树的后序遍历](https://leetcode.cn/problems/binary-tree-postorder-traversal)
 <p>给你一棵二叉树的根节点 <code>root</code> ，返回其节点值的 <strong>后序遍历 </strong>。</p>
 
 <p>&nbsp;</p>
@@ -37,4 +37,4 @@
 
 <p><strong>进阶：</strong>递归算法很简单，你可以通过迭代算法完成吗？</p>
 
-**标签:**  [栈](https://leetcode-cn.com/tag/stack) [树](https://leetcode-cn.com/tag/tree) [深度优先搜索](https://leetcode-cn.com/tag/depth-first-search) [二叉树](https://leetcode-cn.com/tag/binary-tree) 
+**标签:**  [栈](https://leetcode.cn/tag/stack) [树](https://leetcode.cn/tag/tree) [深度优先搜索](https://leetcode.cn/tag/depth-first-search) [二叉树](https://leetcode.cn/tag/binary-tree) 

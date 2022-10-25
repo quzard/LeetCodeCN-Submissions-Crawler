@@ -9,22 +9,16 @@ func removeNthFromEnd(head *ListNode, n int) *ListNode {
     if head == nil {
         return nil
     }
-    var dfs func (cur *ListNode) *ListNode
-    dfs = func (cur *ListNode) *ListNode {
-        if cur.Next == nil {
-            if n == 1 {
-                n--
-                return nil
-            }
-            n--
-            return cur
+    var dfs func(cur *ListNode) *ListNode
+    dfs = func(cur *ListNode) *ListNode {
+        if cur == nil {
+            return nil
         }
         cur.Next = dfs(cur.Next)
-        if n == 1 {
-            n--
+        n--
+        if n == 0 {
             return cur.Next
         }
-        n--
         return cur
     }
     return dfs(head)

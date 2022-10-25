@@ -1,4 +1,4 @@
-# [剑指 Offer 42. 连续子数组的最大和](https://leetcode-cn.com/problems/lian-xu-zi-shu-zu-de-zui-da-he-lcof)
+# [剑指 Offer 42. 连续子数组的最大和](https://leetcode.cn/problems/lian-xu-zi-shu-zu-de-zui-da-he-lcof)
 <p>输入一个整型数组，数组中的一个或连续多个整数组成一个子数组。求所有子数组的和的最大值。</p>
 
 <p>要求时间复杂度为O(n)。</p>
@@ -24,4 +24,4 @@
 
 <p>&nbsp;</p>
 
-**标签:**  [数组](https://leetcode-cn.com/tag/array) [分治](https://leetcode-cn.com/tag/divide-and-conquer) [动态规划](https://leetcode-cn.com/tag/dynamic-programming) 
+**标签:**  [数组](https://leetcode.cn/tag/array) [分治](https://leetcode.cn/tag/divide-and-conquer) [动态规划](https://leetcode.cn/tag/dynamic-programming) 

@@ -1,4 +1,4 @@
-# [14. 最长公共前缀](https://leetcode-cn.com/problems/longest-common-prefix)
+# [14. 最长公共前缀](https://leetcode.cn/problems/longest-common-prefix)
 <p>编写一个函数来查找字符串数组中的最长公共前缀。</p>
 
 <p>如果不存在公共前缀，返回空字符串&nbsp;<code>""</code>。</p>
@@ -29,4 +29,4 @@
 	<li><code>strs[i]</code> 仅由小写英文字母组成</li>
 </ul>
 
-**标签:**  [字符串](https://leetcode-cn.com/tag/string) 
+**标签:**  [字符串](https://leetcode.cn/tag/string) 

@@ -1,4 +1,4 @@
-# [343. 整数拆分](https://leetcode-cn.com/problems/integer-break)
+# [343. 整数拆分](https://leetcode.cn/problems/integer-break)
 <p>给定一个正整数&nbsp;<code>n</code>&nbsp;，将其拆分为 <code>k</code> 个 <strong>正整数</strong> 的和（&nbsp;<code>k &gt;= 2</code>&nbsp;），并使这些整数的乘积最大化。</p>
 
 <p>返回 <em>你可以获得的最大乘积</em>&nbsp;。</p>
@@ -27,4 +27,4 @@
 	<li><code>2 &lt;= n &lt;= 58</code></li>
 </ul>
 
-**标签:**  [数学](https://leetcode-cn.com/tag/math) [动态规划](https://leetcode-cn.com/tag/dynamic-programming) 
+**标签:**  [数学](https://leetcode.cn/tag/math) [动态规划](https://leetcode.cn/tag/dynamic-programming) 

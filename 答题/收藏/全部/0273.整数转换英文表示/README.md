@@ -1,4 +1,4 @@
-# [273. 整数转换英文表示](https://leetcode-cn.com/problems/integer-to-english-words)
+# [273. 整数转换英文表示](https://leetcode.cn/problems/integer-to-english-words)
 <p>将非负整数 <code>num</code> 转换为其对应的英文表示。</p>
 
 <p>&nbsp;</p>
@@ -32,4 +32,4 @@
 	<li><code>0 &lt;= num &lt;= 2<sup>31</sup> - 1</code></li>
 </ul>
 
-**标签:**  [递归](https://leetcode-cn.com/tag/recursion) [数学](https://leetcode-cn.com/tag/math) [字符串](https://leetcode-cn.com/tag/string) 
+**标签:**  [递归](https://leetcode.cn/tag/recursion) [数学](https://leetcode.cn/tag/math) [字符串](https://leetcode.cn/tag/string) 

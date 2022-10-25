@@ -1,4 +1,4 @@
-# [5. 最长回文子串](https://leetcode-cn.com/problems/longest-palindromic-substring)
+# [5. 最长回文子串](https://leetcode.cn/problems/longest-palindromic-substring)
 <p>给你一个字符串 <code>s</code>，找到 <code>s</code> 中最长的回文子串。</p>
 
 <p>&nbsp;</p>
@@ -27,4 +27,4 @@
 	<li><code>s</code> 仅由数字和英文字母组成</li>
 </ul>
 
-**标签:**  [字符串](https://leetcode-cn.com/tag/string) [动态规划](https://leetcode-cn.com/tag/dynamic-programming) 
+**标签:**  [字符串](https://leetcode.cn/tag/string) [动态规划](https://leetcode.cn/tag/dynamic-programming) 

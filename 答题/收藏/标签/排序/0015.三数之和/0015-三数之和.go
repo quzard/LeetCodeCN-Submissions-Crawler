@@ -1,33 +1,38 @@
 func threeSum(nums []int) [][]int {
     res := [][]int{}
-    if len(nums) < 3 {
-        return res
-    }
     sort.Ints(nums)
-    for i := 0; i < len(nums) - 2; i++ {
-        if nums[i] > 0 {
-            return res
-        }
-        if i > 0 && nums[i] == nums[i - 1] {
+    for i := 0; i < len(nums)-2; i++ {
+        if i > 0 && nums[i] == nums[i-1] {
             continue
         }
-        l, r := i + 1, len(nums) - 1 
+        if nums[i] > 0 {
+            break
+        }
+        l, r := i + 1, len(nums) - 1
         for l < r {
-            if nums[i] + nums[l] + nums[r] == 0 {
-                res = append(res, []int{nums[i], nums[l], nums[r]})
+            sum := nums[i] + nums[l] + nums[r]
+            if sum == 0 {
+                res = append(res, []int{nums[i], nums[l], nums[r]}) 
                 l++
                 r--
-                for l < r && nums[l] == nums[l - 1]{
+                for l < r && l-1 >= 0 && nums[l] == nums[l-1] {
                     l++
                 }
-                for l < r && nums[r] == nums[r + 1]{
+                for l < r && r+1 < len(nums) && nums[r] == nums[r+1] {
                     r--
                 }
-            } else if nums[i] + nums[l] + nums[r] < 0 {
+            } else if sum < 0 {
                 l++
-            } else {
+                for l < r && l-1 >= 0 && nums[l] == nums[l-1] {
+                    l++
+                }
+            } else if sum > 0 {
                 r--
+                for l < r && r+1 < len(nums) && nums[r] == nums[r+1] {
+                    r--
+                }
             }
+            
         }
     }
     return res

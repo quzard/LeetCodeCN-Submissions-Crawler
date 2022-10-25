@@ -1,4 +1,4 @@
-# [176. 第二高的薪水](https://leetcode-cn.com/problems/second-highest-salary)
+# [176. 第二高的薪水](https://leetcode.cn/problems/second-highest-salary)
 <code>Employee</code> 表：
 <div class="original__bRMd">
 <div>
@@ -61,4 +61,4 @@ Employee 表：
 </div>
 </div>
 
-**标签:**  [数据库](https://leetcode-cn.com/tag/database) 
+**标签:**  [数据库](https://leetcode.cn/tag/database) 

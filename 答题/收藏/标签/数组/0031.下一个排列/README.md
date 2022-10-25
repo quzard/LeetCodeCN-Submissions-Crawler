@@ -1,4 +1,4 @@
-# [31. 下一个排列](https://leetcode-cn.com/problems/next-permutation)
+# [31. 下一个排列](https://leetcode.cn/problems/next-permutation)
 <p>整数数组的一个 <strong>排列</strong>&nbsp; 就是将其所有成员以序列或线性顺序排列。</p>
 
 <ul>
@@ -49,4 +49,4 @@
 	<li><code>0 &lt;= nums[i] &lt;= 100</code></li>
 </ul>
 
-**标签:**  [数组](https://leetcode-cn.com/tag/array) [双指针](https://leetcode-cn.com/tag/two-pointers) 
+**标签:**  [数组](https://leetcode.cn/tag/array) [双指针](https://leetcode.cn/tag/two-pointers) 

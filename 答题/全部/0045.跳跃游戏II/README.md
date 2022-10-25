@@ -1,4 +1,4 @@
-# [45. 跳跃游戏 II](https://leetcode-cn.com/problems/jump-game-ii)
+# [45. 跳跃游戏 II](https://leetcode.cn/problems/jump-game-ii)
 <p>给你一个非负整数数组 <code>nums</code> ，你最初位于数组的第一个位置。</p>
 
 <p>数组中的每个元素代表你在该位置可以跳跃的最大长度。</p>
@@ -34,4 +34,4 @@
 	<li><code>0 <= nums[i] <= 1000</code></li>
 </ul>
 
-**标签:**  [贪心](https://leetcode-cn.com/tag/greedy) [数组](https://leetcode-cn.com/tag/array) [动态规划](https://leetcode-cn.com/tag/dynamic-programming) 
+**标签:**  [贪心](https://leetcode.cn/tag/greedy) [数组](https://leetcode.cn/tag/array) [动态规划](https://leetcode.cn/tag/dynamic-programming) 

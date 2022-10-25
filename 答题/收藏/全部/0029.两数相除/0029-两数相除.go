@@ -1,6 +1,6 @@
-// å¿«é€Ÿä¹˜
-// y æ˜¯è´Ÿæ•°ï¼Œz æ˜¯æ­£æ•°
-// è¿”å› y * z 
+// ¿ìËÙ³Ë
+// y ÊÇ¸ºÊı£¬z ÊÇÕıÊı
+// ·µ»Ø y * z 
 func quickMul(y, z int) int {
     if z == 1 {
         return y
@@ -16,7 +16,7 @@ func quickMul(y, z int) int {
 }
 
 func divide(dividend, divisor int) int {
-    if dividend == math.MinInt32 { // è€ƒè™‘è¢«é™¤æ•°ä¸ºæœ€å°å€¼çš„æƒ…å†µ
+    if dividend == math.MinInt32 { // ¿¼ÂÇ±»³ıÊıÎª×îĞ¡ÖµµÄÇé¿ö
         if divisor == 1 {
             return math.MinInt32
         }
@@ -24,18 +24,18 @@ func divide(dividend, divisor int) int {
             return math.MaxInt32
         }
     }
-    if divisor == math.MinInt32 { // è€ƒè™‘é™¤æ•°ä¸ºæœ€å°å€¼çš„æƒ…å†µ
+    if divisor == math.MinInt32 { // ¿¼ÂÇ³ıÊıÎª×îĞ¡ÖµµÄÇé¿ö
         if dividend == math.MinInt32 {
             return 1
         }
         return 0
     }
-    if dividend == 0 { // è€ƒè™‘è¢«é™¤æ•°ä¸º 0 çš„æƒ…å†µ
+    if dividend == 0 { // ¿¼ÂÇ±»³ıÊıÎª 0 µÄÇé¿ö
         return 0
     }
 
-    // ä¸€èˆ¬æƒ…å†µï¼Œä½¿ç”¨äºŒåˆ†æŸ¥æ‰¾
-    // å°†æ‰€æœ‰çš„æ­£æ•°å–ç›¸åæ•°ï¼Œè¿™æ ·å°±åªéœ€è¦è€ƒè™‘ä¸€ç§æƒ…å†µ
+    // Ò»°ãÇé¿ö£¬Ê¹ÓÃ¶ş·Ö²éÕÒ
+    // ½«ËùÓĞµÄÕıÊıÈ¡Ïà·´Êı£¬ÕâÑù¾ÍÖ»ĞèÒª¿¼ÂÇÒ»ÖÖÇé¿ö
     rev := false
     if dividend > 0 {
         dividend = -dividend
@@ -49,10 +49,10 @@ func divide(dividend, divisor int) int {
     ans := 0
     left, right := 1, math.MaxInt32
     for left <= right {
-        mid := left + (right-left)>>1 // æ³¨æ„æº¢å‡ºï¼Œå¹¶ä¸”ä¸èƒ½ä½¿ç”¨é™¤æ³•
+        mid := left + (right-left)>>1 // ×¢ÒâÒç³ö£¬²¢ÇÒ²»ÄÜÊ¹ÓÃ³ı·¨
         if quickMul(divisor, mid) >= dividend {
             ans = mid
-            if mid == math.MaxInt32 { // æ³¨æ„æº¢å‡º
+            if mid == math.MaxInt32 { // ×¢ÒâÒç³ö
                 break
             }
             left = mid + 1

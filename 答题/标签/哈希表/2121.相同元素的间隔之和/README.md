@@ -1,4 +1,4 @@
-# [2121. 相同元素的间隔之和](https://leetcode-cn.com/problems/intervals-between-identical-elements)
+# [2121. 相同元素的间隔之和](https://leetcode.cn/problems/intervals-between-identical-elements)
 <p>给你一个下标从 <strong>0</strong> 开始、由 <code>n</code> 个整数组成的数组 <code>arr</code> 。</p>
 
 <p><code>arr</code> 中两个元素的 <strong>间隔</strong> 定义为它们下标之间的 <strong>绝对差</strong> 。更正式地，<code>arr[i]</code> 和 <code>arr[j]</code> 之间的间隔是 <code>|i - j|</code> 。</p>
@@ -44,4 +44,4 @@
 	<li><code>1 &lt;= arr[i] &lt;= 10<sup>5</sup></code></li>
 </ul>
 
-**标签:**  [数组](https://leetcode-cn.com/tag/array) [哈希表](https://leetcode-cn.com/tag/hash-table) [前缀和](https://leetcode-cn.com/tag/prefix-sum) 
+**标签:**  [数组](https://leetcode.cn/tag/array) [哈希表](https://leetcode.cn/tag/hash-table) [前缀和](https://leetcode.cn/tag/prefix-sum) 

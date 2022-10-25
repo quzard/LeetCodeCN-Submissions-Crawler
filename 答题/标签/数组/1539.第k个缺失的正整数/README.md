@@ -1,4 +1,4 @@
-# [1539. 第 k 个缺失的正整数](https://leetcode-cn.com/problems/kth-missing-positive-number)
+# [1539. 第 k 个缺失的正整数](https://leetcode.cn/problems/kth-missing-positive-number)
 <p>给你一个 <strong>严格升序排列</strong>&nbsp;的正整数数组 <code>arr</code>&nbsp;和一个整数&nbsp;<code>k</code>&nbsp;。</p>
 
 <p>请你找到这个数组里第&nbsp;<code>k</code>&nbsp;个缺失的正整数。</p>
@@ -7,14 +7,16 @@
 
 <p><strong>示例 1：</strong></p>
 
-<pre><strong>输入：</strong>arr = [2,3,4,7,11], k = 5
+<pre>
+<strong>输入：</strong>arr = [2,3,4,7,11], k = 5
 <strong>输出：</strong>9
 <strong>解释：</strong>缺失的正整数包括 [1,5,6,8,9,10,12,13,...] 。第 5 个缺失的正整数为 9 。
 </pre>
 
 <p><strong>示例 2：</strong></p>
 
-<pre><strong>输入：</strong>arr = [1,2,3,4], k = 2
+<pre>
+<strong>输入：</strong>arr = [1,2,3,4], k = 2
 <strong>输出：</strong>6
 <strong>解释：</strong>缺失的正整数包括 [5,6,7,...] 。第 2 个缺失的正整数为 6 。
 </pre>
@@ -30,4 +32,10 @@
 	<li>对于所有&nbsp;<code>1 &lt;= i &lt; j &lt;= arr.length</code>&nbsp;的 <code>i</code>&nbsp;和 <code>j</code> 满足&nbsp;<code>arr[i] &lt; arr[j]</code>&nbsp;</li>
 </ul>
 
-**标签:**  [数组](https://leetcode-cn.com/tag/array) [二分查找](https://leetcode-cn.com/tag/binary-search) 
+<p>&nbsp;</p>
+
+<p><strong>进阶：</strong></p>
+
+<p>你可以设计一个时间复杂度小于 O(n) 的算法解决此问题吗？</p>
+
+**标签:**  [数组](https://leetcode.cn/tag/array) [二分查找](https://leetcode.cn/tag/binary-search) 

@@ -1,4 +1,4 @@
-# [2119. 反转两次的数字](https://leetcode-cn.com/problems/a-number-after-a-double-reversal)
+# [2119. 反转两次的数字](https://leetcode.cn/problems/a-number-after-a-double-reversal)
 <p><strong>反转</strong> 一个整数意味着倒置它的所有位。</p>
 
 <ul>
@@ -37,4 +37,4 @@
 	<li><code>0 &lt;= num &lt;= 10<sup>6</sup></code></li>
 </ul>
 
-**标签:**  [数学](https://leetcode-cn.com/tag/math) 
+**标签:**  [数学](https://leetcode.cn/tag/math) 

@@ -1,4 +1,4 @@
-# [76. 最小覆盖子串](https://leetcode-cn.com/problems/minimum-window-substring)
+# [76. 最小覆盖子串](https://leetcode.cn/problems/minimum-window-substring)
 <p>给你一个字符串 <code>s</code> 、一个字符串 <code>t</code> 。返回 <code>s</code> 中涵盖 <code>t</code> 所有字符的最小子串。如果 <code>s</code> 中不存在涵盖 <code>t</code> 所有字符的子串，则返回空字符串 <code>""</code> 。</p>
 
 <p> </p>
@@ -45,4 +45,4 @@
 
 <p> </p>
 <strong>进阶：</strong>你能设计一个在 <code>o(n)</code> 时间内解决此问题的算法吗？
-**标签:**  [哈希表](https://leetcode-cn.com/tag/hash-table) [字符串](https://leetcode-cn.com/tag/string) [滑动窗口](https://leetcode-cn.com/tag/sliding-window) 
+**标签:**  [哈希表](https://leetcode.cn/tag/hash-table) [字符串](https://leetcode.cn/tag/string) [滑动窗口](https://leetcode.cn/tag/sliding-window) 

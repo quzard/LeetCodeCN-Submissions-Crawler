@@ -66,34 +66,40 @@ func min(a, b int) int{
     return b
 }
 
-// å•è°ƒæ ˆ
+// µ¥µ÷Õ»
 func largestRectangleArea(heights []int) int {
 	n := len(heights)
 	left, right := make([]int, n), make([]int, n)
-	mono_stack := []int{}
+	stack := []int{}
 	for i := 0; i < n; i++ {
-		for len(mono_stack) > 0 && heights[mono_stack[len(mono_stack)-1]] >= heights[i] {
-			mono_stack = mono_stack[:len(mono_stack)-1]
+		for len(stack) > 0 && heights[stack[len(stack)-1]] >= heights[i] {
+			stack = stack[:len(stack)-1]
 		}
-		if len(mono_stack) == 0 {
+        // ËµÃ÷ 0~i-1 ¶¼±È i ´ó
+		if len(stack) == 0 {
 			left[i] = -1
 		} else {
-			left[i] = mono_stack[len(mono_stack)-1]
+            // ËµÃ÷ stack[len(stack)-1] + 1 ~ i - 1 ¶¼±È i ´ó
+			left[i] = stack[len(stack)-1]
 		}
-		mono_stack = append(mono_stack, i)
+		stack = append(stack, i)
 	}
-	mono_stack = []int{}
+
+	stack = []int{}
 	for i := n - 1; i >= 0; i-- {
-		for len(mono_stack) > 0 && heights[mono_stack[len(mono_stack)-1]] >= heights[i] {
-			mono_stack = mono_stack[:len(mono_stack)-1]
+		for len(stack) > 0 && heights[stack[len(stack)-1]] >= heights[i] {
+			stack = stack[:len(stack)-1]
 		}
-		if len(mono_stack) == 0 {
+        // ËµÃ÷ i+1~n-1 ¶¼±È i ´ó
+		if len(stack) == 0 {
 			right[i] = n
 		} else {
-			right[i] = mono_stack[len(mono_stack)-1]
+             // ËµÃ÷ i+1~stack[len(stack)-1] ¶¼±È i ´ó
+			right[i] = stack[len(stack)-1]
 		}
-		mono_stack = append(mono_stack, i)
+		stack = append(stack, i)
 	}
+    // Ãæ»ı= (right[i]-left[i]-1)*heights[i])
 	ans := 0
 	for i := 0; i < n; i++ {
 		ans = max(ans, (right[i]-left[i]-1)*heights[i])

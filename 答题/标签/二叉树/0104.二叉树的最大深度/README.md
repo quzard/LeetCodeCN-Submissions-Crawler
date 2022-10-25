@@ -1,4 +1,4 @@
-# [104. 二叉树的最大深度](https://leetcode-cn.com/problems/maximum-depth-of-binary-tree)
+# [104. 二叉树的最大深度](https://leetcode.cn/problems/maximum-depth-of-binary-tree)
 <p>给定一个二叉树，找出其最大深度。</p>
 
 <p>二叉树的深度为根节点到最远叶子节点的最长路径上的节点数。</p>
@@ -16,4 +16,4 @@
 
 <p>返回它的最大深度&nbsp;3 。</p>
 
-**标签:**  [树](https://leetcode-cn.com/tag/tree) [深度优先搜索](https://leetcode-cn.com/tag/depth-first-search) [广度优先搜索](https://leetcode-cn.com/tag/breadth-first-search) [二叉树](https://leetcode-cn.com/tag/binary-tree) 
+**标签:**  [树](https://leetcode.cn/tag/tree) [深度优先搜索](https://leetcode.cn/tag/depth-first-search) [广度优先搜索](https://leetcode.cn/tag/breadth-first-search) [二叉树](https://leetcode.cn/tag/binary-tree) 

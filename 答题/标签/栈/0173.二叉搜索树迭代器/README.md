@@ -1,4 +1,4 @@
-# [173. 二叉搜索树迭代器](https://leetcode-cn.com/problems/binary-search-tree-iterator)
+# [173. 二叉搜索树迭代器](https://leetcode.cn/problems/binary-search-tree-iterator)
 实现一个二叉搜索树迭代器类<code>BSTIterator</code> ，表示一个按中序遍历二叉搜索树（BST）的迭代器：
 <div class="original__bRMd">
 <div>
@@ -56,4 +56,4 @@ bSTIterator.hasNext(); // 返回 False
 	<li>你可以设计一个满足下述条件的解决方案吗？<code>next()</code> 和 <code>hasNext()</code> 操作均摊时间复杂度为 <code>O(1)</code> ，并使用 <code>O(h)</code> 内存。其中 <code>h</code> 是树的高度。</li>
 </ul>
 
-**标签:**  [栈](https://leetcode-cn.com/tag/stack) [树](https://leetcode-cn.com/tag/tree) [设计](https://leetcode-cn.com/tag/design) [二叉搜索树](https://leetcode-cn.com/tag/binary-search-tree) [二叉树](https://leetcode-cn.com/tag/binary-tree) [迭代器](https://leetcode-cn.com/tag/iterator) 
+**标签:**  [栈](https://leetcode.cn/tag/stack) [树](https://leetcode.cn/tag/tree) [设计](https://leetcode.cn/tag/design) [二叉搜索树](https://leetcode.cn/tag/binary-search-tree) [二叉树](https://leetcode.cn/tag/binary-tree) [迭代器](https://leetcode.cn/tag/iterator) 

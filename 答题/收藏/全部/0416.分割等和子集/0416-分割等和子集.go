@@ -74,14 +74,14 @@ func canPartition2(nums []int) bool {
 	return dp[target]
 }
 
-// å­˜åœ¨å­é›†å’Œä¸ºsum/2 åˆ™ä¸º ture ( sumä¸ºå¥‡æ•°-> false)
-// è½¬æ¢ä¸º 01èƒŒåŒ… é—®é¢˜
-// èƒŒåŒ…å®¹é‡ä¸ºsum/2 ç‰©å“çš„é‡é‡å’Œä»·å€¼éƒ½ä¸ºæ•°ç»„çš„å€¼nums[i]
+// ´æÔÚ×Ó¼¯ºÍÎªsum/2 ÔòÎª ture ( sumÎªÆæÊý-> false)
+// ×ª»»Îª 01±³°ü ÎÊÌâ
+// ±³°üÈÝÁ¿Îªsum/2 ÎïÆ·µÄÖØÁ¿ºÍ¼ÛÖµ¶¼ÎªÊý×éµÄÖµnums[i]
 // dp  if dp[sum/2] == sum/2 { return true }
-// 1ã€dp[j] è¡¨ç¤ºå‰iä¸ªç‰©å“ä»»æ„è£…å…¥å®¹é‡jçš„èƒŒåŒ…æœ€å¤§ä»·å€¼
-// 2ã€dp[j] = max(dp[j], dp[j-weight[i]]+value[i])
-// 3ã€åˆå§‹åŒ–
-// 4 ã€éåŽ†é¡ºåº ç‰©å“->å®¹é‡ä»Žå¤§åˆ°å°
+// 1¡¢dp[j] ±íÊ¾Ç°i¸öÎïÆ·ÈÎÒâ×°ÈëÈÝÁ¿jµÄ±³°ü×î´ó¼ÛÖµ
+// 2¡¢dp[j] = max(dp[j], dp[j-weight[i]]+value[i])
+// 3¡¢³õÊ¼»¯
+// 4 ¡¢±éÀúË³Ðò ÎïÆ·->ÈÝÁ¿´Ó´óµ½Ð¡
 
 func canPartition(nums []int) bool {
 	n := len(nums)
@@ -96,7 +96,7 @@ func canPartition(nums []int) bool {
 	dp := make([]int, W+1)
 
 	for i := 0; i < n; i++ {
-		for j := W; j >= nums[i]; j-- { // å€’åºéåŽ†
+		for j := W; j >= nums[i]; j-- { // µ¹Ðò±éÀú
             dp[j] = max(dp[j], dp[j-nums[i]]+nums[i])
 		}
 	}

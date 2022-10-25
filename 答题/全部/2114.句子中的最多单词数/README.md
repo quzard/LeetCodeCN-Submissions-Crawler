@@ -1,4 +1,4 @@
-# [2114. 句子中的最多单词数](https://leetcode-cn.com/problems/maximum-number-of-words-found-in-sentences)
+# [2114. 句子中的最多单词数](https://leetcode.cn/problems/maximum-number-of-words-found-in-sentences)
 <p>一个 <strong>句子</strong>&nbsp;由一些 <strong>单词</strong>&nbsp;以及它们之间的单个空格组成，句子的开头和结尾不会有多余空格。</p>
 
 <p>给你一个字符串数组&nbsp;<code>sentences</code>&nbsp;，其中&nbsp;<code>sentences[i]</code>&nbsp;表示单个 <strong>句子</strong>&nbsp;。</p>
@@ -38,4 +38,4 @@
 	<li><code>sentences[i]</code>&nbsp;中所有单词由单个空格隔开。</li>
 </ul>
 
-**标签:**  [数组](https://leetcode-cn.com/tag/array) [字符串](https://leetcode-cn.com/tag/string) 
+**标签:**  [数组](https://leetcode.cn/tag/array) [字符串](https://leetcode.cn/tag/string) 

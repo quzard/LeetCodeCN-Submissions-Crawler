@@ -5,8 +5,9 @@
  *     Next *ListNode
  * }
  */
-func reverseKGroup1(head *ListNode, k int) *ListNode {
-    if k <= 1 {
+
+func reverseKGroup( head *ListNode ,  k int ) *ListNode {
+    if k == 1 {
         return head
     }
     cnt := 0
@@ -18,62 +19,69 @@ func reverseKGroup1(head *ListNode, k int) *ListNode {
     if cnt < k {
         return head
     }
-    newHead := &ListNode {}
+    
+    newHead := &ListNode{}
     cur = newHead
-    tail := head
+    start := head
     var dfs func(node *ListNode, k int)
     dfs = func(node *ListNode, k int) {
-        if k == 1 {
-            
-            tail = node.Next
-            cur.Next = node
-            cur = cur.Next
-            cur.Next = nil
+        if k == 0 {
+            start = node
             return
         }
-        dfs(node.Next, k - 1)
+        dfs(node.Next, k-1)
         cur.Next = node
         cur = cur.Next
         cur.Next = nil
     }
     for cnt >= k {
         cnt -= k
-        dfs(tail, k)
+        dfs(start, k)
     }
-    cur.Next = tail
+    cur.Next = start
     return newHead.Next
 }
 
-func reverseKGroup(head *ListNode, k int) *ListNode {
-    hair := &ListNode{Next: head}
-    pre := hair
+
+
+func reverseKGroup1(head *ListNode, k int) *ListNode {
+    newHead := &ListNode{Next: head}
+    cur := newHead
 
     for head != nil {
-        tail := pre
-        for i := 0; i < k; i++ {
+        tail := head
+        // 此时tail为第k个节点
+        for i := 1; i < k; i++ {
             tail = tail.Next
             if tail == nil {
-                return hair.Next
+                return newHead.Next
             }
         }
-        nex := tail.Next
+        //nextHead为下一个
+        nextHead := tail.Next
+        //反转第1个节点~第k个节点
         head, tail = myReverse(head, tail)
-        pre.Next = head
-        tail.Next = nex
-        pre = tail
-        head = tail.Next
+
+        cur.Next = head
+        tail.Next = nextHead
+
+        cur = tail
+        head = nextHead
     }
-    return hair.Next
+    return newHead.Next
 }
 
 func myReverse(head, tail *ListNode) (*ListNode, *ListNode) {
     prev := tail.Next
-    p := head
+    cur := head
     for prev != tail {
-        nex := p.Next
-        p.Next = prev
-        prev = p
-        p = nex
+        next := cur.Next
+
+        cur.Next = prev
+
+        prev = cur
+
+        cur = next
     }
     return tail, head
 }

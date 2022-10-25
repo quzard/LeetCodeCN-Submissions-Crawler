@@ -33,14 +33,14 @@ func findKthPositive(arr []int, k int) int {
     r := len(arr)
     for l<r{
         mid := l + (r-l)/2
-        // arr[mid] - mid - 1 ä¸º ç¼ºå°‘çš„æ•°
+        // arr[mid] - mid - 1 Îª È±ÉÙµÄÊý
         if arr[mid] - mid - 1<k{
             l = mid+1
         }else{
             r = mid
         }
     }
-    // arr[l-1] ç¼ºå¤±å°äºŽk  arr[l]ç¼ºå¤±å¤§äºŽç­‰äºŽkã€‚ç¼ºå¤±çš„k å°±åœ¨arr[l-1] åˆ°arr[l] ä¹‹é—´
+    // arr[l-1] È±Ê§Ð¡ÓÚk  arr[l]È±Ê§´óÓÚµÈÓÚk¡£È±Ê§µÄk ¾ÍÔÚarr[l-1] µ½arr[l] Ö®¼ä
     missCnt := arr[l-1] - l
     return arr[l-1] + k - missCnt
 }

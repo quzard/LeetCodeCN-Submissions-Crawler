@@ -1,4 +1,4 @@
-# [1838. 最高频元素的频数](https://leetcode-cn.com/problems/frequency-of-the-most-frequent-element)
+# [1838. 最高频元素的频数](https://leetcode.cn/problems/frequency-of-the-most-frequent-element)
 <p>元素的 <strong>频数</strong> 是该元素在一个数组中出现的次数。</p>
 
 <p>给你一个整数数组 <code>nums</code> 和一个整数 <code>k</code> 。在一步操作中，你可以选择 <code>nums</code> 的一个下标，并将该下标对应元素的值增加 <code>1</code> 。</p>
@@ -43,4 +43,4 @@
 	<li><code>1 <= k <= 10<sup>5</sup></code></li>
 </ul>
 
-**标签:**  [数组](https://leetcode-cn.com/tag/array) [二分查找](https://leetcode-cn.com/tag/binary-search) [前缀和](https://leetcode-cn.com/tag/prefix-sum) [滑动窗口](https://leetcode-cn.com/tag/sliding-window) 
+**标签:**  [贪心](https://leetcode.cn/tag/greedy) [数组](https://leetcode.cn/tag/array) [二分查找](https://leetcode.cn/tag/binary-search) [前缀和](https://leetcode.cn/tag/prefix-sum) [排序](https://leetcode.cn/tag/sorting) [滑动窗口](https://leetcode.cn/tag/sliding-window) 

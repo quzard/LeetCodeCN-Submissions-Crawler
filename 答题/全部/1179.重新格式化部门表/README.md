@@ -1,4 +1,4 @@
-# [1179. 重新格式化部门表](https://leetcode-cn.com/problems/reformat-department-table)
+# [1179. 重新格式化部门表](https://leetcode.cn/problems/reformat-department-table)
 <p>部门表&nbsp;<code>Department</code>：</p>
 
 <pre>
@@ -44,4 +44,4 @@ Department 表：
 注意，结果表有 13 列 (1个部门 id 列 + 12个月份的收入列)。
 </pre>
 
-**标签:**  [数据库](https://leetcode-cn.com/tag/database) 
+**标签:**  [数据库](https://leetcode.cn/tag/database) 

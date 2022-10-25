@@ -1,4 +1,4 @@
-# [64. 最小路径和](https://leetcode-cn.com/problems/minimum-path-sum)
+# [64. 最小路径和](https://leetcode.cn/problems/minimum-path-sum)
 <p>给定一个包含非负整数的 <code><em>m</em> x <em>n</em></code> 网格 <code>grid</code> ，请找出一条从左上角到右下角的路径，使得路径上的数字总和为最小。</p>
 
 <p><strong>说明：</strong>每次只能向下或者向右移动一步。</p>
@@ -31,4 +31,4 @@
 	<li><code>0 <= grid[i][j] <= 100</code></li>
 </ul>
 
-**标签:**  [数组](https://leetcode-cn.com/tag/array) [动态规划](https://leetcode-cn.com/tag/dynamic-programming) [矩阵](https://leetcode-cn.com/tag/matrix) 
+**标签:**  [数组](https://leetcode.cn/tag/array) [动态规划](https://leetcode.cn/tag/dynamic-programming) [矩阵](https://leetcode.cn/tag/matrix) 

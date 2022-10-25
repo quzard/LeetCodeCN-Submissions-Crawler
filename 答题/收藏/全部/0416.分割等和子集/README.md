@@ -1,4 +1,4 @@
-# [416. 分割等和子集](https://leetcode-cn.com/problems/partition-equal-subset-sum)
+# [416. 分割等和子集](https://leetcode.cn/problems/partition-equal-subset-sum)
 <p>给你一个 <strong>只包含正整数 </strong>的 <strong>非空 </strong>数组 <code>nums</code> 。请你判断是否可以将这个数组分割成两个子集，使得两个子集的元素和相等。</p>
 
 <p> </p>
@@ -27,4 +27,4 @@
 	<li><code>1 <= nums[i] <= 100</code></li>
 </ul>
 
-**标签:**  [数组](https://leetcode-cn.com/tag/array) [动态规划](https://leetcode-cn.com/tag/dynamic-programming) 
+**标签:**  [数组](https://leetcode.cn/tag/array) [动态规划](https://leetcode.cn/tag/dynamic-programming) 

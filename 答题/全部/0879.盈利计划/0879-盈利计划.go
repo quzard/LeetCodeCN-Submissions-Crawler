@@ -1,4 +1,4 @@
-// èƒŒåŒ…é—®é¢˜
+// ±³°üÎÊÌâ
 func profitableSchemes1(n int, minProfit int, group []int, profit []int) int {
     res := 0
     dp := make([][]int, 100 + 1)
@@ -37,15 +37,15 @@ func profitableSchemes1(n int, minProfit int, group []int, profit []int) int {
     return res % (1e9 + 7)
 }
 /*
-    äºŒç»´è´¹ç”¨èƒŒåŒ…é—®é¢˜
-        é€‰æ‹©ä¸€ä¸ªå·¥ä½œ i ï¼Œéœ€è¦ä¸¤ä¸ªä»£ä»·ï¼š
-            1. äººæ•°å‡æŽ‰äº† group[i]ï¼Œäººæ•°æœ€å¤šä¸º n
-            2. åˆ©æ¶¦å¢žåŠ  profit[i]ï¼Œæœ€å°‘çš„åˆ©æ¶¦ä¸º minProfit
+    ¶þÎ¬·ÑÓÃ±³°üÎÊÌâ
+        Ñ¡ÔñÒ»¸ö¹¤×÷ i £¬ÐèÒªÁ½¸ö´ú¼Û£º
+            1. ÈËÊý¼õµôÁË group[i]£¬ÈËÊý×î¶àÎª n
+            2. ÀûÈóÔö¼Ó profit[i]£¬×îÉÙµÄÀûÈóÎª minProfit
      */
 func profitableSchemes(n int, minProfit int, group []int, profit []int) int {
     var MOD = int(1e9 + 7)
 
-    // dp[j][k]ï¼šé€‰æ‹©äº† j ä¸ªå‘˜å·¥ï¼Œå¹¶ä¸”æ»¡è¶³å·¥ä½œåˆ©æ¶¦è‡³å°‘ä¸º k çš„æƒ…å†µä¸‹çš„ç›ˆåˆ©è®¡åˆ’çš„æ€»æ•°ç›®
+    // dp[j][k]£ºÑ¡ÔñÁË j ¸öÔ±¹¤£¬²¢ÇÒÂú×ã¹¤×÷ÀûÈóÖÁÉÙÎª k µÄÇé¿öÏÂµÄÓ¯Àû¼Æ»®µÄ×ÜÊýÄ¿
     var dp = make([][]int, n + 1)
     for i := range dp {
         dp[i] = make([]int, minProfit + 1)
@@ -59,10 +59,10 @@ func profitableSchemes(n int, minProfit int, group []int, profit []int) int {
         var members, earn = group[i - 1], profit[i - 1]
         for j := n; j >= members; j-- {
             for k := minProfit; k >= 0; k-- {
-                // å·¥ä½œåˆ©æ¶¦è‡³å°‘ä¸º k è€Œä¸æ˜¯å·¥ä½œåˆ©æ¶¦æ°å¥½ä¸º k
-                // æ‰€ä»¥è¿™ä¸ªæ˜¯ max(0, k - earn)ï¼Œè€Œéž k - earnï¼Œä¸‹é¢çš„ä»£ç ç›¸å½“äºŽï¼š
+                // ¹¤×÷ÀûÈóÖÁÉÙÎª k ¶ø²»ÊÇ¹¤×÷ÀûÈóÇ¡ºÃÎª k
+                // ËùÒÔÕâ¸öÊÇ max(0, k - earn)£¬¶ø·Ç k - earn£¬ÏÂÃæµÄ´úÂëÏàµ±ÓÚ£º
                 if k <= earn{
-                    // ç›¸å½“äºŽå½“å‰çš„å·¥ä½œäº§ç”Ÿçš„åˆ©æ¶¦å®Œå…¨æ»¡è¶³ç¬¬äºŒä¸ªä»£ä»· (å³å·²ç»æ»¡è¶³å·¥ä½œåˆ©æ¶¦è‡³å°‘ä¸º k çš„æ¡ä»¶äº†)
+                    // Ïàµ±ÓÚµ±Ç°µÄ¹¤×÷²úÉúµÄÀûÈóÍêÈ«Âú×ãµÚ¶þ¸ö´ú¼Û (¼´ÒÑ¾­Âú×ã¹¤×÷ÀûÈóÖÁÉÙÎª k µÄÌõ¼þÁË)
                     dp[j][k] = (dp[j][k] + dp[j - members][0]) % MOD
                 }else{
                     dp[j][k] = (dp[j][k] + dp[j - members][k - earn]) % MOD

@@ -1,22 +1,13 @@
-# Write your MySQL query statement below
-# select ifnull(
-#     (
-#         select distinct salary 
-#         from Employee 
-#         order by  salary desc   
-          # limit m,n : è¡¨ç¤ºä»ç¬¬m+1æ¡å¼€å§‹ï¼Œå–næ¡æ•°æ®ï¼›  è·³è¿‡mæ¡ï¼Œè¯»å–næ¡
-          # ç­‰ä»·äº offset m limit n
-#         limit 1, 1
-#     ),null
-# ) as SecondHighestSalary 
-
 select ifnull(
-    # distinct å»é‡
-    (select distinct salary
-    from employee
-    # desc é™åº
-    order by salary desc
-    # limit n offset m åˆ†å¥è¡¨ç¤ºæŸ¥è¯¢ç»“æœè·³è¿‡ m æ¡æ•°æ®ï¼Œè¯»å–å‰ n æ¡æ•°æ®
-    limit 1 offset 1),
+    # distinct È¥ÖØ
+    (
+        select distinct salary
+        from employee
+        # desc ½µĞò
+        order by salary desc
+        # limit m,n : ±íÊ¾´ÓµÚm+1Ìõ¿ªÊ¼£¬È¡nÌõÊı¾İ£»  Ìø¹ımÌõ£¬¶ÁÈ¡nÌõ
+        # limit n offset m ·Ö¾ä±íÊ¾²éÑ¯½á¹ûÌø¹ı m ÌõÊı¾İ£¬¶ÁÈ¡Ç° n ÌõÊı¾İ
+        limit 1 offset 1
+        ),
     null
 ) as SecondHighestSalary

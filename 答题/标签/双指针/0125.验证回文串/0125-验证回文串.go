@@ -1,49 +1,28 @@
-func isVaid(s byte) bool{
-    if (s >= 'A' && s <= 'Z') || (s >= 'a' && s <= 'z') || (s >= '0' && s <= '9'){
-        return true
-    }
-    return false
-}
-
-func isSame(a, b byte) bool{
-    if a >= '0' && a <= '9' && b >= '0' && b <= '9'{
-        return a == b
-    }
-    if a >= 'a' && a <= 'z'  && b >= 'a' && b <= 'z'{
-        return a == b
-    }
-    if a >= 'a' && a <= 'z' && b >= 'A' && b <= 'Z'{
-        return (a - 'a') == (b - 'A')
-    }
-    if a >= 'A' && a <= 'Z' && b >= 'a' && b <= 'z'{
-        return (a - 'A') == (b - 'a')
-    }
-    if a >= 'A' && a <= 'Z' && b >= 'A' && b <= 'Z'{
-        return (a - 'A') == (b - 'A')
-    }
-    return false
-}
-
 func isPalindrome(s string) bool {
-    i := 0
-    j := len(s) - 1
-    for i <= j{
-        for i < len(s) && isVaid(s[i]) == false{
-            i++
+    l, r := 0, len(s) - 1
+    for l <= r {
+        for l <= r && ((s[l] >= 'a' && s[l] <= 'z') || (s[l] >= 'A' && s[l] <= 'Z') || (s[l] >= '0' && s[l] <= '9')) == false {
+            l++
         }
-        for j >= 0 && isVaid(s[j]) == false{
-            j--
+        for l <= r && ((s[r] >= 'a' && s[r] <= 'z') || (s[r] >= 'A' && s[r] <= 'Z') || (s[r] >= '0' && s[r] <= '9')) == false {
+            r--
         }
-        if i <= j{
-            if isSame(s[i], s[j]) == false{
-                fmt.Println(i, j, string(s[i]), string(s[j]))
-                return false
-            }
-        }else{
+        if l > r {
             break
+        } 
+        s1 := s[l]
+        s2 := s[r]
+        if (s1 >= 'A' && s1 <= 'Z') {
+            s1 = s1 - 'A' + 'a'
         }
-        i++
-        j--
+        if (s2 >= 'A' && s2 <= 'Z') {
+            s2 = s2 - 'A' + 'a'
+        }
+        if s1 != s2 {
+            return false
+        }
+        l++
+        r--
     }
     return true
 }

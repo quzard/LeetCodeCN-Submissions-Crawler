@@ -2,9 +2,10 @@ func climbStairs(n int) int {
     if n <= 2 {
         return n
     }
-    pre, cur := 1, 2
-    for i := 3; i <= n; i++ {
-        pre, cur = cur, cur + pre
+    dp := []int{1,1,0}
+    for i := 2; i <= n; i++ {
+        dp[2] = dp[1] + dp[0]
+        dp[1], dp[0] = dp[2], dp[1]
     }
-    return cur
+    return dp[2]
 }

@@ -1,4 +1,4 @@
-# [剑指 Offer 38. 字符串的排列](https://leetcode-cn.com/problems/zi-fu-chuan-de-pai-lie-lcof)
+# [剑指 Offer 38. 字符串的排列](https://leetcode.cn/problems/zi-fu-chuan-de-pai-lie-lcof)
 <p>输入一个字符串，打印出该字符串中字符的所有排列。</p>
 
 <p>&nbsp;</p>
@@ -19,4 +19,4 @@
 
 <p><code>1 &lt;= s 的长度 &lt;= 8</code></p>
 
-**标签:**  [字符串](https://leetcode-cn.com/tag/string) [回溯](https://leetcode-cn.com/tag/backtracking) 
+**标签:**  [字符串](https://leetcode.cn/tag/string) [回溯](https://leetcode.cn/tag/backtracking) 

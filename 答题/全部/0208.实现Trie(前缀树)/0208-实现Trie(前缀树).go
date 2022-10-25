@@ -1,4 +1,4 @@
-// å­—å…¸æ•°
+// ×ÖµäÊý
 // type Tree struct{
 //     word []*Tree
 //     end  []bool

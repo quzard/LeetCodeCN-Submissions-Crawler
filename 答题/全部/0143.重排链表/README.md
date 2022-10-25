@@ -1,4 +1,4 @@
-# [143. 重排链表](https://leetcode-cn.com/problems/reorder-list)
+# [143. 重排链表](https://leetcode.cn/problems/reorder-list)
 <p>给定一个单链表 <code>L</code><em> </em>的头节点 <code>head</code> ，单链表 <code>L</code> 表示为：</p>
 
 <pre>
@@ -39,4 +39,4 @@ L<sub>0</sub> → L<sub>n</sub> → L<sub>1</sub> → L<sub>n - 1</sub> → L<su
 	<li><code>1 &lt;= node.val &lt;= 1000</code></li>
 </ul>
 
-**标签:**  [栈](https://leetcode-cn.com/tag/stack) [递归](https://leetcode-cn.com/tag/recursion) [链表](https://leetcode-cn.com/tag/linked-list) [双指针](https://leetcode-cn.com/tag/two-pointers) 
+**标签:**  [栈](https://leetcode.cn/tag/stack) [递归](https://leetcode.cn/tag/recursion) [链表](https://leetcode.cn/tag/linked-list) [双指针](https://leetcode.cn/tag/two-pointers) 

@@ -1,4 +1,4 @@
-# [剑指 Offer 25. 合并两个排序的链表](https://leetcode-cn.com/problems/he-bing-liang-ge-pai-xu-de-lian-biao-lcof)
+# [剑指 Offer 25. 合并两个排序的链表](https://leetcode.cn/problems/he-bing-liang-ge-pai-xu-de-lian-biao-lcof)
 <p>输入两个递增排序的链表，合并这两个链表并使新链表中的节点仍然是递增排序的。</p>
 
 <p><strong>示例1：</strong></p>
@@ -12,4 +12,4 @@
 
 <p>注意：本题与主站 21 题相同：<a href="https://leetcode-cn.com/problems/merge-two-sorted-lists/">https://leetcode-cn.com/problems/merge-two-sorted-lists/</a></p>
 
-**标签:**  [递归](https://leetcode-cn.com/tag/recursion) [链表](https://leetcode-cn.com/tag/linked-list) 
+**标签:**  [递归](https://leetcode.cn/tag/recursion) [链表](https://leetcode.cn/tag/linked-list) 

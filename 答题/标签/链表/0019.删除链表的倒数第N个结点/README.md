@@ -1,4 +1,4 @@
-# [19. 删除链表的倒数第 N 个结点](https://leetcode-cn.com/problems/remove-nth-node-from-end-of-list)
+# [19. 删除链表的倒数第 N 个结点](https://leetcode.cn/problems/remove-nth-node-from-end-of-list)
 <p>给你一个链表，删除链表的倒数第&nbsp;<code>n</code><em>&nbsp;</em>个结点，并且返回链表的头结点。</p>
 
 <p>&nbsp;</p>
@@ -39,4 +39,4 @@
 
 <p><strong>进阶：</strong>你能尝试使用一趟扫描实现吗？</p>
 
-**标签:**  [链表](https://leetcode-cn.com/tag/linked-list) [双指针](https://leetcode-cn.com/tag/two-pointers) 
+**标签:**  [链表](https://leetcode.cn/tag/linked-list) [双指针](https://leetcode.cn/tag/two-pointers) 

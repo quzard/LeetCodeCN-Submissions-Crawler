@@ -1,4 +1,4 @@
-# [106. 从中序与后序遍历序列构造二叉树](https://leetcode-cn.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal)
+# [106. 从中序与后序遍历序列构造二叉树](https://leetcode.cn/problems/construct-binary-tree-from-inorder-and-postorder-traversal)
 <p>给定两个整数数组 <code>inorder</code> 和 <code>postorder</code> ，其中 <code>inorder</code> 是二叉树的中序遍历， <code>postorder</code> 是同一棵树的后序遍历，请你构造并返回这颗&nbsp;<em>二叉树</em>&nbsp;。</p>
 
 <p>&nbsp;</p>
@@ -31,4 +31,4 @@
 	<li><code>postorder</code>&nbsp;<strong>保证</strong>是树的后序遍历</li>
 </ul>
 
-**标签:**  [树](https://leetcode-cn.com/tag/tree) [数组](https://leetcode-cn.com/tag/array) [哈希表](https://leetcode-cn.com/tag/hash-table) [分治](https://leetcode-cn.com/tag/divide-and-conquer) [二叉树](https://leetcode-cn.com/tag/binary-tree) 
+**标签:**  [树](https://leetcode.cn/tag/tree) [数组](https://leetcode.cn/tag/array) [哈希表](https://leetcode.cn/tag/hash-table) [分治](https://leetcode.cn/tag/divide-and-conquer) [二叉树](https://leetcode.cn/tag/binary-tree) 

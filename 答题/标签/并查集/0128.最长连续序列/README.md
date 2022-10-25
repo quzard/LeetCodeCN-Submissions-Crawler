@@ -1,4 +1,4 @@
-# [128. 最长连续序列](https://leetcode-cn.com/problems/longest-consecutive-sequence)
+# [128. 最长连续序列](https://leetcode.cn/problems/longest-consecutive-sequence)
 <p>给定一个未排序的整数数组 <code>nums</code> ，找出数字连续的最长序列（不要求序列元素在原数组中连续）的长度。</p>
 
 <p>请你设计并实现时间复杂度为 <code>O(n)</code><em> </em>的算法解决此问题。</p>
@@ -28,4 +28,4 @@
 	<li><code>-10<sup>9</sup> <= nums[i] <= 10<sup>9</sup></code></li>
 </ul>
 
-**标签:**  [并查集](https://leetcode-cn.com/tag/union-find) [数组](https://leetcode-cn.com/tag/array) [哈希表](https://leetcode-cn.com/tag/hash-table) 
+**标签:**  [并查集](https://leetcode.cn/tag/union-find) [数组](https://leetcode.cn/tag/array) [哈希表](https://leetcode.cn/tag/hash-table) 

@@ -1,4 +1,4 @@
-# [剑指 Offer 03. 数组中重复的数字](https://leetcode-cn.com/problems/shu-zu-zhong-zhong-fu-de-shu-zi-lcof)
+# [剑指 Offer 03. 数组中重复的数字](https://leetcode.cn/problems/shu-zu-zhong-zhong-fu-de-shu-zi-lcof)
 <p>找出数组中重复的数字。</p>
 
 <p><br>
@@ -17,4 +17,4 @@
 
 <p><code>2 &lt;= n &lt;= 100000</code></p>
 
-**标签:**  [数组](https://leetcode-cn.com/tag/array) [哈希表](https://leetcode-cn.com/tag/hash-table) [排序](https://leetcode-cn.com/tag/sorting) 
+**标签:**  [数组](https://leetcode.cn/tag/array) [哈希表](https://leetcode.cn/tag/hash-table) [排序](https://leetcode.cn/tag/sorting) 

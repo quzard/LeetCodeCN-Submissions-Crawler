@@ -1,10 +1,10 @@
-// dp ä¼˜åŒ–
-// åˆ†ç±»è®¨è®º
+// dp ÓÅ»¯
+// ·ÖÀàÌÖÂÛ
 func maxPoints1(points [][]int) int64 {
     ans := 0
     m := len(points[0])
     f := make([][2]int, m)
-    sufMax := make([]int, m) // åŽç¼€æœ€å¤§å€¼
+    sufMax := make([]int, m) // ºó×º×î´óÖµ
     for i, row := range points {
         if i == 0 {
             for j, v := range row {
@@ -16,14 +16,14 @@ func maxPoints1(points [][]int) int64 {
             preMax := math.MinInt32
             for j, v := range row {
                 preMax = max(preMax, f[j][0])
-                res := max(v-j+preMax, v+j+sufMax[j]) // å·¦ä¾§å’Œå³ä¾§çš„æœ€å¤§å€¼å³ä¸ºé€‰æ‹© points[i][j] æ—¶çš„è®¡ç®—ç»“æžœ
-                ans = max(ans, res) // ç›´æŽ¥æ›´æ–°ç­”æ¡ˆï¼Œè¿™æ ·ä¸‹é¢å°±ä¸ç›´æŽ¥å­˜å‚¨ res äº†ï¼Œæ”¹ä¸ºå­˜å‚¨ res + j å’Œ res - j
+                res := max(v-j+preMax, v+j+sufMax[j]) // ×ó²àºÍÓÒ²àµÄ×î´óÖµ¼´ÎªÑ¡Ôñ points[i][j] Ê±µÄ¼ÆËã½á¹û
+                ans = max(ans, res) // Ö±½Ó¸üÐÂ´ð°¸£¬ÕâÑùÏÂÃæ¾Í²»Ö±½Ó´æ´¢ res ÁË£¬¸ÄÎª´æ´¢ res + j ºÍ res - j
                 f[j][0] = res + j
                 f[j][1] = res - j
             }
         }
-        // è®¡ç®—å®Œä¸€æ•´è¡Œ f åŽï¼Œå¯¹äºŽæ¯ä¸ªä½ç½® jï¼Œè®¡ç®—å…¶å³ä¾§çš„æ‰€æœ‰ f[k] - k çš„æœ€å¤§å€¼
-        // è¿™å¯ä»¥é€šè¿‡å€’ç€éåŽ† f æ±‚å‡º
+        // ¼ÆËãÍêÒ»ÕûÐÐ f ºó£¬¶ÔÓÚÃ¿¸öÎ»ÖÃ j£¬¼ÆËãÆäÓÒ²àµÄËùÓÐ f[k] - k µÄ×î´óÖµ
+        // Õâ¿ÉÒÔÍ¨¹ýµ¹×Å±éÀú f Çó³ö
         sufMax[m-1] = f[m-1][1]
         for j := m - 2; j >= 0; j-- {
             sufMax[j] = max(sufMax[j+1], f[j][1])

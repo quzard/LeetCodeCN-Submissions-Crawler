@@ -1,4 +1,4 @@
-# [103. 二叉树的锯齿形层序遍历](https://leetcode-cn.com/problems/binary-tree-zigzag-level-order-traversal)
+# [103. 二叉树的锯齿形层序遍历](https://leetcode.cn/problems/binary-tree-zigzag-level-order-traversal)
 <p>给你二叉树的根节点 <code>root</code> ，返回其节点值的 <strong>锯齿形层序遍历</strong> 。（即先从左往右，再从右往左进行下一层遍历，以此类推，层与层之间交替进行）。</p>
 
 <p>&nbsp;</p>
@@ -33,4 +33,4 @@
 	<li><code>-100 &lt;= Node.val &lt;= 100</code></li>
 </ul>
 
-**标签:**  [树](https://leetcode-cn.com/tag/tree) [广度优先搜索](https://leetcode-cn.com/tag/breadth-first-search) [二叉树](https://leetcode-cn.com/tag/binary-tree) 
+**标签:**  [树](https://leetcode.cn/tag/tree) [广度优先搜索](https://leetcode.cn/tag/breadth-first-search) [二叉树](https://leetcode.cn/tag/binary-tree) 

@@ -1,4 +1,4 @@
-# [177. 第N高的薪水](https://leetcode-cn.com/problems/nth-highest-salary)
+# [177. 第N高的薪水](https://leetcode.cn/problems/nth-highest-salary)
 <p>表:&nbsp;<code>Employee</code></p>
 
 <pre>
@@ -59,4 +59,4 @@ n = 2
 | null                   |
 +------------------------+</pre>
 
-**标签:**  [数据库](https://leetcode-cn.com/tag/database) 
+**标签:**  [数据库](https://leetcode.cn/tag/database) 

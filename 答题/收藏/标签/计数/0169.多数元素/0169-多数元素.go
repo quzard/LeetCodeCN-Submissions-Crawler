@@ -1,33 +1,17 @@
-func majorityElement1(nums []int) int {
-    n := len(nums)
-    res := nums[0]
-    hashMap := map[int]int{}
-    for _, num := range nums{
-        hashMap[num]++
-        if hashMap[num] > n / 2{
-            return num
-        }
-        if hashMap[res] < hashMap[num]{
-            res = num
-        }
-    }
-    return res
-}
-
 func majorityElement(nums []int) int {
-    var vote, result int
-
+    vote := 0
+    cur := 0
     for _, num := range nums {
         if vote == 0 {
-            result = num
+            vote++
+            cur = num
+            continue
+        } 
+        if cur == num {
+            vote++
+            continue
         }
-
-        if result == num {
-            vote ++
-        } else {
-            vote --
-        }
+        vote--
     }
-
-    return result
+    return cur
 }

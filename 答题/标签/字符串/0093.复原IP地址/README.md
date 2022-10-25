@@ -1,4 +1,4 @@
-# [93. 复原 IP 地址](https://leetcode-cn.com/problems/restore-ip-addresses)
+# [93. 复原 IP 地址](https://leetcode.cn/problems/restore-ip-addresses)
 <p><strong>有效 IP 地址</strong> 正好由四个整数（每个整数位于 <code>0</code> 到 <code>255</code> 之间组成，且不能含有前导 <code>0</code>），整数之间用 <code>'.'</code> 分隔。</p>
 
 <ul>
@@ -39,4 +39,4 @@
 	<li><code>s</code> 仅由数字组成</li>
 </ul>
 
-**标签:**  [字符串](https://leetcode-cn.com/tag/string) [回溯](https://leetcode-cn.com/tag/backtracking) 
+**标签:**  [字符串](https://leetcode.cn/tag/string) [回溯](https://leetcode.cn/tag/backtracking) 

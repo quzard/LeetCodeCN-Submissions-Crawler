@@ -1,4 +1,4 @@
-# [206. 反转链表](https://leetcode-cn.com/problems/reverse-linked-list)
+# [206. 反转链表](https://leetcode.cn/problems/reverse-linked-list)
 给你单链表的头节点 <code>head</code> ，请你反转链表，并返回反转后的链表。
 <div class="original__bRMd">
 <div>
@@ -40,4 +40,4 @@
 </div>
 </div>
 
-**标签:**  [递归](https://leetcode-cn.com/tag/recursion) [链表](https://leetcode-cn.com/tag/linked-list) 
+**标签:**  [递归](https://leetcode.cn/tag/recursion) [链表](https://leetcode.cn/tag/linked-list) 

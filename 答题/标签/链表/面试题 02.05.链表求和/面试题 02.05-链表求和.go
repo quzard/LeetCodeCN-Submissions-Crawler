@@ -6,26 +6,27 @@
  * }
  */
 func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
-    add := 0
-    res := &ListNode{}
-    cur := res
+    newHead := &ListNode{}
+    cur := newHead
+    sum := 0
     for l1 != nil || l2 != nil {
         if l1 != nil {
-            add += l1.Val
+            sum += l1.Val
             l1 = l1.Next
         }
         if l2 != nil {
-            add += l2.Val
+            sum += l2.Val
             l2 = l2.Next
         }
-        cur.Next = &ListNode{Val: add % 10}
+        cur.Next = &ListNode{Val: sum % 10}
+        sum /= 10
         cur = cur.Next
-        add /= 10
     }
-    if add > 0 {
-        cur.Next = &ListNode{Val: add % 10}
+    for sum > 0 {
+        cur.Next = &ListNode{Val: sum % 10}
+        sum /= 10
         cur = cur.Next
-        add /= 10
     }
-    return res.Next
+
+    return newHead.Next
 }

@@ -1,6 +1,12 @@
-func findPeakElement1(nums []int) int {
+func findPeakElement(nums []int) int {
     found := false
     res := -1
+    get := func(i int) int {
+        if i == -1 || i == len(nums) {
+            return math.MinInt64
+        }
+        return nums[i]
+    }
     var dfs func(l, r int)
 
     dfs = func(l, r int){
@@ -11,18 +17,7 @@ func findPeakElement1(nums []int) int {
             return
         }
         mid := int(l + (r - l) / 2)
-        left, right := 0, 0
-        if mid == 0{
-            left = math.MinInt64
-        }else{
-            left = nums[mid - 1]
-        }
-        if mid == len(nums) - 1{
-            right = math.MinInt64
-        }else{
-            right = nums[mid + 1]
-        }
-        if nums[mid] > left && nums[mid] > right{
+        if get(mid) > get(mid-1) && get(mid) > get(mid+1){
             found = true
             res  = mid
         }else{
@@ -36,11 +31,11 @@ func findPeakElement1(nums []int) int {
 
 
 
-func findPeakElement(nums []int) int {
+func findPeakElement1(nums []int) int {
     n := len(nums)
 
-    // è¾…åŠ©å‡½æ•°ï¼Œè¾“å…¥ä¸‹æ ‡ iï¼Œè¿”å› nums[i] çš„å€¼
-    // æ–¹ä¾¿å¤„ç† nums[-1] ä»¥åŠ nums[n] çš„è¾¹ç•Œæƒ…å†µ
+    // ¸¨Öúº¯Êı£¬ÊäÈëÏÂ±ê i£¬·µ»Ø nums[i] µÄÖµ
+    // ·½±ã´¦Àí nums[-1] ÒÔ¼° nums[n] µÄ±ß½çÇé¿ö
     get := func(i int) int {
         if i == -1 || i == n {
             return math.MinInt64
@@ -50,7 +45,7 @@ func findPeakElement(nums []int) int {
 
     left, right := 0, n-1
     for {
-        mid := (left + right) / 2
+        mid := left + (right - left) / 2
         if get(mid-1) < get(mid) && get(mid) > get(mid+1) {
             return mid
         }

@@ -1,4 +1,4 @@
-# [42. 接雨水](https://leetcode-cn.com/problems/trapping-rain-water)
+# [42. 接雨水](https://leetcode.cn/problems/trapping-rain-water)
 <p>给定&nbsp;<code>n</code> 个非负整数表示每个宽度为 <code>1</code> 的柱子的高度图，计算按此排列的柱子，下雨之后能接多少雨水。</p>
 
 <p>&nbsp;</p>
@@ -30,4 +30,4 @@
 	<li><code>0 &lt;= height[i] &lt;= 10<sup>5</sup></code></li>
 </ul>
 
-**标签:**  [栈](https://leetcode-cn.com/tag/stack) [数组](https://leetcode-cn.com/tag/array) [双指针](https://leetcode-cn.com/tag/two-pointers) [动态规划](https://leetcode-cn.com/tag/dynamic-programming) [单调栈](https://leetcode-cn.com/tag/monotonic-stack) 
+**标签:**  [栈](https://leetcode.cn/tag/stack) [数组](https://leetcode.cn/tag/array) [双指针](https://leetcode.cn/tag/two-pointers) [动态规划](https://leetcode.cn/tag/dynamic-programming) [单调栈](https://leetcode.cn/tag/monotonic-stack) 

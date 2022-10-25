@@ -2,27 +2,31 @@ func spiralOrder(matrix [][]int) []int {
     if len(matrix) == 0 || len(matrix[0]) == 0 {
         return []int{}
     }
-    res := make([]int, 0, len(matrix) * len(matrix[0]))
-    h, e, l, r := 0, len(matrix), 0, len(matrix[0])
-    for len(res) < len(matrix) * len(matrix[0]){
-        for i := l; i < r; i++ {
-            res = append(res, matrix[h][i])
+    n := len(matrix) * len(matrix[0])
+    res := make([]int, 0, n)
+    cnt := 0
+    top, down, left, right := 0, len(matrix)-1, 0, len(matrix[0])-1
+    for cnt < n {
+        for i := left; i <= right && cnt < n; i++ {
+            res = append(res, matrix[top][i])
+            cnt++
         }
-        for i := h+1; i < e; i++ {
-            res = append(res, matrix[i][r-1])
+        for i := top+1; i <= down && cnt < n; i++ {
+            res = append(res, matrix[i][right])
+            cnt++
         }
-        if l < r-1 && h < e-1 {
-            for i := r-2; i >= l; i-- {
-                res = append(res, matrix[e-1][i])
-            }
-            for i := e-2; i > h; i-- {
-                res = append(res, matrix[i][l])
-            }
+        for i := right-1; i >= left && cnt < n; i-- {
+            res = append(res, matrix[down][i])
+            cnt++
         }
-        h++
-        l++
-        e--
-        r--
-    }
+        for i := down-1; i >= top+1 && cnt < n; i-- {
+            res = append(res, matrix[i][left])
+            cnt++
+        }
+        top++
+        down--
+        left++
+        right--
+    } 
     return res
 }

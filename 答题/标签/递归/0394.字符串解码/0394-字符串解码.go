@@ -1,34 +1,47 @@
 func decodeString(s string) string {
-	numStack, strStack := make([]int, 0), make([]string, 0)
-	num, str := 0, ""
-	for i := 0; i < len(s); i++ {
-		if isNumber(s[i]) {
-			num = num*10 + int(s[i]-'0')
-		} else if isLetter(s[i]) {
-			str += string(s[i])
-		} else if s[i] == '[' {
-			numStack = append(numStack, num)
-			strStack = append(strStack, str)
-			num, str = 0, ""
-		} else if s[i] == ']' {
-			repeatTime := numStack[len(numStack)-1]
-			numStack = numStack[:len(numStack)-1]
+    stackStr := []string{}
+    stackNum := []int{}
+    str := ""
+    num := 0
+    for i := 0; i < len(s); i++ {
+        if isNum(s[i]) {
+            num = num * 10 + int(s[i] - '0')
+            continue
+        }
+        if isStr(s[i]) {
+            str += string(s[i:i+1])
+            continue
+        }
+        if s[i] == '[' {
+            stackStr = append(stackStr, str)
+            str = ""
 
-			item := strStack[len(strStack)-1]
-			strStack = strStack[:len(strStack)-1]
-			for ; repeatTime != 0; repeatTime-- {
-				item += str
-			}
-			str = item
-		}
-	}
-	return str
+            stackNum = append(stackNum, num)
+            num = 0
+
+            continue
+        }
+        if s[i] == ']'{
+            num = stackNum[len(stackNum)-1]
+            stackNum = stackNum[:len(stackNum)-1]
+            
+            item := str
+            str = stackStr[len(stackStr)-1]
+            stackStr = stackStr[:len(stackStr)-1]
+
+            for num > 0 {
+                str += item
+                num--
+            }
+        }
+    }
+    return str
 }
 
-func isLetter(u uint8) bool {
-	return 'A' <= u && u <= 'Z' || 'a' <= u && u <= 'z'
+func isNum(s byte) bool {
+    return s >= '0' && s <= '9'
 }
 
-func isNumber(u uint8) bool {
-	return '0' <= u && u <= '9'
+func isStr(s byte) bool {
+    return (s >= 'a' && s <= 'z') || s >= 'A' && s <= 'Z'
 }

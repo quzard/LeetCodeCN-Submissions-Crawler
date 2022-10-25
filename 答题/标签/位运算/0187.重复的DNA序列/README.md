@@ -1,4 +1,4 @@
-# [187. 重复的DNA序列](https://leetcode-cn.com/problems/repeated-dna-sequences)
+# [187. 重复的DNA序列](https://leetcode.cn/problems/repeated-dna-sequences)
 <p><strong>DNA序列</strong>&nbsp;由一系列核苷酸组成，缩写为<meta charset="UTF-8" />&nbsp;<code>'A'</code>,&nbsp;<code>'C'</code>,&nbsp;<code>'G'</code>&nbsp;和<meta charset="UTF-8" />&nbsp;<code>'T'</code>.。</p>
 
 <ul>
@@ -34,4 +34,4 @@
 	<li><code>s[i]</code><code>==</code><code>'A'</code>、<code>'C'</code>、<code>'G'</code>&nbsp;or&nbsp;<code>'T'</code></li>
 </ul>
 
-**标签:**  [位运算](https://leetcode-cn.com/tag/bit-manipulation) [哈希表](https://leetcode-cn.com/tag/hash-table) [字符串](https://leetcode-cn.com/tag/string) [滑动窗口](https://leetcode-cn.com/tag/sliding-window) [哈希函数](https://leetcode-cn.com/tag/hash-function) [滚动哈希](https://leetcode-cn.com/tag/rolling-hash) 
+**标签:**  [位运算](https://leetcode.cn/tag/bit-manipulation) [哈希表](https://leetcode.cn/tag/hash-table) [字符串](https://leetcode.cn/tag/string) [滑动窗口](https://leetcode.cn/tag/sliding-window) [哈希函数](https://leetcode.cn/tag/hash-function) [滚动哈希](https://leetcode.cn/tag/rolling-hash) 

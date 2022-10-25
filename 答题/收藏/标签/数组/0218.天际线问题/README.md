@@ -1,4 +1,4 @@
-# [218. 天际线问题](https://leetcode-cn.com/problems/the-skyline-problem)
+# [218. 天际线问题](https://leetcode.cn/problems/the-skyline-problem)
 <p>城市的 <strong>天际线</strong> 是从远处观看该城市中所有建筑物形成的轮廓的外部轮廓。给你所有建筑物的位置和高度，请返回 <em>由这些建筑物形成的<strong> 天际线</strong></em> 。</p>
 
 <p>每个建筑物的几何信息由数组 <code>buildings</code> 表示，其中三元组 <code>buildings[i] = [lefti, righti, heighti]</code> 表示：</p>
@@ -44,4 +44,4 @@
 	<li><code>buildings</code> 按 <code>left<sub>i</sub></code> 非递减排序</li>
 </ul>
 
-**标签:**  [树状数组](https://leetcode-cn.com/tag/binary-indexed-tree) [线段树](https://leetcode-cn.com/tag/segment-tree) [数组](https://leetcode-cn.com/tag/array) [分治](https://leetcode-cn.com/tag/divide-and-conquer) [有序集合](https://leetcode-cn.com/tag/ordered-set) [扫描线](https://leetcode-cn.com/tag/line-sweep) [堆（优先队列）](https://leetcode-cn.com/tag/heap-priority-queue) 
+**标签:**  [树状数组](https://leetcode.cn/tag/binary-indexed-tree) [线段树](https://leetcode.cn/tag/segment-tree) [数组](https://leetcode.cn/tag/array) [分治](https://leetcode.cn/tag/divide-and-conquer) [有序集合](https://leetcode.cn/tag/ordered-set) [扫描线](https://leetcode.cn/tag/line-sweep) [堆（优先队列）](https://leetcode.cn/tag/heap-priority-queue) 

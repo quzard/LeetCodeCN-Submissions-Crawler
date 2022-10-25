@@ -1,4 +1,4 @@
-# [70. 爬楼梯](https://leetcode-cn.com/problems/climbing-stairs)
+# [70. 爬楼梯](https://leetcode.cn/problems/climbing-stairs)
 <p>假设你正在爬楼梯。需要 <code>n</code>&nbsp;阶你才能到达楼顶。</p>
 
 <p>每次你可以爬 <code>1</code> 或 <code>2</code> 个台阶。你有多少种不同的方法可以爬到楼顶呢？</p>
@@ -33,4 +33,4 @@
 	<li><code>1 &lt;= n &lt;= 45</code></li>
 </ul>
 
-**标签:**  [记忆化搜索](https://leetcode-cn.com/tag/memoization) [数学](https://leetcode-cn.com/tag/math) [动态规划](https://leetcode-cn.com/tag/dynamic-programming) 
+**标签:**  [记忆化搜索](https://leetcode.cn/tag/memoization) [数学](https://leetcode.cn/tag/math) [动态规划](https://leetcode.cn/tag/dynamic-programming) 

@@ -1,4 +1,4 @@
-# [208. 实现 Trie (前缀树)](https://leetcode-cn.com/problems/implement-trie-prefix-tree)
+# [208. 实现 Trie (前缀树)](https://leetcode.cn/problems/implement-trie-prefix-tree)
 <p><strong><a href="https://baike.baidu.com/item/字典树/9825209?fr=aladdin" target="_blank">Trie</a></strong>（发音类似 "try"）或者说 <strong>前缀树</strong> 是一种树形数据结构，用于高效地存储和检索字符串数据集中的键。这一数据结构有相当多的应用情景，例如自动补完和拼写检查。</p>
 
 <p>请你实现 Trie 类：</p>
@@ -41,4 +41,4 @@ trie.search("app");     // 返回 True
 	<li><code>insert</code>、<code>search</code> 和 <code>startsWith</code> 调用次数 <strong>总计</strong> 不超过 <code>3 * 10<sup>4</sup></code> 次</li>
 </ul>
 
-**标签:**  [设计](https://leetcode-cn.com/tag/design) [字典树](https://leetcode-cn.com/tag/trie) [哈希表](https://leetcode-cn.com/tag/hash-table) [字符串](https://leetcode-cn.com/tag/string) 
+**标签:**  [设计](https://leetcode.cn/tag/design) [字典树](https://leetcode.cn/tag/trie) [哈希表](https://leetcode.cn/tag/hash-table) [字符串](https://leetcode.cn/tag/string) 

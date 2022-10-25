@@ -1,31 +1,35 @@
 func exist(board [][]byte, word string) bool {
-    res := false
-    var dfs func(i, j, k int) 
-    dfs = func(i, j, k int) {
+    if len(word) == 0 || len(board) == 0 || len(board[0]) == 0 || len(board)*len(board[0]) < len(word) {
+        return false
+    }
+
+    var dfs func(i, j int, k int) bool
+    dfs = func(i, j int, k int) bool {
         if k == len(word) {
-            res = true
-            return
+            return true
         }
-        if res || i < 0 || j < 0 || i >= len(board) || j >= len(board[0]) || board[i][j] != word[k] || board[i][j] == ' ' {
-            return
+        if i < 0 || j < 0 || i == len(board) || j == len(board[0]) || board[i][j] == ' '{
+            return false
+        }
+        if board[i][j] != word[k] {
+            return false
         }
         temp := board[i][j]
         board[i][j] = ' '
-        dfs(i-1, j, k+1)
-        dfs(i+1, j, k+1)
-        dfs(i, j-1, k+1)
-        dfs(i, j+1, k+1)
+        if dfs(i+1, j, k+1) || dfs(i-1, j, k+1) || dfs(i, j+1, k+1) || dfs(i, j-1, k+1) {
+            board[i][j] = temp
+            return true
+        } 
         board[i][j] = temp
+        return false
+
     }
     for i := 0; i < len(board); i++ {
         for j := 0; j < len(board[0]); j++ {
-            if res {
+            if dfs(i, j, 0) {
                 return true
-            }
-            if board[i][j] == word[0] {
-                dfs(i, j, 0)
             }
         }
     }
-    return res
+    return false
 }

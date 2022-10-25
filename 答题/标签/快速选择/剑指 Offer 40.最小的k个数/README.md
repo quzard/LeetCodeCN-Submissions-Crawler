@@ -1,4 +1,4 @@
-# [剑指 Offer 40. 最小的k个数](https://leetcode-cn.com/problems/zui-xiao-de-kge-shu-lcof)
+# [剑指 Offer 40. 最小的k个数](https://leetcode.cn/problems/zui-xiao-de-kge-shu-lcof)
 <p>输入整数数组 <code>arr</code> ，找出其中最小的 <code>k</code> 个数。例如，输入4、5、1、6、2、7、3、8这8个数字，则最小的4个数字是1、2、3、4。</p>
 
 <p>&nbsp;</p>
@@ -23,4 +23,4 @@
 	<li><code>0 &lt;= arr[i]&nbsp;&lt;= 10000</code></li>
 </ul>
 
-**标签:**  [数组](https://leetcode-cn.com/tag/array) [分治](https://leetcode-cn.com/tag/divide-and-conquer) [快速选择](https://leetcode-cn.com/tag/quickselect) [排序](https://leetcode-cn.com/tag/sorting) [堆（优先队列）](https://leetcode-cn.com/tag/heap-priority-queue) 
+**标签:**  [数组](https://leetcode.cn/tag/array) [分治](https://leetcode.cn/tag/divide-and-conquer) [快速选择](https://leetcode.cn/tag/quickselect) [排序](https://leetcode.cn/tag/sorting) [堆（优先队列）](https://leetcode.cn/tag/heap-priority-queue) 

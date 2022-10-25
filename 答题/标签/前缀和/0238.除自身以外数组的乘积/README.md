@@ -1,4 +1,4 @@
-# [238. 除自身以外数组的乘积](https://leetcode-cn.com/problems/product-of-array-except-self)
+# [238. 除自身以外数组的乘积](https://leetcode.cn/problems/product-of-array-except-self)
 <p>给你一个整数数组&nbsp;<code>nums</code>，返回 <em>数组&nbsp;<code>answer</code>&nbsp;，其中&nbsp;<code>answer[i]</code>&nbsp;等于&nbsp;<code>nums</code>&nbsp;中除&nbsp;<code>nums[i]</code>&nbsp;之外其余各元素的乘积</em>&nbsp;。</p>
 
 <p>题目数据 <strong>保证</strong> 数组&nbsp;<code>nums</code>之中任意元素的全部前缀元素和后缀的乘积都在&nbsp; <strong>32 位</strong> 整数范围内。</p>
@@ -35,4 +35,4 @@
 
 <p><strong>进阶：</strong>你可以在 <code>O(1)</code>&nbsp;的额外空间复杂度内完成这个题目吗？（ 出于对空间复杂度分析的目的，输出数组<strong>不被视为</strong>额外空间。）</p>
 
-**标签:**  [数组](https://leetcode-cn.com/tag/array) [前缀和](https://leetcode-cn.com/tag/prefix-sum) 
+**标签:**  [数组](https://leetcode.cn/tag/array) [前缀和](https://leetcode.cn/tag/prefix-sum) 

@@ -1,4 +1,4 @@
-# [185. 部门工资前三高的所有员工](https://leetcode-cn.com/problems/department-top-three-salaries)
+# [185. 部门工资前三高的所有员工](https://leetcode.cn/problems/department-top-three-salaries)
 <p>表:&nbsp;<code>Employee</code></p>
 
 <pre>
@@ -87,4 +87,4 @@ Department  表:
 - 山姆的薪水第二高
 - 没有第三高的工资，因为只有两名员工</pre>
 
-**标签:**  [数据库](https://leetcode-cn.com/tag/database) 
+**标签:**  [数据库](https://leetcode.cn/tag/database) 

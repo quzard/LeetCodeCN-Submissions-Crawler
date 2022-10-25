@@ -1,5 +1,5 @@
-# [560. 和为 K 的子数组](https://leetcode-cn.com/problems/subarray-sum-equals-k)
-<p>给你一个整数数组 <code>nums</code> 和一个整数&nbsp;<code>k</code> ，请你统计并返回该数组中和为&nbsp;<code>k</code><strong>&nbsp;</strong>的连续子数组的个数。</p>
+# [560. 和为 K 的子数组](https://leetcode.cn/problems/subarray-sum-equals-k)
+<p>给你一个整数数组 <code>nums</code> 和一个整数&nbsp;<code>k</code> ，请你统计并返回 <em>该数组中和为&nbsp;<code>k</code><strong>&nbsp;</strong>的连续子数组的个数&nbsp;</em>。</p>
 
 <p>&nbsp;</p>
 
@@ -27,4 +27,4 @@
 	<li><code>-10<sup>7</sup> &lt;= k &lt;= 10<sup>7</sup></code></li>
 </ul>
 
-**标签:**  [数组](https://leetcode-cn.com/tag/array) [哈希表](https://leetcode-cn.com/tag/hash-table) [前缀和](https://leetcode-cn.com/tag/prefix-sum) 
+**标签:**  [数组](https://leetcode.cn/tag/array) [哈希表](https://leetcode.cn/tag/hash-table) [前缀和](https://leetcode.cn/tag/prefix-sum) 

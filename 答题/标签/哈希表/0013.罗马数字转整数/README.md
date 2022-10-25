@@ -1,4 +1,4 @@
-# [13. 罗马数字转整数](https://leetcode-cn.com/problems/roman-to-integer)
+# [13. 罗马数字转整数](https://leetcode.cn/problems/roman-to-integer)
 <p>罗马数字包含以下七种字符:&nbsp;<code>I</code>，&nbsp;<code>V</code>，&nbsp;<code>X</code>，&nbsp;<code>L</code>，<code>C</code>，<code>D</code>&nbsp;和&nbsp;<code>M</code>。</p>
 
 <pre>
@@ -71,4 +71,4 @@ M             1000</pre>
 	<li>关于罗马数字的详尽书写规则，可以参考 <a href="https://b2b.partcommunity.com/community/knowledge/zh_CN/detail/10753/%E7%BD%97%E9%A9%AC%E6%95%B0%E5%AD%97#knowledge_article">罗马数字 - Mathematics </a>。</li>
 </ul>
 
-**标签:**  [哈希表](https://leetcode-cn.com/tag/hash-table) [数学](https://leetcode-cn.com/tag/math) [字符串](https://leetcode-cn.com/tag/string) 
+**标签:**  [哈希表](https://leetcode.cn/tag/hash-table) [数学](https://leetcode.cn/tag/math) [字符串](https://leetcode.cn/tag/string) 

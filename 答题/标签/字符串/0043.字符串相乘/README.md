@@ -1,4 +1,4 @@
-# [43. 字符串相乘](https://leetcode-cn.com/problems/multiply-strings)
+# [43. 字符串相乘](https://leetcode.cn/problems/multiply-strings)
 <p>给定两个以字符串形式表示的非负整数&nbsp;<code>num1</code>&nbsp;和&nbsp;<code>num2</code>，返回&nbsp;<code>num1</code>&nbsp;和&nbsp;<code>num2</code>&nbsp;的乘积，它们的乘积也表示为字符串形式。</p>
 
 <p><strong>注意：</strong>不能使用任何内置的 BigInteger 库或直接将输入转换为整数。</p>
@@ -27,4 +27,4 @@
 	<li><code>num1</code>&nbsp;和 <code>num2</code>&nbsp;都不包含任何前导零，除了数字0本身。</li>
 </ul>
 
-**标签:**  [数学](https://leetcode-cn.com/tag/math) [字符串](https://leetcode-cn.com/tag/string) [模拟](https://leetcode-cn.com/tag/simulation) 
+**标签:**  [数学](https://leetcode.cn/tag/math) [字符串](https://leetcode.cn/tag/string) [模拟](https://leetcode.cn/tag/simulation) 

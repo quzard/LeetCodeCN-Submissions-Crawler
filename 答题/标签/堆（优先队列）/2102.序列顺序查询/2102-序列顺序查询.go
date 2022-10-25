@@ -1,5 +1,5 @@
 // https://github.com/EndlessCheng/codeforces-go/blob/master/copypasta/treap.go
-// ç¬›å¡å°”æ ‘
+// µÑ¿¨¶ûÊ÷
 
 package main
 
@@ -107,7 +107,7 @@ func newTreap() *treap {
 	return &treap{rd: uint(time.Now().UnixNano())/2 + 1}
 }
 
-// æœ‰ k ä¸ªå…ƒç´ å°äº o.key
+// ÓĞ k ¸öÔªËØĞ¡ÓÚ o.key
 func (t *treap) kth(k int) (o *node) {
 	//if k < 0 || k >= t.root.size() {
 	//	return

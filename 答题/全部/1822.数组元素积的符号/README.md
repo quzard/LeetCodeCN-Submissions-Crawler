@@ -1,4 +1,4 @@
-# [1822. 数组元素积的符号](https://leetcode-cn.com/problems/sign-of-the-product-of-an-array)
+# [1822. 数组元素积的符号](https://leetcode.cn/problems/sign-of-the-product-of-an-array)
 <p>已知函数 <code>signFunc(x)</code> 将会根据 <code>x</code> 的正负返回特定值：</p>
 
 <ul>
@@ -46,4 +46,4 @@
 	<li><code>-100 <= nums[i] <= 100</code></li>
 </ul>
 
-**标签:**  [数组](https://leetcode-cn.com/tag/array) [数学](https://leetcode-cn.com/tag/math) 
+**标签:**  [数组](https://leetcode.cn/tag/array) [数学](https://leetcode.cn/tag/math) 

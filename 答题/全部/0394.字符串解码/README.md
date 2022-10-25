@@ -1,4 +1,4 @@
-# [394. 字符串解码](https://leetcode-cn.com/problems/decode-string)
+# [394. 字符串解码](https://leetcode.cn/problems/decode-string)
 <p>给定一个经过编码的字符串，返回它解码后的字符串。</p>
 
 <p>编码规则为: <code>k[encoded_string]</code>，表示其中方括号内部的 <code>encoded_string</code> 正好重复 <code>k</code> 次。注意 <code>k</code> 保证为正整数。</p>
@@ -48,4 +48,4 @@
 	<li><code>s</code>&nbsp;中所有整数的取值范围为<meta charset="UTF-8" />&nbsp;<code>[1, 300]</code>&nbsp;</li>
 </ul>
 
-**标签:**  [栈](https://leetcode-cn.com/tag/stack) [递归](https://leetcode-cn.com/tag/recursion) [字符串](https://leetcode-cn.com/tag/string) 
+**标签:**  [栈](https://leetcode.cn/tag/stack) [递归](https://leetcode.cn/tag/recursion) [字符串](https://leetcode.cn/tag/string) 

@@ -1,4 +1,4 @@
-# [148. 排序链表](https://leetcode-cn.com/problems/sort-list)
+# [148. 排序链表](https://leetcode.cn/problems/sort-list)
 <p>给你链表的头结点&nbsp;<code>head</code>&nbsp;，请将其按 <strong>升序</strong> 排列并返回 <strong>排序后的链表</strong> 。</p>
 
 <ul>
@@ -40,4 +40,4 @@
 
 <p><b>进阶：</b>你可以在&nbsp;<code>O(n&nbsp;log&nbsp;n)</code> 时间复杂度和常数级空间复杂度下，对链表进行排序吗？</p>
 
-**标签:**  [链表](https://leetcode-cn.com/tag/linked-list) [双指针](https://leetcode-cn.com/tag/two-pointers) [分治](https://leetcode-cn.com/tag/divide-and-conquer) [排序](https://leetcode-cn.com/tag/sorting) [归并排序](https://leetcode-cn.com/tag/merge-sort) 
+**标签:**  [链表](https://leetcode.cn/tag/linked-list) [双指针](https://leetcode.cn/tag/two-pointers) [分治](https://leetcode.cn/tag/divide-and-conquer) [排序](https://leetcode.cn/tag/sorting) [归并排序](https://leetcode.cn/tag/merge-sort) 

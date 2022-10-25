@@ -1,4 +1,4 @@
-# [47. 全排列 II](https://leetcode-cn.com/problems/permutations-ii)
+# [47. 全排列 II](https://leetcode.cn/problems/permutations-ii)
 <p>给定一个可包含重复数字的序列 <code>nums</code> ，<em><strong>按任意顺序</strong></em> 返回所有不重复的全排列。</p>
 
 <p>&nbsp;</p>
@@ -29,4 +29,4 @@
 	<li><code>-10 &lt;= nums[i] &lt;= 10</code></li>
 </ul>
 
-**标签:**  [数组](https://leetcode-cn.com/tag/array) [回溯](https://leetcode-cn.com/tag/backtracking) 
+**标签:**  [数组](https://leetcode.cn/tag/array) [回溯](https://leetcode.cn/tag/backtracking) 

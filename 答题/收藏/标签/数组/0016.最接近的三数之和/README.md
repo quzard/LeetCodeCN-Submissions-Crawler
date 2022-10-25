@@ -1,4 +1,4 @@
-# [16. 最接近的三数之和](https://leetcode-cn.com/problems/3sum-closest)
+# [16. 最接近的三数之和](https://leetcode.cn/problems/3sum-closest)
 <p>给你一个长度为 <code>n</code> 的整数数组&nbsp;<code>nums</code><em>&nbsp;</em>和 一个目标值&nbsp;<code>target</code>。请你从 <code>nums</code><em> </em>中选出三个整数，使它们的和与&nbsp;<code>target</code>&nbsp;最接近。</p>
 
 <p>返回这三个数的和。</p>
@@ -32,4 +32,4 @@
 	<li><code>-10<sup>4</sup> &lt;= target &lt;= 10<sup>4</sup></code></li>
 </ul>
 
-**标签:**  [数组](https://leetcode-cn.com/tag/array) [双指针](https://leetcode-cn.com/tag/two-pointers) [排序](https://leetcode-cn.com/tag/sorting) 
+**标签:**  [数组](https://leetcode.cn/tag/array) [双指针](https://leetcode.cn/tag/two-pointers) [排序](https://leetcode.cn/tag/sorting) 

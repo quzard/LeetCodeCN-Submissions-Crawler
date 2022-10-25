@@ -1,4 +1,4 @@
-# [595. 大的国家](https://leetcode-cn.com/problems/big-countries)
+# [595. 大的国家](https://leetcode.cn/problems/big-countries)
 <p><code>World</code> 表：</p>
 
 <div class="top-view__1vxA">
@@ -23,7 +23,7 @@ name 是这张表的主键。
 <p>如果一个国家满足下述两个条件之一，则认为该国是 <strong>大国</strong> ：</p>
 
 <ul>
-	<li>面积至少为 300 平方公里（即，<code>3000000 km<sup>2</sup></code>），或者</li>
+	<li>面积至少为 300 万平方公里（即，<code>3000000 km<sup>2</sup></code>），或者</li>
 	<li>人口至少为 2500 万（即 <code>25000000</code>）</li>
 </ul>
 
@@ -61,4 +61,4 @@ World 表：
 </div>
 </div>
 
-**标签:**  [数据库](https://leetcode-cn.com/tag/database) 
+**标签:**  [数据库](https://leetcode.cn/tag/database) 

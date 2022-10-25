@@ -1,4 +1,4 @@
-# [54. 螺旋矩阵](https://leetcode-cn.com/problems/spiral-matrix)
+# [54. 螺旋矩阵](https://leetcode.cn/problems/spiral-matrix)
 <p>给你一个 <code>m</code> 行 <code>n</code> 列的矩阵 <code>matrix</code> ，请按照 <strong>顺时针螺旋顺序</strong> ，返回矩阵中的所有元素。</p>
 
 <p> </p>
@@ -28,4 +28,4 @@
 	<li><code>-100 <= matrix[i][j] <= 100</code></li>
 </ul>
 
-**标签:**  [数组](https://leetcode-cn.com/tag/array) [矩阵](https://leetcode-cn.com/tag/matrix) [模拟](https://leetcode-cn.com/tag/simulation) 
+**标签:**  [数组](https://leetcode.cn/tag/array) [矩阵](https://leetcode.cn/tag/matrix) [模拟](https://leetcode.cn/tag/simulation) 

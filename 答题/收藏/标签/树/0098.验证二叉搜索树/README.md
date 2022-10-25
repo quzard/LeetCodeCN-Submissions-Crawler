@@ -1,4 +1,4 @@
-# [98. 验证二叉搜索树](https://leetcode-cn.com/problems/validate-binary-search-tree)
+# [98. 验证二叉搜索树](https://leetcode.cn/problems/validate-binary-search-tree)
 <p>给你一个二叉树的根节点 <code>root</code> ，判断其是否是一个有效的二叉搜索树。</p>
 
 <p><strong>有效</strong> 二叉搜索树定义如下：</p>
@@ -35,4 +35,4 @@
 	<li><code>-2<sup>31</sup> &lt;= Node.val &lt;= 2<sup>31</sup> - 1</code></li>
 </ul>
 
-**标签:**  [树](https://leetcode-cn.com/tag/tree) [深度优先搜索](https://leetcode-cn.com/tag/depth-first-search) [二叉搜索树](https://leetcode-cn.com/tag/binary-search-tree) [二叉树](https://leetcode-cn.com/tag/binary-tree) 
+**标签:**  [树](https://leetcode.cn/tag/tree) [深度优先搜索](https://leetcode.cn/tag/depth-first-search) [二叉搜索树](https://leetcode.cn/tag/binary-search-tree) [二叉树](https://leetcode.cn/tag/binary-tree) 

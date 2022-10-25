@@ -29,7 +29,6 @@ func isMatch1(s string, p string) bool {
 
 
 func isMatch(s string, p string) bool {
-	m, n := len(s), len(p)
 	matches := func(i, j int) bool {
 		if i == 0 {
 			return false
@@ -39,22 +38,22 @@ func isMatch(s string, p string) bool {
 		}
 		return s[i-1] == p[j-1]
 	}
-	f := make([][]bool, m+1)
-	for i := 0; i < len(f); i++ {
-		f[i] = make([]bool, n+1)
-	}
-	f[0][0] = true
-	for i := 0; i <= m; i++ {
-		for j := 1; j <= n; j++ {
+	dp := [2][]bool{}
+    dp[0] = make([]bool, len(p)+1)
+    dp[1] =  make([]bool, len(p)+1)
+    dp[1][0] = true
+	for i := 0; i <= len(s); i++ {
+		for j := 1; j <= len(p); j++ {
 			if p[j-1] == '*' {
-				f[i][j] = f[i][j-2]
-				if !f[i][j] && matches(i, j-1) {
-					f[i][j] =  f[i-1][j]
+				dp[1][j] = dp[1][j-2]
+				if !dp[1][j] && matches(i, j-1) {
+					dp[1][j] =  dp[0][j]
 				}
 			} else if matches(i, j) {
-				f[i][j] = f[i-1][j-1]
+				dp[1][j] = dp[0][j-1]
 			}
 		}
+        dp[1], dp[0] = make([]bool, len(p)+1), dp[1]
 	}
-	return f[m][n]
+	return dp[0][len(p)]
 }

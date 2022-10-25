@@ -1,8 +1,8 @@
-//å¹¶æŸ¥é›†
+//²¢²é¼¯
 func countComponents(n int, edges [][]int) int {
 	ans := 0
 	fa := make([]int, n)
-	//MakeSet å»ºç«‹å¹¶æŸ¥é›†
+	//MakeSet ½¨Á¢²¢²é¼¯
 	for i := 0; i < n; i++ {
 		fa[i] = i
 	}
@@ -15,7 +15,7 @@ func countComponents(n int, edges [][]int) int {
 	}
 
 	for i := 0; i < n; i++ {
-		//é‡åˆ°å¹¶æŸ¥é›†çš„æ ¹ï¼Œç­”æ¡ˆåŠ 1
+		//Óöµ½²¢²é¼¯µÄ¸ù£¬´ð°¸¼Ó1
 		if Find(fa, i) == i {
 			ans++
 		}
@@ -24,14 +24,14 @@ func countComponents(n int, edges [][]int) int {
 	return ans
 }
 
-//å¹¶æŸ¥é›† è·¯å¾„åŽ‹ç¼©æ¨¡æ¿
-//æŸ¥è¯¢ï¼ˆFindï¼‰ï¼šæŸ¥è¯¢ä¸¤ä¸ªå…ƒç´ æ˜¯å¦åœ¨åŒä¸€ä¸ªé›†åˆä¸­ã€‚
+//²¢²é¼¯ Â·¾¶Ñ¹ËõÄ£°å
+//²éÑ¯£¨Find£©£º²éÑ¯Á½¸öÔªËØÊÇ·ñÔÚÍ¬Ò»¸ö¼¯ºÏÖÐ¡£
 func Find(fa []int, x int) int {
-    // ä¸€å¼€å§‹x æŒ‡å‘x
+    // Ò»¿ªÊ¼x Ö¸Ïòx
 	if fa[x] == x {
 		return x
 	}
-    // æ‰¾æ ¹èŠ‚ç‚¹
+    // ÕÒ¸ù½Úµã
 	fa[x] = Find(fa, fa[x])
 	return Find(fa, fa[x])
 }
@@ -39,19 +39,19 @@ func Find(fa []int, x int) int {
 func unionSet(fa []int, x, y int) {
 	x, y = Find(fa, x), Find(fa, y)
 	if x != y {
-        // y æŒ‡å‘ x, x ä¸ºçˆ¶èŠ‚ç‚¹ï¼Œ å°¾å·´æŒ‡å‘å¤´
+        // y Ö¸Ïò x, x Îª¸¸½Úµã£¬ Î²°ÍÖ¸ÏòÍ·
 		fa[y] = x
 	}
 }
 
-// è¿žé€šå›¾
+// Á¬Í¨Í¼
 func countComponents1(n int, edges [][]int) (cnt int) {
 	table := make(map[int][]int, n)
 	for _, edge := range edges {
-		from := edge[0]                       // å¤´
-		to := edge[1]                         // å°¾
-		table[from] = append(table[from], to) // å¤´åŒ…å«å°¾å·´
-		table[to] = append(table[to], from)   // å°¾å·´åŒ…å«å¤´
+		from := edge[0]                       // Í·
+		to := edge[1]                         // Î²
+		table[from] = append(table[from], to) // Í·°üº¬Î²°Í
+		table[to] = append(table[to], from)   // Î²°Í°üº¬Í·
 	}
 
 	visted := make([]bool, n)

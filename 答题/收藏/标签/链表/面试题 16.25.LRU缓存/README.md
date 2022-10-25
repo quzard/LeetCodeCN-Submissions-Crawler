@@ -1,4 +1,4 @@
-# [面试题 16.25. LRU 缓存](https://leetcode-cn.com/problems/lru-cache-lcci)
+# [面试题 16.25. LRU 缓存](https://leetcode.cn/problems/lru-cache-lcci)
 <p>设计和构建一个&ldquo;最近最少使用&rdquo;缓存，该缓存会删除最近最少使用的项目。缓存应该从键映射到值(允许你插入和检索特定键对应的值)，并在初始化时指定最大容量。当缓存被填满时，它应该删除最近最少使用的项目。</p>
 
 <p>它应该支持以下操作： 获取数据 <code>get</code> 和 写入数据 <code>put</code> 。</p>
@@ -21,4 +21,4 @@ cache.get(3);       // 返回  3
 cache.get(4);       // 返回  4
 </pre>
 
-**标签:**  [设计](https://leetcode-cn.com/tag/design) [哈希表](https://leetcode-cn.com/tag/hash-table) [链表](https://leetcode-cn.com/tag/linked-list) [双向链表](https://leetcode-cn.com/tag/doubly-linked-list) 
+**标签:**  [设计](https://leetcode.cn/tag/design) [哈希表](https://leetcode.cn/tag/hash-table) [链表](https://leetcode.cn/tag/linked-list) [双向链表](https://leetcode.cn/tag/doubly-linked-list) 

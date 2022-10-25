@@ -1,4 +1,4 @@
-# [475. 供暖器](https://leetcode-cn.com/problems/heaters)
+# [475. 供暖器](https://leetcode.cn/problems/heaters)
 <p>冬季已经来临。 你的任务是设计一个有固定加热半径的供暖器向所有房屋供暖。</p>
 
 <p>在加热器的加热半径范围内的每个房屋都可以获得供暖。</p>
@@ -41,4 +41,4 @@
 	<li><code>1 <= houses[i], heaters[i] <= 10<sup>9</sup></code></li>
 </ul>
 
-**标签:**  [数组](https://leetcode-cn.com/tag/array) [双指针](https://leetcode-cn.com/tag/two-pointers) [二分查找](https://leetcode-cn.com/tag/binary-search) [排序](https://leetcode-cn.com/tag/sorting) 
+**标签:**  [数组](https://leetcode.cn/tag/array) [双指针](https://leetcode.cn/tag/two-pointers) [二分查找](https://leetcode.cn/tag/binary-search) [排序](https://leetcode.cn/tag/sorting) 

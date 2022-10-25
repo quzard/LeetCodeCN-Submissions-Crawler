@@ -1,4 +1,4 @@
-# [202. 快乐数](https://leetcode-cn.com/problems/happy-number)
+# [202. 快乐数](https://leetcode.cn/problems/happy-number)
 <p>编写一个算法来判断一个数 <code>n</code> 是不是快乐数。</p>
 
 <p><strong>「快乐数」</strong>&nbsp;定义为：</p>
@@ -40,4 +40,4 @@
 	<li><code>1 &lt;= n &lt;= 2<sup>31</sup> - 1</code></li>
 </ul>
 
-**标签:**  [哈希表](https://leetcode-cn.com/tag/hash-table) [数学](https://leetcode-cn.com/tag/math) [双指针](https://leetcode-cn.com/tag/two-pointers) 
+**标签:**  [哈希表](https://leetcode.cn/tag/hash-table) [数学](https://leetcode.cn/tag/math) [双指针](https://leetcode.cn/tag/two-pointers) 

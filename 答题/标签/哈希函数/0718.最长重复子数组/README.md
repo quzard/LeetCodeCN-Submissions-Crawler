@@ -1,4 +1,4 @@
-# [718. 最长重复子数组](https://leetcode-cn.com/problems/maximum-length-of-repeated-subarray)
+# [718. 最长重复子数组](https://leetcode.cn/problems/maximum-length-of-repeated-subarray)
 <p>给两个整数数组&nbsp;<code>nums1</code>&nbsp;和&nbsp;<code>nums2</code>&nbsp;，返回 <em>两个数组中 <strong>公共的</strong> 、长度最长的子数组的长度&nbsp;</em>。</p>
 
 <p>&nbsp;</p>
@@ -27,4 +27,4 @@
 	<li><code>0 &lt;= nums1[i], nums2[i] &lt;= 100</code></li>
 </ul>
 
-**标签:**  [数组](https://leetcode-cn.com/tag/array) [二分查找](https://leetcode-cn.com/tag/binary-search) [动态规划](https://leetcode-cn.com/tag/dynamic-programming) [滑动窗口](https://leetcode-cn.com/tag/sliding-window) [哈希函数](https://leetcode-cn.com/tag/hash-function) [滚动哈希](https://leetcode-cn.com/tag/rolling-hash) 
+**标签:**  [数组](https://leetcode.cn/tag/array) [二分查找](https://leetcode.cn/tag/binary-search) [动态规划](https://leetcode.cn/tag/dynamic-programming) [滑动窗口](https://leetcode.cn/tag/sliding-window) [哈希函数](https://leetcode.cn/tag/hash-function) [滚动哈希](https://leetcode.cn/tag/rolling-hash) 

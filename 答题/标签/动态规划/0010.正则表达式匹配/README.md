@@ -1,4 +1,4 @@
-# [10. 正则表达式匹配](https://leetcode-cn.com/problems/regular-expression-matching)
+# [10. 正则表达式匹配](https://leetcode.cn/problems/regular-expression-matching)
 <p>给你一个字符串&nbsp;<code>s</code>&nbsp;和一个字符规律&nbsp;<code>p</code>，请你来实现一个支持 <code>'.'</code>&nbsp;和&nbsp;<code>'*'</code>&nbsp;的正则表达式匹配。</p>
 
 <ul>
@@ -45,4 +45,4 @@
 	<li>保证每次出现字符&nbsp;<code>*</code> 时，前面都匹配到有效的字符</li>
 </ul>
 
-**标签:**  [递归](https://leetcode-cn.com/tag/recursion) [字符串](https://leetcode-cn.com/tag/string) [动态规划](https://leetcode-cn.com/tag/dynamic-programming) 
+**标签:**  [递归](https://leetcode.cn/tag/recursion) [字符串](https://leetcode.cn/tag/string) [动态规划](https://leetcode.cn/tag/dynamic-programming) 

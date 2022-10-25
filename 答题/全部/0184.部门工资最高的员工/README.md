@@ -1,4 +1,4 @@
-# [184. 部门工资最高的员工](https://leetcode-cn.com/problems/department-highest-salary)
+# [184. 部门工资最高的员工](https://leetcode.cn/problems/department-highest-salary)
 <p>表：&nbsp;<code>Employee</code></p>
 
 <pre>
@@ -69,4 +69,4 @@ Department 表:
 +------------+----------+--------+
 <strong>解释：</strong>Max 和 Jim 在 IT 部门的工资都是最高的，Henry 在销售部的工资最高。</pre>
 
-**标签:**  [数据库](https://leetcode-cn.com/tag/database) 
+**标签:**  [数据库](https://leetcode.cn/tag/database) 

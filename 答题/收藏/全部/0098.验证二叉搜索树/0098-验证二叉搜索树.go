@@ -6,92 +6,33 @@
  *     Right *TreeNode
  * }
  */
-func isValidBST1(root *TreeNode) bool {
-    res := true
-    var dfs func(root*TreeNode, l, r int) // dir true right. false  left
-    dfs = func(root*TreeNode, l, r int){
-        if res == false{
-            return
-        }
-        if l != math.MinInt64{
-            if root.Val <= l{
-                res = false
-                return
-            }
-        }
-        if r != math.MaxInt64{
-            if root.Val >= r{
-                res = false
-                return
-            }
-        }
-        if root.Left != nil{
-            if root.Left.Val < root.Val{
-                dfs(root.Left, l, min(root.Val, r))
-            }else{
-                res = false
-                return 
-            }
-        }
-        if root.Right!=nil{
-            if root.Right.Val > root.Val{
-                dfs(root.Right, min(root.Val, l), r)
-            }else{
-                res = false
-                return 
-            }
-        }
-    }
-
-
-    if root.Left != nil{
-        if root.Left.Val < root.Val{
-            dfs(root.Left, math.MinInt64, root.Val)
-        }else{
-            return false
-        }
-    }
-    if root.Right!=nil{
-        if root.Right.Val > root.Val{
-            dfs(root.Right, root.Val, math.MaxInt64)
-        }else{
-            return false
-        }
-    }
-
-    return res
-}
-
-func min(a, b int) int{
-    if a < b{
-        return a
-    }
-    return b
-}
-
-func max(a, b int) int{
-    if a > b{
-        return a
-    }
-    return b
-}
-
-
-
-
-
-
 func isValidBST(root *TreeNode) bool {
+    return helper(root, math.MinInt64, math.MaxInt64)
+}
 
-    var inOrder func(n *TreeNode)
+func helper(root *TreeNode, lower, upper int) bool {
+    if root == nil {
+        return true
+    }
+    if root.Val <= lower || root.Val >= upper {
+        return false
+    }
+    return helper(root.Left, lower, root.Val) && helper(root.Right, root.Val, upper)
+}
+
+func isValidBST1(root *TreeNode) bool {
 	var pre *TreeNode
 	flag := true
 
-	inOrder = func(node *TreeNode) {
+    var dfs func(n *TreeNode)
+	dfs = func(node *TreeNode) {
+        if flag == false {
+            return
+        }
 		if node == nil {
 			return
 		}
-		inOrder(node.Left)
+		dfs(node.Left)
 		if pre == nil {
 			pre = node
 		} else {
@@ -101,9 +42,8 @@ func isValidBST(root *TreeNode) bool {
 				pre = node
 			}
 		}
-		inOrder(node.Right)
+		dfs(node.Right)
 	}
-	inOrder(root)
+	dfs(root)
 	return flag
-
 }

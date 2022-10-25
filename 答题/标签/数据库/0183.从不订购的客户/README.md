@@ -1,4 +1,4 @@
-# [183. 从不订购的客户](https://leetcode-cn.com/problems/customers-who-never-order)
+# [183. 从不订购的客户](https://leetcode.cn/problems/customers-who-never-order)
 <p>某网站包含两个表，<code>Customers</code> 表和 <code>Orders</code> 表。编写一个 SQL 查询，找出所有从不订购任何东西的客户。</p>
 
 <p><code>Customers</code> 表：</p>
@@ -33,4 +33,4 @@
 +-----------+
 </pre>
 
-**标签:**  [数据库](https://leetcode-cn.com/tag/database) 
+**标签:**  [数据库](https://leetcode.cn/tag/database) 

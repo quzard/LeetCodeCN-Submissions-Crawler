@@ -1,22 +1,26 @@
-func nextPermutation(nums []int) {
-    n := len(nums)
-    i := n - 2
-    for i >= 0 && nums[i] >= nums[i+1]{
-        i--
+func nextPermutation(nums []int)  {
+    if len(nums) < 2 {
+        return
     }
-    if i >= 0 {
-        j := len(nums) - 1
-        for j >= i && nums[i] >= nums[j] {
-            j--
-        }
-        fmt.Println(i, j)
-        nums[i], nums[j] = nums[j], nums[i]
+    // 找到第一个 nums[l] > nums[l-1]
+    l := len(nums) - 1
+    for ; l > 0 && nums[l] <= nums[l-1]; l-- {
     }
-    reverse(nums[i+1:])
+    if l == 0 {
+        reverse(nums, 0, len(nums)-1)
+        return
+    }
+    //记录l-1为l, 此时 nums[l+1:]为递减序列且 nums[l] < nums[l+1]
+    l--
+    // 找到第一个 nums[l] < nums[r]
+    r := len(nums) - 1
+    for ; r > l && nums[l] >= nums[r]; r-- {
+    }
+    nums[l], nums[r] = nums[r], nums[l]
+    reverse(nums, l+1, len(nums) - 1)
 }
 
-func reverse(nums []int) {
-    l, r := 0, len(nums) - 1
+func reverse(nums []int, l, r int) {
     for l < r {
         nums[l], nums[r] = nums[r], nums[l]
         l++

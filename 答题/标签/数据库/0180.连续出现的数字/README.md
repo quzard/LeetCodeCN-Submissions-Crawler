@@ -1,4 +1,4 @@
-# [180. 连续出现的数字](https://leetcode-cn.com/problems/consecutive-numbers)
+# [180. 连续出现的数字](https://leetcode.cn/problems/consecutive-numbers)
 <p>表：<code>Logs</code></p>
 
 <pre>
@@ -45,4 +45,4 @@ Result 表：
 +-----------------+
 <strong>解释：</strong>1 是唯一连续出现至少三次的数字。</pre>
 
-**标签:**  [数据库](https://leetcode-cn.com/tag/database) 
+**标签:**  [数据库](https://leetcode.cn/tag/database) 

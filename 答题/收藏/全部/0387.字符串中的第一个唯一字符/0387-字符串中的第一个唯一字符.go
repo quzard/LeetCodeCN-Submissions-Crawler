@@ -16,7 +16,7 @@ type pair struct {
 	pos int
 }
 
-// é˜Ÿåˆ—
+// ¶ÓÁÐ
 func firstUniqChar(s string) int {
 	n := len(s)
 	pos := [26]int{}

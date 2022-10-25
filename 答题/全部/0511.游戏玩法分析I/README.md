@@ -1,4 +1,4 @@
-# [511. 游戏玩法分析 I](https://leetcode-cn.com/problems/game-play-analysis-i)
+# [511. 游戏玩法分析 I](https://leetcode.cn/problems/game-play-analysis-i)
 <p>活动表&nbsp;<code>Activity</code>：</p>
 
 <pre>
@@ -43,4 +43,4 @@ Result 表：
 +-----------+-------------+
 </pre>
 
-**标签:**  [数据库](https://leetcode-cn.com/tag/database) 
+**标签:**  [数据库](https://leetcode.cn/tag/database) 

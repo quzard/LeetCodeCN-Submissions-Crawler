@@ -6,36 +6,28 @@
  *     Right *TreeNode
  * }
  */
-func hasPathSum1(root *TreeNode, targetSum int) bool {
-    if root == nil{
-        return false
-    }
-    res := false
-    var dfs func(cur *TreeNode, sum int)
-    dfs = func(cur *TreeNode, sum int){
-        if res || cur == nil{
-            return
-        }
-        sum += cur.Val
-        if sum == targetSum && cur.Right == nil && cur.Left == nil{
-            res = true
-            return 
-        }
-        dfs(cur.Left, sum)
-        dfs(cur.Right, sum)
-    }
-    dfs(root, 0)
-    return res
-}
-
 func hasPathSum(root *TreeNode, targetSum int) bool {
     if root == nil {
         return false
     }
 
-    if root.Left == nil && root.Right == nil {
-        return targetSum == root.Val
+    var dfs func(cur *TreeNode, sum int) bool
+    dfs = func(cur *TreeNode, sum int) bool {
+        sum += cur.Val
+        if cur.Left == nil && cur.Right == nil {
+            return sum == targetSum
+        }
+        if cur.Left != nil {
+            if dfs(cur.Left, sum) {
+                return true
+            }
+        }
+        if cur.Right != nil {
+            if dfs(cur.Right, sum) {
+                return true
+            }
+        }
+        return false
     }
-
-    return hasPathSum(root.Left, targetSum - root.Val) || hasPathSum(root.Right, targetSum - root.Val)
+    return dfs(root, 0)
 }

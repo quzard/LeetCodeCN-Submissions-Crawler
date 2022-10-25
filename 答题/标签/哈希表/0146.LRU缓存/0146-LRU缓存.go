@@ -3,9 +3,15 @@ type LRUCache struct {
     size     int
     head     *Node
     tail     *Node
-    m     map[int]*Node
+    m        map[int]*Node
 }
 
+type Node struct {
+    Val  int
+    Key  int
+    Next *Node
+    Pre  *Node
+}
 
 func Constructor(capacity int) LRUCache {
     head := &Node{}
@@ -14,37 +20,33 @@ func Constructor(capacity int) LRUCache {
     tail.Pre = head
     return LRUCache{
         capacity: capacity,
-        size: 0,
-        head: head,
-        tail: tail,
-        m: map[int]*Node{},
+        size:     0,
+        head:     head,
+        tail:     tail,
+        m:        map[int]*Node{},
     }
 }
 
-
 func (this *LRUCache) Get(key int) int {
-    if _, ok := this.m[key]; ok {
-        value := this.m[key].Val
-        this.MoveToHead(this.m[key])
-        return value
+    if node, ok := this.m[key]; ok {
+        this.MoveToHead(node)
+        return node.Val
     }
     return -1
 }
 
-
-func (this *LRUCache) Put(key int, value int)  {
-    if _, ok := this.m[key]; ok {
-        this.m[key].Val = value
-        this.MoveToHead(this.m[key])
-    } else if this.size < this.capacity {
-        this.size++
-        node := &Node{Val : value, Key: key}
-        this.m[key] = node
-        this.AddToHead(node)
+func (this *LRUCache) Put(key int, value int) {
+    if node, ok := this.m[key]; ok {
+        node.Val = value
+        this.MoveToHead(node)
     } else {
-        node := &Node{Val : value, Key: key}
+        this.size++
+        node := &Node{Val: value, Key: key}
         this.m[key] = node
         this.AddToHead(node)
+    }
+    for this.size > this.capacity {
+        this.size--
         this.RemoveTail()
     }
 }
@@ -66,13 +68,6 @@ func (this *LRUCache) RemoveTail() {
     node := this.tail.Pre
     this.DeleteNode(node)
     delete(this.m, node.Key)
-}
-
-type Node struct {
-    Val int
-    Key int
-    Next *Node
-    Pre *Node
 }
 
 /**

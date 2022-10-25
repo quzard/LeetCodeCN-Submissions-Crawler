@@ -1,4 +1,4 @@
-# [剑指 Offer 10- I. 斐波那契数列](https://leetcode-cn.com/problems/fei-bo-na-qi-shu-lie-lcof)
+# [剑指 Offer 10- I. 斐波那契数列](https://leetcode.cn/problems/fei-bo-na-qi-shu-lie-lcof)
 <p>写一个函数，输入 <code>n</code> ，求斐波那契（Fibonacci）数列的第 <code>n</code> 项（即 <code>F(N)</code>）。斐波那契数列的定义如下：</p>
 
 <pre>
@@ -33,4 +33,4 @@ F(N) = F(N - 1) + F(N - 2), 其中 N > 1.</pre>
 	<li><code>0 <= n <= 100</code></li>
 </ul>
 
-**标签:**  [记忆化搜索](https://leetcode-cn.com/tag/memoization) [数学](https://leetcode-cn.com/tag/math) [动态规划](https://leetcode-cn.com/tag/dynamic-programming) 
+**标签:**  [记忆化搜索](https://leetcode.cn/tag/memoization) [数学](https://leetcode.cn/tag/math) [动态规划](https://leetcode.cn/tag/dynamic-programming) 

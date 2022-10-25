@@ -1,4 +1,4 @@
-# [136. 只出现一次的数字](https://leetcode-cn.com/problems/single-number)
+# [136. 只出现一次的数字](https://leetcode.cn/problems/single-number)
 <p>给定一个<strong>非空</strong>整数数组，除了某个元素只出现一次以外，其余每个元素均出现两次。找出那个只出现了一次的元素。</p>
 
 <p><strong>说明：</strong></p>
@@ -16,4 +16,4 @@
 <pre><strong>输入:</strong> [4,1,2,1,2]
 <strong>输出:</strong> 4</pre>
 
-**标签:**  [位运算](https://leetcode-cn.com/tag/bit-manipulation) [数组](https://leetcode-cn.com/tag/array) 
+**标签:**  [位运算](https://leetcode.cn/tag/bit-manipulation) [数组](https://leetcode.cn/tag/array) 

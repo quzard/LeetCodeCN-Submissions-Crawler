@@ -1,4 +1,4 @@
-# [1143. 最长公共子序列](https://leetcode-cn.com/problems/longest-common-subsequence)
+# [1143. 最长公共子序列](https://leetcode.cn/problems/longest-common-subsequence)
 <p>给定两个字符串 <code>text1</code> 和 <code>text2</code>，返回这两个字符串的最长 <strong>公共子序列</strong> 的长度。如果不存在 <strong>公共子序列</strong> ，返回 <code>0</code> 。</p>
 
 <p>一个字符串的 <strong>子序列</strong><em> </em>是指这样一个新的字符串：它是由原字符串在不改变字符的相对顺序的情况下删除某些字符（也可以不删除任何字符）后组成的新字符串。</p>
@@ -44,4 +44,4 @@
 	<li><code>text1</code> 和 <code>text2</code> 仅由小写英文字符组成。</li>
 </ul>
 
-**标签:**  [字符串](https://leetcode-cn.com/tag/string) [动态规划](https://leetcode-cn.com/tag/dynamic-programming) 
+**标签:**  [字符串](https://leetcode.cn/tag/string) [动态规划](https://leetcode.cn/tag/dynamic-programming) 

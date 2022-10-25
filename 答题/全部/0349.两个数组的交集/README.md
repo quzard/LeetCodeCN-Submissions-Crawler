@@ -1,4 +1,4 @@
-# [349. 两个数组的交集](https://leetcode-cn.com/problems/intersection-of-two-arrays)
+# [349. 两个数组的交集](https://leetcode.cn/problems/intersection-of-two-arrays)
 <p>给定两个数组&nbsp;<code>nums1</code>&nbsp;和&nbsp;<code>nums2</code> ，返回 <em>它们的交集</em>&nbsp;。输出结果中的每个元素一定是 <strong>唯一</strong> 的。我们可以 <strong>不考虑输出结果的顺序</strong> 。</p>
 
 <p>&nbsp;</p>
@@ -27,4 +27,4 @@
 	<li><code>0 &lt;= nums1[i], nums2[i] &lt;= 1000</code></li>
 </ul>
 
-**标签:**  [数组](https://leetcode-cn.com/tag/array) [哈希表](https://leetcode-cn.com/tag/hash-table) [双指针](https://leetcode-cn.com/tag/two-pointers) [二分查找](https://leetcode-cn.com/tag/binary-search) [排序](https://leetcode-cn.com/tag/sorting) 
+**标签:**  [数组](https://leetcode.cn/tag/array) [哈希表](https://leetcode.cn/tag/hash-table) [双指针](https://leetcode.cn/tag/two-pointers) [二分查找](https://leetcode.cn/tag/binary-search) [排序](https://leetcode.cn/tag/sorting) 

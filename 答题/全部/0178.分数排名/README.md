@@ -1,4 +1,4 @@
-# [178. 分数排名](https://leetcode-cn.com/problems/rank-scores)
+# [178. 分数排名](https://leetcode.cn/problems/rank-scores)
 <p>表:&nbsp;<code>Scores</code></p>
 
 <pre>
@@ -55,4 +55,4 @@ Scores 表:
 | 3.50  | 4    |
 +-------+------+</pre>
 
-**标签:**  [数据库](https://leetcode-cn.com/tag/database) 
+**标签:**  [数据库](https://leetcode.cn/tag/database) 

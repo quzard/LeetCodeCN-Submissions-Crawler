@@ -1,4 +1,4 @@
-# [611. 有效三角形的个数](https://leetcode-cn.com/problems/valid-triangle-number)
+# [611. 有效三角形的个数](https://leetcode.cn/problems/valid-triangle-number)
 <p>给定一个包含非负整数的数组&nbsp;<code>nums</code> ，返回其中可以组成三角形三条边的三元组个数。</p>
 
 <p>&nbsp;</p>
@@ -29,4 +29,4 @@
 	<li><code>0 &lt;= nums[i] &lt;= 1000</code></li>
 </ul>
 
-**标签:**  [贪心](https://leetcode-cn.com/tag/greedy) [数组](https://leetcode-cn.com/tag/array) [双指针](https://leetcode-cn.com/tag/two-pointers) [二分查找](https://leetcode-cn.com/tag/binary-search) [排序](https://leetcode-cn.com/tag/sorting) 
+**标签:**  [贪心](https://leetcode.cn/tag/greedy) [数组](https://leetcode.cn/tag/array) [双指针](https://leetcode.cn/tag/two-pointers) [二分查找](https://leetcode.cn/tag/binary-search) [排序](https://leetcode.cn/tag/sorting) 

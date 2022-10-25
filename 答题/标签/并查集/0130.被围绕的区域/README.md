@@ -1,4 +1,4 @@
-# [130. 被围绕的区域](https://leetcode-cn.com/problems/surrounded-regions)
+# [130. 被围绕的区域](https://leetcode.cn/problems/surrounded-regions)
 给你一个 <code>m x n</code> 的矩阵 <code>board</code> ，由若干字符 <code>'X'</code> 和 <code>'O'</code> ，找到所有被 <code>'X'</code> 围绕的区域，并将这些区域里所有的 <code>'O'</code> 用 <code>'X'</code> 填充。
 <div class="original__bRMd">
 <div>
@@ -32,4 +32,4 @@
 </div>
 </div>
 
-**标签:**  [深度优先搜索](https://leetcode-cn.com/tag/depth-first-search) [广度优先搜索](https://leetcode-cn.com/tag/breadth-first-search) [并查集](https://leetcode-cn.com/tag/union-find) [数组](https://leetcode-cn.com/tag/array) [矩阵](https://leetcode-cn.com/tag/matrix) 
+**标签:**  [深度优先搜索](https://leetcode.cn/tag/depth-first-search) [广度优先搜索](https://leetcode.cn/tag/breadth-first-search) [并查集](https://leetcode.cn/tag/union-find) [数组](https://leetcode.cn/tag/array) [矩阵](https://leetcode.cn/tag/matrix) 

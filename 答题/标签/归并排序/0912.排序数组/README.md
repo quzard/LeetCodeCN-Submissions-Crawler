@@ -1,4 +1,4 @@
-# [912. 排序数组](https://leetcode-cn.com/problems/sort-an-array)
+# [912. 排序数组](https://leetcode.cn/problems/sort-an-array)
 <p>给你一个整数数组&nbsp;<code>nums</code>，请你将该数组升序排列。</p>
 
 <p>&nbsp;</p>
@@ -29,4 +29,4 @@
 	<li><code>-5 * 10<sup>4</sup> &lt;= nums[i] &lt;= 5 * 10<sup>4</sup></code></li>
 </ul>
 
-**标签:**  [数组](https://leetcode-cn.com/tag/array) [分治](https://leetcode-cn.com/tag/divide-and-conquer) [桶排序](https://leetcode-cn.com/tag/bucket-sort) [计数排序](https://leetcode-cn.com/tag/counting-sort) [基数排序](https://leetcode-cn.com/tag/radix-sort) [排序](https://leetcode-cn.com/tag/sorting) [堆（优先队列）](https://leetcode-cn.com/tag/heap-priority-queue) [归并排序](https://leetcode-cn.com/tag/merge-sort) 
+**标签:**  [数组](https://leetcode.cn/tag/array) [分治](https://leetcode.cn/tag/divide-and-conquer) [桶排序](https://leetcode.cn/tag/bucket-sort) [计数排序](https://leetcode.cn/tag/counting-sort) [基数排序](https://leetcode.cn/tag/radix-sort) [排序](https://leetcode.cn/tag/sorting) [堆（优先队列）](https://leetcode.cn/tag/heap-priority-queue) [归并排序](https://leetcode.cn/tag/merge-sort) 

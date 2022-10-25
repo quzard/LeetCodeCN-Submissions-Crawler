@@ -1,4 +1,4 @@
-# [72. 编辑距离](https://leetcode-cn.com/problems/edit-distance)
+# [72. 编辑距离](https://leetcode.cn/problems/edit-distance)
 <p>给你两个单词&nbsp;<code>word1</code> 和&nbsp;<code>word2</code>， <em>请返回将&nbsp;<code>word1</code>&nbsp;转换成&nbsp;<code>word2</code> 所使用的最少操作数</em> &nbsp;。</p>
 
 <p>你可以对一个单词进行如下三种操作：</p>
@@ -44,4 +44,4 @@ exection -&gt; execution (插入 'u')
 	<li><code>word1</code> 和 <code>word2</code> 由小写英文字母组成</li>
 </ul>
 
-**标签:**  [字符串](https://leetcode-cn.com/tag/string) [动态规划](https://leetcode-cn.com/tag/dynamic-programming) 
+**标签:**  [字符串](https://leetcode.cn/tag/string) [动态规划](https://leetcode.cn/tag/dynamic-programming) 

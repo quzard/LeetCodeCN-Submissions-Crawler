@@ -1,4 +1,4 @@
-# [23. 合并K个升序链表](https://leetcode-cn.com/problems/merge-k-sorted-lists)
+# [23. 合并K个升序链表](https://leetcode.cn/problems/merge-k-sorted-lists)
 <p>给你一个链表数组，每个链表都已经按升序排列。</p>
 
 <p>请你将所有链表合并到一个升序链表中，返回合并后的链表。</p>
@@ -44,4 +44,4 @@
 	<li><code>lists[i].length</code> 的总和不超过 <code>10^4</code></li>
 </ul>
 
-**标签:**  [链表](https://leetcode-cn.com/tag/linked-list) [分治](https://leetcode-cn.com/tag/divide-and-conquer) [堆（优先队列）](https://leetcode-cn.com/tag/heap-priority-queue) [归并排序](https://leetcode-cn.com/tag/merge-sort) 
+**标签:**  [链表](https://leetcode.cn/tag/linked-list) [分治](https://leetcode.cn/tag/divide-and-conquer) [堆（优先队列）](https://leetcode.cn/tag/heap-priority-queue) [归并排序](https://leetcode.cn/tag/merge-sort) 

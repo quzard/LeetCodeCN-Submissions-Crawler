@@ -9,7 +9,7 @@ group by player_id
 # 		player_id,
 # 		event_date,
 # 		dense_rank()
-# 		 over(partition by player_id order by event_date) as æ’å
+# 		 over(partition by player_id order by event_date) as ÅÅÃû
 # 	from activity
 # ) as temp
-# where æ’å = 1;
+# where ÅÅÃû = 1;

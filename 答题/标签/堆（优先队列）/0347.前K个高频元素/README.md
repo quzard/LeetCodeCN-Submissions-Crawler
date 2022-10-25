@@ -1,4 +1,4 @@
-# [347. 前 K 个高频元素](https://leetcode-cn.com/problems/top-k-frequent-elements)
+# [347. 前 K 个高频元素](https://leetcode.cn/problems/top-k-frequent-elements)
 <p>给你一个整数数组 <code>nums</code> 和一个整数 <code>k</code> ，请你返回其中出现频率前 <code>k</code> 高的元素。你可以按 <strong>任意顺序</strong> 返回答案。</p>
 
 <p> </p>
@@ -30,4 +30,4 @@
 
 <p><strong>进阶：</strong>你所设计算法的时间复杂度 <strong>必须</strong> 优于 <code>O(n log n)</code> ，其中 <code>n</code><em> </em>是数组大小。</p>
 
-**标签:**  [数组](https://leetcode-cn.com/tag/array) [哈希表](https://leetcode-cn.com/tag/hash-table) [分治](https://leetcode-cn.com/tag/divide-and-conquer) [桶排序](https://leetcode-cn.com/tag/bucket-sort) [计数](https://leetcode-cn.com/tag/counting) [快速选择](https://leetcode-cn.com/tag/quickselect) [排序](https://leetcode-cn.com/tag/sorting) [堆（优先队列）](https://leetcode-cn.com/tag/heap-priority-queue) 
+**标签:**  [数组](https://leetcode.cn/tag/array) [哈希表](https://leetcode.cn/tag/hash-table) [分治](https://leetcode.cn/tag/divide-and-conquer) [桶排序](https://leetcode.cn/tag/bucket-sort) [计数](https://leetcode.cn/tag/counting) [快速选择](https://leetcode.cn/tag/quickselect) [排序](https://leetcode.cn/tag/sorting) [堆（优先队列）](https://leetcode.cn/tag/heap-priority-queue) 

@@ -36,7 +36,7 @@ func checkValidString1(s string) bool {
     return r <= star2 && l <= star
 }
 
-// 贪心
+// ̰��
 func checkValidString2(s string) bool {
     minCount, maxCount := 0, 0
     for _, ch := range s {
@@ -65,7 +65,7 @@ func max(a, b int) int {
 }
 
 
-//动态规划
+//��̬�滮
 func checkValidString3(s string) bool {
     n := len(s)
     dp := make([][]bool, n)
@@ -100,7 +100,7 @@ func checkValidString3(s string) bool {
 }
 
 
-//栈
+//ջ
 func checkValidString(s string) bool {
     var leftStk, asteriskStk []int
     for i, ch := range s {

@@ -7,23 +7,15 @@
  */
 func getKthFromEnd(head *ListNode, k int) *ListNode {
     var res *ListNode
-    var dfs func(cur *ListNode)
+    var dfs func (cur *ListNode)
     dfs = func(cur *ListNode){
-        if cur.Next == nil{
-            k--
-            if k == 0{
-                res = cur
-                k--
-            }
+        if cur == nil {
             return
         }
         dfs(cur.Next)
-        if k > 0{
-            k--
-        }
-        if k == 0{
+        k--
+        if k == 0 {
             res = cur
-            k--
         }
     }
     dfs(head)

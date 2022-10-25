@@ -1,4 +1,4 @@
-# [78. 子集](https://leetcode-cn.com/problems/subsets)
+# [78. 子集](https://leetcode.cn/problems/subsets)
 <p>给你一个整数数组 <code>nums</code> ，数组中的元素 <strong>互不相同</strong> 。返回该数组所有可能的子集（幂集）。</p>
 
 <p>解集 <strong>不能</strong> 包含重复的子集。你可以按 <strong>任意顺序</strong> 返回解集。</p>
@@ -29,4 +29,4 @@
 	<li><code>nums</code> 中的所有元素 <strong>互不相同</strong></li>
 </ul>
 
-**标签:**  [位运算](https://leetcode-cn.com/tag/bit-manipulation) [数组](https://leetcode-cn.com/tag/array) [回溯](https://leetcode-cn.com/tag/backtracking) 
+**标签:**  [位运算](https://leetcode.cn/tag/bit-manipulation) [数组](https://leetcode.cn/tag/array) [回溯](https://leetcode.cn/tag/backtracking) 

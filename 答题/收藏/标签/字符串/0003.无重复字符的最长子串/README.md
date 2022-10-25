@@ -1,4 +1,4 @@
-# [3. 无重复字符的最长子串](https://leetcode-cn.com/problems/longest-substring-without-repeating-characters)
+# [3. 无重复字符的最长子串](https://leetcode.cn/problems/longest-substring-without-repeating-characters)
 <p>给定一个字符串 <code>s</code> ，请你找出其中不含有重复字符的&nbsp;<strong>最长子串&nbsp;</strong>的长度。</p>
 
 <p>&nbsp;</p>
@@ -37,4 +37,4 @@
 	<li><code>s</code>&nbsp;由英文字母、数字、符号和空格组成</li>
 </ul>
 
-**标签:**  [哈希表](https://leetcode-cn.com/tag/hash-table) [字符串](https://leetcode-cn.com/tag/string) [滑动窗口](https://leetcode-cn.com/tag/sliding-window) 
+**标签:**  [哈希表](https://leetcode.cn/tag/hash-table) [字符串](https://leetcode.cn/tag/string) [滑动窗口](https://leetcode.cn/tag/sliding-window) 

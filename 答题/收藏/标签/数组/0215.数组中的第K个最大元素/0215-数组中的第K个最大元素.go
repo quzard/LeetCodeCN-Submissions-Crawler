@@ -1,14 +1,10 @@
 var res []int
 func findKthLargest(nums []int, k int) int {
-    if k == 0 || k > len(nums){
-        return 0
-    }
     res = make([]int, 0, k)
     for _, num := range nums {
         if len(res) < k {
             res = append(res, num)
-            swim(len(res)-1)
-            sink(0)
+            swim(len(res) - 1)
         } else if res[0] < num {
             res[0] = num
             sink(0)
@@ -17,14 +13,19 @@ func findKthLargest(nums []int, k int) int {
     return res[0]
 }
 
-func sink (i int) {
-    for i * 2 < len(res) - 1 {
-        j := i * 2
-        if res[j+1] < res[j] {
-            j++
+func sink(i int) {
+    for {
+        j1 := i * 2 + 1
+        if j1 >= len(res) || j1 < 0 {
+            break
         }
+        j := j1
+        j2 := i * 2 + 2
+        if j2 < len(res) && j2 >= 0 && res[j1] > res[j2] {
+            j = j2
+        } 
         if res[i] <= res[j] {
-            return
+            break
         }
         res[i], res[j] = res[j], res[i]
         i = j
@@ -32,10 +33,10 @@ func sink (i int) {
 }
 
 func swim(i int) {
-    for i > 0 {
-        j := i / 2
-        if res[i] >= res[j] {
-            return
+    for {
+        j := (i-1) / 2
+        if i == j || res[j] < res[i] {
+            break
         }
         res[i], res[j] = res[j], res[i]
         i = j

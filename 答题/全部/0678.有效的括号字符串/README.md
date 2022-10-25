@@ -1,4 +1,4 @@
-# [678. 有效的括号字符串](https://leetcode-cn.com/problems/valid-parenthesis-string)
+# [678. 有效的括号字符串](https://leetcode.cn/problems/valid-parenthesis-string)
 <p>给定一个只包含三种字符的字符串：<code>（&nbsp;</code>，<code>）</code>&nbsp;和 <code>*</code>，写一个函数来检验这个字符串是否为有效字符串。有效字符串具有如下规则：</p>
 
 <ol>
@@ -36,4 +36,4 @@
 	<li>字符串大小将在 [1，100] 范围内。</li>
 </ol>
 
-**标签:**  [栈](https://leetcode-cn.com/tag/stack) [贪心](https://leetcode-cn.com/tag/greedy) [字符串](https://leetcode-cn.com/tag/string) [动态规划](https://leetcode-cn.com/tag/dynamic-programming) 
+**标签:**  [栈](https://leetcode.cn/tag/stack) [贪心](https://leetcode.cn/tag/greedy) [字符串](https://leetcode.cn/tag/string) [动态规划](https://leetcode.cn/tag/dynamic-programming) 

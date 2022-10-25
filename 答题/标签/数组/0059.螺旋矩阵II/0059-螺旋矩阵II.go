@@ -1,9 +1,9 @@
 func generateMatrix1(n int) [][]int {
 	dirs := [][]int{
-		[]int{0, 1},  // å³
-		[]int{1, 0},  // ä¸‹
-		[]int{0, -1}, // å·¦
-		[]int{-1, 0}, // ä¸Š
+		[]int{0, 1},  // ÓÒ
+		[]int{1, 0},  // ÏÂ
+		[]int{0, -1}, // ×ó
+		[]int{-1, 0}, // ÉÏ
 	}
 	res := make([][]int, n)
 	for i := 0; i < n; i++ {

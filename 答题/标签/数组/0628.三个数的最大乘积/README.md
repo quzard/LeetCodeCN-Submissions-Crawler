@@ -1,4 +1,4 @@
-# [628. 三个数的最大乘积](https://leetcode-cn.com/problems/maximum-product-of-three-numbers)
+# [628. 三个数的最大乘积](https://leetcode.cn/problems/maximum-product-of-three-numbers)
 <p>给你一个整型数组 <code>nums</code> ，在数组中找出由三个数组成的最大乘积，并输出这个乘积。</p>
 
 <p> </p>
@@ -33,4 +33,4 @@
 	<li><code>-1000 <= nums[i] <= 1000</code></li>
 </ul>
 
-**标签:**  [数组](https://leetcode-cn.com/tag/array) [数学](https://leetcode-cn.com/tag/math) [排序](https://leetcode-cn.com/tag/sorting) 
+**标签:**  [数组](https://leetcode.cn/tag/array) [数学](https://leetcode.cn/tag/math) [排序](https://leetcode.cn/tag/sorting) 

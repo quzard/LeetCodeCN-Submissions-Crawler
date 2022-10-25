@@ -1,4 +1,4 @@
-# [670. 最大交换](https://leetcode-cn.com/problems/maximum-swap)
+# [670. 最大交换](https://leetcode.cn/problems/maximum-swap)
 <p>给定一个非负整数，你<strong>至多</strong>可以交换一次数字中的任意两位。返回你能得到的最大值。</p>
 
 <p><strong>示例 1 :</strong></p>
@@ -23,4 +23,4 @@
 	<li>给定数字的范围是&nbsp;[0, 10<sup>8</sup>]</li>
 </ol>
 
-**标签:**  [贪心](https://leetcode-cn.com/tag/greedy) [数学](https://leetcode-cn.com/tag/math) 
+**标签:**  [贪心](https://leetcode.cn/tag/greedy) [数学](https://leetcode.cn/tag/math) 

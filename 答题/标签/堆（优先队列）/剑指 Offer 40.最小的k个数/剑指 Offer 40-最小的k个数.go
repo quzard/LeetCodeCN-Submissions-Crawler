@@ -1,94 +1,48 @@
 var res []int
-// 桶排序
 func getLeastNumbers(arr []int, k int) []int {
-    if k == 0 {
-        return []int{}
-    }
     res = make([]int, 0, k)
-    for _, num := range arr {
+    if k == 0 {
+        return res
+    }
+    for i := 0; i < len(arr); i++ {
         if len(res) < k {
-            res = append(res, num)
-            swim(len(res) - 1)
-            sink(0)
-        } else if res[0] > num{
-            res[0] = num
+            res = append(res, arr[i])
+            swim(len(res)-1)
+        } else if len(res) == k && res[0] > arr[i] {
+            res[0] = arr[i]
             sink(0)
         }
     }
     return res
 }
 
-func swim(i int) {
-    for i > 0 {
-        j := i /2
-        if res[j] > res[i] {
+func sink(i int) {
+    for {
+        j1 := i * 2 + 1
+        if j1 >= len(res) || j1 < 0 {
             break
         }
-        res[j], res[i] = res[i], res[j]
-        i = j
-    }
-}
-
-func sink(i int) {
-    for i * 2 < len(res) - 1{
-        j := i * 2
-        if res[j + 1] >= res[j] {
-            j++
+        j := j1
+        
+        j2 := j1 + 1
+        if j2 < len(res) && j2 >= 0 && res[j2] > res[j1] {
+            j = j2
         }
         if res[i] >= res[j] {
             break
         }
-        res[j], res[i] = res[i], res[j]
+        res[i], res[j] = res[j], res[i]
         i = j
     }
 }
 
-type IntHeap []int
-
-func (h IntHeap) Len() int {
-	return len(h)
-}
-
-//Less  小于就是小跟堆，大于号就是大根堆
-func (h IntHeap) Less(i, j int) bool {
-    return h[i] > h[j]
-}
-
-func (h IntHeap) Swap(i, j int) {
-	h[i], h[j] = h[j], h[i]
-}
-
-func (h *IntHeap) Pop() interface{}{
-    num := (*h)[h.Len()-1]
-    (*h) = (*h)[:h.Len()-1]
-    return num
-}
-
-func (h *IntHeap) Push(n interface{}) {
-    *h = append(*h, n.(int))
-}
-
-func (h IntHeap) Peek() int {
-    return h[0]
-}
-// 堆排序
-func getLeastNumbers1(arr []int, k int) []int {
-    if k == 0 {
-        return []int{}
-    }
-    h := &IntHeap{}
-    heap.Init(h)
-    for _, num := range arr {
-        if h.Len()< k {
-            heap.Push(h, num)
-        }else if h.Peek() > num {
-            heap.Pop(h)
-            heap.Push(h, num)
+func swim(i int) {
+    for {
+        j := (i-1) / 2 
+        if i == j || res[j] >= res[i] {
+            break
         }
+        res[i], res[j] = res[j], res[i]
+        i = j
     }
-    res = make([]int, k)
-    for i := 0; i < h.Len(); i++{
-        res[i] = (*h)[i]
-    }
-    return res
 }

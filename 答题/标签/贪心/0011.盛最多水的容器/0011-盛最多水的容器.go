@@ -3,16 +3,16 @@ func maxArea(height []int) int {
         return 0
     }
     l, r := 0, len(height) - 1
-    waters := 0
+    water := 0
     for l < r {
-        waters = max(waters, (r - l) * min(height[l], height[r]))
+        water = max(water, (r - l) * min(height[l], height[r]))
         if height[l] < height[r] {
             l++
         } else {
             r--
         }
     }
-    return waters
+    return water
 }
 
 func max(a, b int) int {

@@ -1,4 +1,4 @@
-# [168. Excel表列名称](https://leetcode-cn.com/problems/excel-sheet-column-title)
+# [168. Excel表列名称](https://leetcode.cn/problems/excel-sheet-column-title)
 <p>给你一个整数 <code>columnNumber</code> ，返回它在 Excel 表中相对应的列名称。</p>
 
 <p>例如：</p>
@@ -52,4 +52,4 @@ AB -> 28
 	<li><code>1 <= columnNumber <= 2<sup>31</sup> - 1</code></li>
 </ul>
 
-**标签:**  [数学](https://leetcode-cn.com/tag/math) [字符串](https://leetcode-cn.com/tag/string) 
+**标签:**  [数学](https://leetcode.cn/tag/math) [字符串](https://leetcode.cn/tag/string) 

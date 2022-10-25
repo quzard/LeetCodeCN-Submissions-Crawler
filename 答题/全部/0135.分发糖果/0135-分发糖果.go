@@ -1,3 +1,5 @@
+import "fmt"
+
 func candy(ratings []int) (ans int) {
     n := len(ratings)
     left := make([]int, n)

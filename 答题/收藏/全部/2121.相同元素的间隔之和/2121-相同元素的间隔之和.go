@@ -25,7 +25,7 @@ func getDistances1(arr []int) []int64 {
 func getDistances2(arr []int) []int64 {
     pos := map[int][]int{}
     for i, v := range arr {
-        pos[v] = append(pos[v], i) // è®°å½•ç›¸åŒå…ƒç´ çš„ä½ç½®
+        pos[v] = append(pos[v], i) // ¼ÇÂ¼ÏàÍ¬ÔªËØµÄÎ»ÖÃ
     }
     ans := make([]int64, len(arr))
     for _, p := range pos {
@@ -33,9 +33,9 @@ func getDistances2(arr []int) []int64 {
         for _, i := range p {
             sum += i - p[0]
         }
-        ans[p[0]] = int64(sum)              // æœ€å·¦ä¾§å…ƒç´ çš„é—´éš”å’Œ
-        for i, n := 1, len(p); i < n; i++ { // è®¡ç®—ä¸‹ä¸€ä¸ªç›¸åŒå…ƒç´ çš„é—´éš”å’Œ
-            sum -= (n - i*2) * (p[i] - p[i-1]) // åˆ°å³è¾¹çš„ n-i ä¸ªç‚¹çš„è·ç¦»æ›´è¿‘äº†ï¼ŒåŒæ—¶åˆ°å·¦è¾¹ i ä¸ªç‚¹çš„è·ç¦»æ›´è¿œäº†
+        ans[p[0]] = int64(sum)              // ×î×ó²àÔªËØµÄ¼ä¸ôºÍ
+        for i, n := 1, len(p); i < n; i++ { // ¼ÆËãÏÂÒ»¸öÏàÍ¬ÔªËØµÄ¼ä¸ôºÍ
+            sum -= (n - i*2) * (p[i] - p[i-1]) // µ½ÓÒ±ßµÄ n-i ¸öµãµÄ¾àÀë¸ü½üÁË£¬Í¬Ê±µ½×ó±ß i ¸öµãµÄ¾àÀë¸üÔ¶ÁË
             ans[p[i]] = int64(sum)
         }
     }

@@ -1,4 +1,4 @@
-# [剑指 Offer 29. 顺时针打印矩阵](https://leetcode-cn.com/problems/shun-shi-zhen-da-yin-ju-zhen-lcof)
+# [剑指 Offer 29. 顺时针打印矩阵](https://leetcode.cn/problems/shun-shi-zhen-da-yin-ju-zhen-lcof)
 <p>输入一个矩阵，按照从外向里以顺时针的顺序依次打印出每一个数字。</p>
 
 <p>&nbsp;</p>
@@ -26,4 +26,4 @@
 
 <p>注意：本题与主站 54 题相同：<a href="https://leetcode-cn.com/problems/spiral-matrix/">https://leetcode-cn.com/problems/spiral-matrix/</a></p>
 
-**标签:**  [数组](https://leetcode-cn.com/tag/array) [矩阵](https://leetcode-cn.com/tag/matrix) [模拟](https://leetcode-cn.com/tag/simulation) 
+**标签:**  [数组](https://leetcode.cn/tag/array) [矩阵](https://leetcode.cn/tag/matrix) [模拟](https://leetcode.cn/tag/simulation) 

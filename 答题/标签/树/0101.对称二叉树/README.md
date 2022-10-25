@@ -1,4 +1,4 @@
-# [101. 对称二叉树](https://leetcode-cn.com/problems/symmetric-tree)
+# [101. 对称二叉树](https://leetcode.cn/problems/symmetric-tree)
 <p>给你一个二叉树的根节点 <code>root</code> ， 检查它是否轴对称。</p>
 
 <p>&nbsp;</p>
@@ -30,4 +30,4 @@
 
 <p><strong>进阶：</strong>你可以运用递归和迭代两种方法解决这个问题吗？</p>
 
-**标签:**  [树](https://leetcode-cn.com/tag/tree) [深度优先搜索](https://leetcode-cn.com/tag/depth-first-search) [广度优先搜索](https://leetcode-cn.com/tag/breadth-first-search) [二叉树](https://leetcode-cn.com/tag/binary-tree) 
+**标签:**  [树](https://leetcode.cn/tag/tree) [深度优先搜索](https://leetcode.cn/tag/depth-first-search) [广度优先搜索](https://leetcode.cn/tag/breadth-first-search) [二叉树](https://leetcode.cn/tag/binary-tree) 

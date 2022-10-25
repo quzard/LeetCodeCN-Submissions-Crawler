@@ -46,15 +46,15 @@ func deleteNode1(root *TreeNode, key int) *TreeNode {
 		return root
 	}
 	if root.Val == key {
-		// Е▐╙Ф°┴Д╦─Д╦╙И²·Г╘╨Е╜░Х┼┌Г┌╧О╪▄И┌ёД╧┬Х╝╘Е╜╘Е╜░Ф▌╔Ф⌡©Х┤╙Е╥╠Г └Д╫█Г╫╝
+		// ж╩спр╩╦Ж╥г©увс╫з╣Цё╛дгц╢хц╨╒вс╫слФвт╪╨╣дн╩жц
 		if root.Left == nil {
 			return root.Right
 		}
 		if root.Right == nil {
 			return root.Left
 		}
-		// Ф°┴Д╦╓Д╦╙Е╜░Х┼┌Г┌╧О╪▄Е╞╩Ф┴╬Е╥╕Х╬╧Ф┬√Х─┘Е▐ЁХ╬╧Ф▌╔Ф⌡©Х┤╙Е╥╠О╪▄Х©≥И┤▄Г⌡╢Ф▌╔Х©⌡Х║▄Ф∙╟Ф█╝Г └Д╨╓Ф█╒Е╟╠Х║▄
-		// Г└╤Е░▌И─▓Е╫▓Е┬═И≥╓Ф≈╖Ф∙╟Ф█╝
+		// спа╫╦Жвс╫з╣Цё╛я╟урвС╠ъ╩Руъср╠ъ╫слФвт╪╨ё╛уБюОж╠╫с╫ЬппйЩ╬щ╣д╫╩╩╩╬мпп
+		// х╩╨С╣щ╧Ии╬ЁЩ╬ийЩ╬щ
 		minNode := getMin(root.Right)
 		root.Val = minNode.Val
 		root.Right = deleteNode(root.Right, minNode.Val)

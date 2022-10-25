@@ -6,52 +6,30 @@
  *     Right *TreeNode
  * }
  */
-func maxPathSum1(root *TreeNode) int {
-    res := math.MinInt32
-    m := map[*TreeNode]int {}
-    var dfs func(cur *TreeNode)
-    dfs = func(cur *TreeNode) {
+func maxPathSum(root *TreeNode) int {
+    res := math.MinInt
+    var dfs func(cur *TreeNode) int
+    dfs = func(cur *TreeNode) int {
         if cur == nil {
-            return
+            return 0
         }
-        dfs(cur.Left)
-        dfs(cur.Right)
-        num1, num2 := math.MinInt32, math.MinInt32
-        if cur.Left != nil {
-            num1 = m[cur.Left]
-        }
-        if cur.Right != nil {
-            num2 = m[cur.Right]
-        }
-        num := cur.Val
-        m[cur] = max(max(num1, num2) + num, num)
-        res = max(res, max(max(max(num1 + num, num2 + num), num), num1 + num2 + num))
+        sum := cur.Val
+        left := dfs(cur.Left)
+        right := dfs(cur.Right)
+        res = max(res, sum, sum + left, sum + right, sum + left + right)
+        sum = max(max(sum, sum + left), sum + right)
+        return sum
     }
     dfs(root)
     return res
 }
 
-func max(a, b int) int {
-    if a > b {
-        return a
-    }
-    return b
-}
-
-
-
-func maxPathSum(root *TreeNode) int {
-    res := math.MinInt32
-    var dfs func(root *TreeNode)int
-    dfs = func(root *TreeNode)int{
-        if root == nil{
-            return 0
+func max(nums ...int) int {
+    m := nums[0]
+    for _, num := range nums {
+        if num > m {
+            m = num
         }
-        left := max(dfs(root.Left), 0)
-        right := max(dfs(root.Right), 0)
-        res = max(res, left + right + root.Val)
-        return root.Val+max(left, right)
     }
-    res = max(res, dfs(root))
-    return res
+    return m
 }

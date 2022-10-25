@@ -12,12 +12,12 @@ func zigzagLevelOrder(root *TreeNode) [][]int {
         return res
     }
     nodes := []*TreeNode{root}
-    f := false
+    dir := false
     for len(nodes) > 0 {
         newNodes := []*TreeNode{}
         l := []int{}
         for _, node := range nodes {
-            if f {
+            if dir {
                 l = append([]int{node.Val}, l...)
             } else {
                 l = append(l, node.Val)
@@ -29,7 +29,7 @@ func zigzagLevelOrder(root *TreeNode) [][]int {
                 newNodes = append(newNodes, node.Right)
             }
         }
-        f = !f
+        dir = !dir
         res = append(res, l)
         nodes = newNodes
     }

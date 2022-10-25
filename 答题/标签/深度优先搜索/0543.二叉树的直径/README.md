@@ -1,4 +1,4 @@
-# [543. 二叉树的直径](https://leetcode-cn.com/problems/diameter-of-binary-tree)
+# [543. 二叉树的直径](https://leetcode.cn/problems/diameter-of-binary-tree)
 <p>给定一棵二叉树，你需要计算它的直径长度。一棵二叉树的直径长度是任意两个结点路径长度中的最大值。这条路径可能穿过也可能不穿过根结点。</p>
 
 <p>&nbsp;</p>
@@ -19,4 +19,4 @@
 
 <p><strong>注意：</strong>两结点之间的路径长度是以它们之间边的数目表示。</p>
 
-**标签:**  [树](https://leetcode-cn.com/tag/tree) [深度优先搜索](https://leetcode-cn.com/tag/depth-first-search) [二叉树](https://leetcode-cn.com/tag/binary-tree) 
+**标签:**  [树](https://leetcode.cn/tag/tree) [深度优先搜索](https://leetcode.cn/tag/depth-first-search) [二叉树](https://leetcode.cn/tag/binary-tree) 

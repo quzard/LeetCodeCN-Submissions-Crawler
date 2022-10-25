@@ -1,4 +1,4 @@
-# [9. 回文数](https://leetcode-cn.com/problems/palindrome-number)
+# [9. 回文数](https://leetcode.cn/problems/palindrome-number)
 <p>给你一个整数 <code>x</code> ，如果 <code>x</code> 是一个回文整数，返回 <code>true</code> ；否则，返回 <code>false</code> 。</p>
 
 <p>回文数是指正序（从左向右）和倒序（从右向左）读都是一样的整数。</p>
@@ -44,4 +44,4 @@
 
 <p><strong>进阶：</strong>你能不将整数转为字符串来解决这个问题吗？</p>
 
-**标签:**  [数学](https://leetcode-cn.com/tag/math) 
+**标签:**  [数学](https://leetcode.cn/tag/math) 

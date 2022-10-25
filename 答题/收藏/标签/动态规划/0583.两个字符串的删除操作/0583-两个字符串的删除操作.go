@@ -1,5 +1,5 @@
 func minDistance1(word1 string, word2 string) int {
-	// æœ€é•¿å…¬å…±å­åºåˆ—
+	// ×î³¤¹«¹²×ÓĞòÁĞ
 	m, n := len(word1), len(word2)
 	dp := make([][]int, m+1)
 	for i := range dp {
@@ -24,7 +24,7 @@ func max(a, b int) int {
 	return b
 }
 
-func minDistance(word1 string, word2 string) int { // dp[i][j]è¡¨ç¤ºword1[0...i]ä¸word2[0...j]çš„æœ€å°è·ç¦»
+func minDistance(word1 string, word2 string) int { // dp[i][j]±íÊ¾word1[0...i]Óëword2[0...j]µÄ×îĞ¡¾àÀë
 	min := func(x, y int) int {
 		if x > y {
 			return y

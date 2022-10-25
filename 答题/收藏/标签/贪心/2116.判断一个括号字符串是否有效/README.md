@@ -1,4 +1,4 @@
-# [2116. 判断一个括号字符串是否有效](https://leetcode-cn.com/problems/check-if-a-parentheses-string-can-be-valid)
+# [2116. 判断一个括号字符串是否有效](https://leetcode.cn/problems/check-if-a-parentheses-string-can-be-valid)
 <p>一个括号字符串是只由&nbsp;<code>'('</code> 和&nbsp;<code>')'</code>&nbsp;组成的&nbsp;<strong>非空</strong>&nbsp;字符串。如果一个字符串满足下面 <b>任意</b>&nbsp;一个条件，那么它就是有效的：</p>
 
 <ul>
@@ -56,4 +56,4 @@
 	<li><code>locked[i]</code> 要么是&nbsp;<code>'0'</code>&nbsp;要么是&nbsp;<code>'1'</code> 。</li>
 </ul>
 
-**标签:**  [栈](https://leetcode-cn.com/tag/stack) [贪心](https://leetcode-cn.com/tag/greedy) [字符串](https://leetcode-cn.com/tag/string) 
+**标签:**  [栈](https://leetcode.cn/tag/stack) [贪心](https://leetcode.cn/tag/greedy) [字符串](https://leetcode.cn/tag/string) 

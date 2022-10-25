@@ -1,4 +1,4 @@
-# [92. 反转链表 II](https://leetcode-cn.com/problems/reverse-linked-list-ii)
+# [92. 反转链表 II](https://leetcode.cn/problems/reverse-linked-list-ii)
 给你单链表的头指针 <code>head</code> 和两个整数 <code>left</code> 和 <code>right</code> ，其中 <code>left <= right</code> 。请你反转从位置 <code>left</code> 到位置 <code>right</code> 的链表节点，返回 <strong>反转后的链表</strong> 。
 <p> </p>
 
@@ -31,4 +31,4 @@
 
 <p><strong>进阶：</strong> 你可以使用一趟扫描完成反转吗？</p>
 
-**标签:**  [链表](https://leetcode-cn.com/tag/linked-list) 
+**标签:**  [链表](https://leetcode.cn/tag/linked-list) 

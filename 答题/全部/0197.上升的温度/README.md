@@ -1,4 +1,4 @@
-# [197. 上升的温度](https://leetcode-cn.com/problems/rising-temperature)
+# [197. 上升的温度](https://leetcode.cn/problems/rising-temperature)
 <div class="original__bRMd">
 <div>
 <p>表：&nbsp;<code>Weather</code></p>
@@ -50,4 +50,4 @@ Weather 表：</code>
 </div>
 </div>
 
-**标签:**  [数据库](https://leetcode-cn.com/tag/database) 
+**标签:**  [数据库](https://leetcode.cn/tag/database) 

@@ -1,4 +1,4 @@
-# [91. 解码方法](https://leetcode-cn.com/problems/decode-ways)
+# [91. 解码方法](https://leetcode.cn/problems/decode-ways)
 <p>一条包含字母&nbsp;<code>A-Z</code> 的消息通过以下映射进行了 <strong>编码</strong> ：</p>
 
 <pre>
@@ -57,4 +57,4 @@
 	<li><code>s</code> 只包含数字，并且可能包含前导零。</li>
 </ul>
 
-**标签:**  [字符串](https://leetcode-cn.com/tag/string) [动态规划](https://leetcode-cn.com/tag/dynamic-programming) 
+**标签:**  [字符串](https://leetcode.cn/tag/string) [动态规划](https://leetcode.cn/tag/dynamic-programming) 

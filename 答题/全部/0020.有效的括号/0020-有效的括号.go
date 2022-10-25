@@ -1,8 +1,8 @@
 func isValid(s string) bool {
     stack := []byte{}
-    m := map[byte]byte {
-        ')' : '(',
+    m := map[byte]byte{
         ']' : '[',
+        ')' : '(',
         '}' : '{',
     }
     for i := 0; i < len(s); i++ {
@@ -14,6 +14,5 @@ func isValid(s string) bool {
             stack = stack[:len(stack)-1]
         }
     }
-
     return len(stack) == 0
 }

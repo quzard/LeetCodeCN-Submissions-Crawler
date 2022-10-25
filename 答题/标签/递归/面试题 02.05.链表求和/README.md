@@ -1,4 +1,4 @@
-# [面试题 02.05. 链表求和](https://leetcode-cn.com/problems/sum-lists-lcci)
+# [面试题 02.05. 链表求和](https://leetcode.cn/problems/sum-lists-lcci)
 <p>给定两个用链表表示的整数，每个节点包含一个数位。</p>
 
 <p>这些数位是反向存放的，也就是个位排在链表首部。</p>
@@ -21,4 +21,4 @@
 <strong>输出：</strong>9 -&gt; 1 -&gt; 2，即912
 </pre>
 
-**标签:**  [递归](https://leetcode-cn.com/tag/recursion) [链表](https://leetcode-cn.com/tag/linked-list) [数学](https://leetcode-cn.com/tag/math) 
+**标签:**  [递归](https://leetcode.cn/tag/recursion) [链表](https://leetcode.cn/tag/linked-list) [数学](https://leetcode.cn/tag/math) 

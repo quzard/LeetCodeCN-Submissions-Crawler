@@ -1,4 +1,4 @@
-# [21. 合并两个有序链表](https://leetcode-cn.com/problems/merge-two-sorted-lists)
+# [21. 合并两个有序链表](https://leetcode.cn/problems/merge-two-sorted-lists)
 <p>将两个升序链表合并为一个新的 <strong>升序</strong> 链表并返回。新链表是通过拼接给定的两个链表的所有节点组成的。 </p>
 
 <p> </p>
@@ -34,4 +34,4 @@
 	<li><code>l1</code> 和 <code>l2</code> 均按 <strong>非递减顺序</strong> 排列</li>
 </ul>
 
-**标签:**  [递归](https://leetcode-cn.com/tag/recursion) [链表](https://leetcode-cn.com/tag/linked-list) 
+**标签:**  [递归](https://leetcode.cn/tag/recursion) [链表](https://leetcode.cn/tag/linked-list) 

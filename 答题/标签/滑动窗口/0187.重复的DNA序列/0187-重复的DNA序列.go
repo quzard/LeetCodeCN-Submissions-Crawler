@@ -38,7 +38,7 @@ const baseL = 10
 const bitStand = 1<<(baseL*2) - 1
 
 
-// 空间换速度
+// �ռ任�ٶ�
 var base = ['T' + 1]int32{
 	'A': 0,
 	'C': 1,
@@ -56,7 +56,7 @@ func findRepeatedDnaSequences(s string) []string {
 	for i := range s[:baseL-1] {
 		num = num<<2 | base[s[i]]
 	}
-    // 空间换速度
+    // �ռ任�ٶ�
 	numMpCnt := [1 << 20]int8{}
 	for idx := 0; idx <= sL-baseL; idx++ {
 		bitLow := s[idx+baseL-1]

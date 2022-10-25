@@ -1,4 +1,4 @@
-# [240. 搜索二维矩阵 II](https://leetcode-cn.com/problems/search-a-2d-matrix-ii)
+# [240. 搜索二维矩阵 II](https://leetcode.cn/problems/search-a-2d-matrix-ii)
 <p>编写一个高效的算法来搜索&nbsp;<code><em>m</em>&nbsp;x&nbsp;<em>n</em></code>&nbsp;矩阵 <code>matrix</code> 中的一个目标值 <code>target</code> 。该矩阵具有以下特性：</p>
 
 <ul>
@@ -36,4 +36,4 @@
 	<li><code>-10<sup>9</sup>&nbsp;&lt;= target &lt;= 10<sup>9</sup></code></li>
 </ul>
 
-**标签:**  [数组](https://leetcode-cn.com/tag/array) [二分查找](https://leetcode-cn.com/tag/binary-search) [分治](https://leetcode-cn.com/tag/divide-and-conquer) [矩阵](https://leetcode-cn.com/tag/matrix) 
+**标签:**  [数组](https://leetcode.cn/tag/array) [二分查找](https://leetcode.cn/tag/binary-search) [分治](https://leetcode.cn/tag/divide-and-conquer) [矩阵](https://leetcode.cn/tag/matrix) 

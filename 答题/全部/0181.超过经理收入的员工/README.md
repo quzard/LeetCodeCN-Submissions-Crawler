@@ -1,4 +1,4 @@
-# [181. 超过经理收入的员工](https://leetcode-cn.com/problems/employees-earning-more-than-their-managers)
+# [181. 超过经理收入的员工](https://leetcode.cn/problems/employees-earning-more-than-their-managers)
 <p>表：<code>Employee</code>&nbsp;</p>
 
 <pre>
@@ -45,4 +45,4 @@ Employee 表:
 +----------+
 <strong>解释:</strong> Joe 是唯一挣得比经理多的雇员。</pre>
 
-**标签:**  [数据库](https://leetcode-cn.com/tag/database) 
+**标签:**  [数据库](https://leetcode.cn/tag/database) 

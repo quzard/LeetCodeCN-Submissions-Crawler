@@ -1,5 +1,5 @@
-# [1004. 最大连续1的个数 III](https://leetcode-cn.com/problems/max-consecutive-ones-iii)
-<p>给定一个二进制数组&nbsp;<code>nums</code>&nbsp;和一个整数&nbsp;<code><font color="#c7254e"><font face="Menlo, Monaco, Consolas, Courier New, monospace"><span style="font-size:12.6px"><span style="background-color:#f9f2f4">k</span></span></font></font></code>&nbsp;，如果可以翻转最多<code><font color="#c7254e"><font face="Menlo, Monaco, Consolas, Courier New, monospace"><span style="font-size:12.6px"><span style="background-color:#f9f2f4">k</span></span></font></font></code>&nbsp;个 <code>0</code> ，则返回 <em>数组中连续 <code>1</code> 的最大个数</em> 。</p>
+# [1004. 最大连续1的个数 III](https://leetcode.cn/problems/max-consecutive-ones-iii)
+<p>给定一个二进制数组&nbsp;<code>nums</code>&nbsp;和一个整数 <code>k</code>，如果可以翻转最多 <code>k</code> 个 <code>0</code> ，则返回 <em>数组中连续 <code>1</code> 的最大个数</em> 。</p>
 
 <p>&nbsp;</p>
 
@@ -29,4 +29,4 @@
 	<li><code>0 &lt;= k &lt;= nums.length</code></li>
 </ul>
 
-**标签:**  [数组](https://leetcode-cn.com/tag/array) [二分查找](https://leetcode-cn.com/tag/binary-search) [前缀和](https://leetcode-cn.com/tag/prefix-sum) [滑动窗口](https://leetcode-cn.com/tag/sliding-window) 
+**标签:**  [数组](https://leetcode.cn/tag/array) [二分查找](https://leetcode.cn/tag/binary-search) [前缀和](https://leetcode.cn/tag/prefix-sum) [滑动窗口](https://leetcode.cn/tag/sliding-window) 

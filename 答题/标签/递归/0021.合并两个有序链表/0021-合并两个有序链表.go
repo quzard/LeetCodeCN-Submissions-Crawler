@@ -5,40 +5,27 @@
  *     Next *ListNode
  * }
  */
-func mergeTwoLists(l1 *ListNode, l2 *ListNode) *ListNode {
-    res := &ListNode{}
-    num1 := 0
-    num2 := 0
-    now := res
-    for{
-        if l1 == nil && l2 == nil{
-            break
+func mergeTwoLists(list1 *ListNode, list2 *ListNode) *ListNode {
+    newHead := &ListNode{}
+    cur := newHead
+    for list1 != nil && list2 != nil {
+        num1 := list1.Val
+        num2 := list2.Val
+        if num1 < num2 {
+            cur.Next = list1
+            list1 = list1.Next
+        } else {
+            cur.Next = list2
+            list2 = list2.Next
         }
-        if l1 != nil{
-            num1 = l1.Val
-        }else{
-            num1 = math.MaxInt32
-        }
-
-        if l2 != nil{
-            num2 = l2.Val
-        }else{
-            num2 = math.MaxInt32
-        }
-        if num1 < num2{
-            now.Next = &ListNode{Val: num1}
-            l1 = l1.Next
-        }else{
-            now.Next = &ListNode{Val: num2}
-            l2 = l2.Next
-        }
-        now = now.Next
+        cur = cur.Next
+        cur.Next = nil
     }
-    return res.Next
-}
-func min(a, b int) int{
-    if a < b{
-        return a
+    if list1 != nil {
+        cur.Next = list1
     }
-    return b
+    if list2 != nil {
+        cur.Next = list2
+    }
+    return newHead.Next
 }

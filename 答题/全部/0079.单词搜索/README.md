@@ -1,4 +1,4 @@
-# [79. 单词搜索](https://leetcode-cn.com/problems/word-search)
+# [79. 单词搜索](https://leetcode.cn/problems/word-search)
 <p>给定一个 <code>m x n</code> 二维字符网格 <code>board</code> 和一个字符串单词 <code>word</code> 。如果 <code>word</code> 存在于网格中，返回 <code>true</code> ；否则，返回 <code>false</code> 。</p>
 
 <p>单词必须按照字母顺序，通过相邻的单元格内的字母构成，其中“相邻”单元格是那些水平相邻或垂直相邻的单元格。同一个单元格内的字母不允许被重复使用。</p>
@@ -42,4 +42,4 @@
 
 <p><strong>进阶：</strong>你可以使用搜索剪枝的技术来优化解决方案，使其在 <code>board</code> 更大的情况下可以更快解决问题？</p>
 
-**标签:**  [数组](https://leetcode-cn.com/tag/array) [回溯](https://leetcode-cn.com/tag/backtracking) [矩阵](https://leetcode-cn.com/tag/matrix) 
+**标签:**  [数组](https://leetcode.cn/tag/array) [回溯](https://leetcode.cn/tag/backtracking) [矩阵](https://leetcode.cn/tag/matrix) 

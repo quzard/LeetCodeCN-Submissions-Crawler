@@ -26,9 +26,9 @@ func findNumberOfLIS1(nums []int) int {
 
 
 func findNumberOfLIS(nums []int) int {
-    // d[i] æ•°ç»„è¡¨ç¤ºæ‰€æœ‰èƒ½æˆä¸ºé•¿åº¦ä¸º i çš„æœ€é•¿ä¸Šå‡å­åºåˆ—çš„æœ«å°¾å…ƒç´ çš„å€¼
+    // d[i] Êı×é±íÊ¾ËùÓĞÄÜ³ÉÎª³¤¶ÈÎª i µÄ×î³¤ÉÏÉı×ÓĞòÁĞµÄÄ©Î²ÔªËØµÄÖµ
     d := [][]int{}
-    // cnt[i][j] è®°å½•äº†ä»¥ d[i][j] ä¸ºç»“å°¾çš„æœ€é•¿ä¸Šå‡å­åºåˆ—çš„ä¸ªæ•°ã€‚
+    // cnt[i][j] ¼ÇÂ¼ÁËÒÔ d[i][j] Îª½áÎ²µÄ×î³¤ÉÏÉı×ÓĞòÁĞµÄ¸öÊı¡£
 	cnt := [][]int{}
 	for _, num := range nums{
 		i := sort.Search(len(d), func(i int)bool{ 
@@ -43,7 +43,7 @@ func findNumberOfLIS(nums []int) int {
 		}
 		if i == len(d){
 			d = append(d, []int{num})
-			cnt = append(cnt, []int{0, c}) // å‰ç¼€0ï¼š æ–¹ä¾¿å‰ç¼€å’Œ ä¼˜åŒ–
+			cnt = append(cnt, []int{0, c}) // Ç°×º0£º ·½±ãÇ°×ººÍ ÓÅ»¯
 		}else{
 			d[i] = append(d[i], num)
 			cnt[i] = append(cnt[i], cnt[i][len(cnt[i])-1] + c)

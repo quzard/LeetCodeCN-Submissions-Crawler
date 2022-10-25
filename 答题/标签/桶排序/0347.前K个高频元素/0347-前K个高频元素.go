@@ -1,21 +1,26 @@
-// 堆排序
+import (
+    "container/heap"
+)
+
+// ������
 var res []int
 var hashTabe map[int]int
-var selected  map[int]int
+var selected map[int]int
+
 func topKFrequent(nums []int, k int) []int {
     res = make([]int, 1)
     hashTabe = map[int]int{}
     selected = map[int]int{}
-    for i := 0; i < len(nums); i++{
+    for i := 0; i < len(nums); i++ {
         hashTabe[nums[i]]++
     }
-    for key, value := range hashTabe{
-        if len(res) < k + 1{
+    for key, value := range hashTabe {
+        if len(res) < k+1 {
             res = append(res, key)
             selected[key] = len(res) - 1
             swim(len(res) - 1)
-        }else{
-            if value >= hashTabe[res[1]]{
+        } else {
+            if value >= hashTabe[res[1]] {
                 selected[res[1]] = 0
                 res[1] = key
                 selected[res[1]] = 1
@@ -26,32 +31,32 @@ func topKFrequent(nums []int, k int) []int {
     return res[1:]
 }
 
-// 父比子大
-func less(a, b int) bool{
-    if hashTabe[res[a]] >= hashTabe[res[b]]{
+// �����Ӵ�
+func less(a, b int) bool {
+    if hashTabe[res[a]] >= hashTabe[res[b]] {
         return true
     }
     return false
 }
 
-// 从下往上浮 越上越小
-func swim(k int){
-    for(k > 1 && less(int(k / 2), k)){
-        selected[res[int(k / 2)]], selected[res[k]] = k, int(k / 2)
-        res[int(k / 2)], res[k] = res[k], res[int(k / 2)]
+// �������ϸ� Խ��ԽС
+func swim(k int) {
+    for k > 1 && less(int(k/2), k) {
+        selected[res[int(k/2)]], selected[res[k]] = k, int(k/2)
+        res[int(k/2)], res[k] = res[k], res[int(k/2)]
         k = k / 2
     }
 }
 
-// 从上往下沉 越下越大
-func sink(k int){
-    for(2*k < len(res)){
+// �������³� Խ��Խ��
+func sink(k int) {
+    for 2*k < len(res) {
         j := 2 * k
-        if j < len(res) - 1 && less(j, j+1){
-            // 取j 和 j+1 小的那个
+        if j < len(res)-1 && less(j, j+1) {
+            // ȡj �� j+1 С���Ǹ�
             j++
         }
-        if !less(k, j){
+        if !less(k, j) {
             // k < j
             break
         }
@@ -60,12 +65,6 @@ func sink(k int){
         k = j
     }
 }
-
-
-
-
-
-
 
 func topKFrequent1(nums []int, k int) []int {
     occurrences := map[int]int{}
@@ -82,7 +81,7 @@ func topKFrequent1(nums []int, k int) []int {
     }
     ret := make([]int, k)
     for i := 0; i < k; i++ {
-        ret[k - i - 1] = heap.Pop(h).([2]int)[0]
+        ret[k-i-1] = heap.Pop(h).([2]int)[0]
     }
     return ret
 }
@@ -103,40 +102,4 @@ func (h *IHeap) Pop() interface{} {
     x := old[n-1]
     *h = old[0 : n-1]
     return x
-}
-
-
-
-
-
-
-
-
-
-// 快排
-func topKFrequent2(nums []int, k int) []int {
-	res := make([]int, 0)
-	// key是数组内容，value是数值出现次数
-	checkMap := make(map[int]int)
-	for _, elem := range nums {
-		checkMap[elem]++
-	}
-	// 然后把统计好的数值放入到数组中
-	// res的数组长度一定比nums要小
-	// 因为nums存在重复数据
-	for key, _ := range checkMap {
-		res = append(res, key)
-	}
-	// 然后使用快排来进行排序
-	// 保证res是递减的函数
-	// 比较的是map中value的值大小
-	// 那么需要自己来实现对比的函数
-	// 底层实现是quickSort_func
-	sort.Slice(res, func(a, b int) bool {
-		// 返回func函数的实现
-		// 使用map中的value来进行比较
-		return checkMap[res[a]] > checkMap[res[b]]
-	})
-	// 然后取前面的k个元素
-	return res[:k]
 }

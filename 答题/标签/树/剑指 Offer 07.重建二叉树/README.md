@@ -1,4 +1,4 @@
-# [剑指 Offer 07. 重建二叉树](https://leetcode-cn.com/problems/zhong-jian-er-cha-shu-lcof)
+# [剑指 Offer 07. 重建二叉树](https://leetcode.cn/problems/zhong-jian-er-cha-shu-lcof)
 <p>输入某二叉树的前序遍历和中序遍历的结果，请构建该二叉树并返回其根节点。</p>
 
 <p>假设输入的前序遍历和中序遍历的结果中都不含重复的数字。</p>
@@ -29,4 +29,4 @@
 
 <p><strong>注意</strong>：本题与主站 105 题重复：<a href="https://leetcode-cn.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/">https://leetcode-cn.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/</a></p>
 
-**标签:**  [树](https://leetcode-cn.com/tag/tree) [数组](https://leetcode-cn.com/tag/array) [哈希表](https://leetcode-cn.com/tag/hash-table) [分治](https://leetcode-cn.com/tag/divide-and-conquer) [二叉树](https://leetcode-cn.com/tag/binary-tree) 
+**标签:**  [树](https://leetcode.cn/tag/tree) [数组](https://leetcode.cn/tag/array) [哈希表](https://leetcode.cn/tag/hash-table) [分治](https://leetcode.cn/tag/divide-and-conquer) [二叉树](https://leetcode.cn/tag/binary-tree) 

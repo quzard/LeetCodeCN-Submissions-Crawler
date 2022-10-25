@@ -1,4 +1,4 @@
-# [165. 比较版本号](https://leetcode-cn.com/problems/compare-version-numbers)
+# [165. 比较版本号](https://leetcode.cn/problems/compare-version-numbers)
 <p>给你两个版本号 <code>version1</code> 和 <code>version2</code> ，请你比较它们。</p>
 
 <p>版本号由一个或多个修订号组成，各修订号由一个 <code>'.'</code> 连接。每个修订号由 <strong>多位数字</strong> 组成，可能包含 <strong>前导零</strong> 。每个版本号至少包含一个字符。修订号从左到右编号，下标从 0 开始，最左边的修订号下标为 0 ，下一个修订号下标为 1 ，以此类推。例如，<code>2.5.33</code> 和 <code>0.1</code> 都是有效的版本号。</p>
@@ -50,4 +50,4 @@
 	<li><code>version1</code> 和 <code>version2</code> 的所有修订号都可以存储在 <strong>32 位整数</strong> 中</li>
 </ul>
 
-**标签:**  [双指针](https://leetcode-cn.com/tag/two-pointers) [字符串](https://leetcode-cn.com/tag/string) 
+**标签:**  [双指针](https://leetcode.cn/tag/two-pointers) [字符串](https://leetcode.cn/tag/string) 
