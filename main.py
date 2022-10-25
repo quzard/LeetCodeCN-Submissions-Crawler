@@ -86,6 +86,7 @@ def getTimeStamp(client):
     count = 0
     cnt = 0
     while True:
+        time.sleep(1)
         cur_time = time.time()
         params = {'operationName': "userProfileQuestions",
                   'variables': {"status": "ACCEPTED",
@@ -130,31 +131,28 @@ def getTimeStamp(client):
                                verify=False)
         if response.status_code != 200:
             print("总共", cnt, "道题目")
-            time.sleep(1)
             return
         content = response.json()
         if len(content['data']['userProfileQuestions']['questions']) == 0:
             print("总共", cnt, "道题目")
-            time.sleep(1)
             return
         for question in content['data']['userProfileQuestions']['questions']:
             if cur_time - question['lastSubmittedAt'] > TIME_CONTROL:  # 时间管理，本行代表只记录最近的TIME_CONTROL天内的提交记录
                 print("总共", cnt, "道题目")
-                time.sleep(1)
                 return
             frontendId[question['lastSubmittedAt']] = question['frontendId']
             titleSlug[question['lastSubmittedAt']] = question['titleSlug']
             print(question['frontendId'], '\t', question['translatedTitle'])
             cnt += 1
         count += 20
-        time.sleep(1)
 
-
+# 获取收藏题目名单
 def getFavorite(client):
     detailed_question_url = leetcode_url + "graphql/"
     page = 1
     cnt = 0
     while True:
+        time.sleep(1)
         question_headers = {'User-Agent': user_agent,
                     'Connection': 'keep-alive',
                     'Content-Type': 'application/json',
@@ -216,20 +214,18 @@ def getFavorite(client):
                                verify=False)
         if response.status_code != 200:
             print("总共", cnt, "道题目")
-            time.sleep(1)
             return
         content = response.json()
         if len(content['data']['problemsetQuestionList']['questions']) == 0:
             print("总共", cnt, "道题目")
-            time.sleep(1)
             return
         for question in content['data']['problemsetQuestionList']['questions']:
             favorite.add(question['titleCn'].replace(" ", ""))
             cnt += 1
             print(cnt, ":",question['frontendQuestionId'], '\t', question['titleCn'])
         page += 1
-        time.sleep(1)
-
+        
+# 遍历
 def scraping(client):
     page_num = START_PAGE
     visited = set()
@@ -238,14 +234,21 @@ def scraping(client):
         print("Now for page:", str(page_num))
         submissions_url = leetcode_url + "api/submissions/?offset=" + str(page_num) + "&limit=40&lastkey="
 
-        html = client.get(submissions_url, verify=False)
-        html = json.loads(html.text)
+        web = client.get(submissions_url, verify=False)
+        if web.text == """{"detail":"您没有执行该操作的权限。"}""":
+            print(web.text)
+            time.sleep(5)
+            continue
+        
+        html = json.loads(web.text)
         cur_time = time.time()
         if not html.get("submissions_dump"):
             print("下载完成")
+            print(web.text)
             break
 
         for submission in html["submissions_dump"]:
+            
             submission_status = submission['status_display']
             problem_title = submission['title'].replace(" ", "")
             submission_language = submission['lang']
@@ -256,9 +259,18 @@ def scraping(client):
             if cur_time - submission['timestamp'] > TIME_CONTROL:  # 时间管理，本行代表只记录最近的TIME_CONTROL天内的提交记录
                 print("完成所需时间的下载")
                 return
-            try:
-                if submission['timestamp'] in frontendId:
-                    # 下载题目
+            
+            if submission['timestamp'] in frontendId:
+                problem_id = frontendId[submission['timestamp']]
+                if problem_id + submission_language not in visited:
+                    print(cnt, ": ", problem_id, problem_title, submission_language)
+                    cnt+=1
+                    
+                    visited.add(problem_id + submission_language)
+                    
+                    time.sleep(1)
+                    
+                    # 获取标签
                     url = titleSlug[submission['timestamp']]
                     tags = None
                     if url in paid_only:
@@ -267,31 +279,25 @@ def scraping(client):
                         session = requests.session()
                         tags = get_question_detail(session, url)
                         session.close
-                    # 下载题解
-                    problem_id = frontendId[submission['timestamp']]
-                    if problem_id + submission_language not in visited:
-                        visited.add(problem_id + submission_language)  # 保障每道题只记录每种语言最新的AC解
-                        
-                        print(cnt, ": ", problem_id, problem_title, submission_language)
-                        cnt+=1
-                        del frontendId[submission['timestamp']]
-                        time.sleep(1)
-                        code = downloadCode(submission, client)
-                        full_paths = generatePath(problem_id, problem_title, submission_language, tags, False)
+                    
+                    # 下载代码
+                    code = downloadCode(submission, client)
+                    
+                    # 生成路径
+                    full_paths = generatePath(problem_id, problem_title, submission_language, tags, False)
+                    
+                    #保存
+                    for full_path in full_paths:
+                        with open(full_path, "w") as f:  # 开始写到本地
+                            f.write(code)
+                            
+                    if problem_title.replace(" ", "") in favorite:
+                        full_paths = generatePath(problem_id, problem_title, submission_language, tags, True)
                         for full_path in full_paths:
                             with open(full_path, "w") as f:  # 开始写到本地
                                 f.write(code)
-                        if problem_title.replace(" ", "") in favorite:
-                            full_paths = generatePath(problem_id, problem_title, submission_language, tags, True)
-                            for full_path in full_paths:
-                                with open(full_path, "w") as f:  # 开始写到本地
-                                    f.write(code)
+                    del frontendId[submission['timestamp']]
 
-
-            except FileNotFoundError as e:
-                print("文件夹不存在")
-
-        time.sleep(1)
         page_num += 40
 
 # 下载题目
@@ -429,6 +435,7 @@ def process_writing_question(content):
 
             f_cn.close()
 
+# 下载代码
 def downloadCode(submission, client):
     # print(submission)
     headers = {
@@ -446,7 +453,7 @@ def downloadCode(submission, client):
 
     return submission_details["code"]
 
-
+# 生成目录路径
 def generatePath(problem_id, problem_title, submission_language, tags, isFavorite):
     if isFavorite:
         OUTPUT_DIR = OUTPUT + "/收藏"
@@ -499,7 +506,7 @@ def generatePath(problem_id, problem_title, submission_language, tags, isFavorit
             full_path.append(os.path.join(newPath, filename))  # 把文件夹和文件组合成新的地址
     return full_path
 
-
+# 提交
 def gitPush():
     today = time.strftime('%Y-%m-%d', time.localtime(time.time()))
     os.chdir(OUTPUT)
