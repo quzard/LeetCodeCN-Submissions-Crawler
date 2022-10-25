@@ -18,12 +18,19 @@ config_path = "./configMy.json"
 user_agent = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) ' \
              'Chrome/33.0.1750.152 Safari/537.36 '
 
-with open(config_path, "r") as f:  # 读取用户名，密码，本地存储目录
-    config = json.loads(f.read())
+if "CONFIG" in os.environ:
+    config = json.loads(os.environ["CONFIG"])
     USERNAME = config['username']
     PASSWORD = config['password']
     OUTPUT = config['outputDir']
     TIME_CONTROL = 3600 * config['time']
+else:
+    with open(config_path, "r", encoding='UTF-8') as f:  # 读取用户名，密码，本地存储目录
+        config = json.loads(f.read())
+        USERNAME = config['username']
+        PASSWORD = config['password']
+        OUTPUT = config['outputDir']
+        TIME_CONTROL = 3600 * config['time']
 
 FILE_FORMAT = {"C++": ".cpp", "Python3": ".py", "Python": ".py", "MySQL": ".sql", "Go": ".go", "Java": ".java",
                "C": ".c", "JavaScript": ".js", "PHP": ".php", "C#": ".cs", "Ruby": ".rb", "Swift": ".swift",
@@ -38,7 +45,7 @@ SLEEP_TIME = 5  # in second，登录失败时的休眠时间
 # ~~~~~~~~~~~~以上是可以修改的参数~~~~~~~~~~~~~~~~·
 def getPaid_only():
     client = requests.session()
-    problems_url = "https://leetcode.cn/api/problems/all/"
+    problems_url = leetcode_url + "api/problems/all/"
     headers = {'User-Agent': user_agent, 'Connection': 'keep-alive'}
     response = client.get(problems_url, headers=headers, timeout=10)
     questions_list = json.loads(response.content.decode('utf-8'))['stat_status_pairs']
@@ -71,11 +78,11 @@ def login(username, password):  # 本函数修改自https://gist.github.com/fyea
 
 # 获取最新题解TimeStamp与url id的对应
 def getTimeStamp(client):
-    detailed_question_url = "https://leetcode.cn/graphql"
+    detailed_question_url = leetcode_url + "graphql"
     question_headers = {'User-Agent': user_agent,
                         'Connection': 'keep-alive',
                         'Content-Type': 'application/json',
-                        'Referer': 'https://leetcode.cn/problems/'}
+                        'Referer': leetcode_url + 'problems/'}
     count = 0
     cnt = 0
     while True:
@@ -144,14 +151,14 @@ def getTimeStamp(client):
 
 
 def getFavorite(client):
-    detailed_question_url = "https://leetcode.cn/graphql/"
+    detailed_question_url = leetcode_url + "graphql/"
     page = 1
     cnt = 0
     while True:
         question_headers = {'User-Agent': user_agent,
                     'Connection': 'keep-alive',
                     'Content-Type': 'application/json',
-                    'Referer': 'https://leetcode.cn/problemset'
+                    'Referer': leetcode_url + 'problemset'
                     }
         params = {'variables': {"categorySlug": "",
                                 "filters": {
@@ -229,7 +236,7 @@ def scraping(client):
     cnt = 1
     while True:
         print("Now for page:", str(page_num))
-        submissions_url = "https://leetcode.cn/api/submissions/?offset=" + str(page_num) + "&limit=40&lastkey="
+        submissions_url = leetcode_url + "api/submissions/?offset=" + str(page_num) + "&limit=40&lastkey="
 
         html = client.get(submissions_url, verify=False)
         html = json.loads(html.text)
@@ -289,11 +296,11 @@ def scraping(client):
 
 # 下载题目
 def get_question_detail(client, simple_url):
-    detailed_question_url = "https://leetcode.cn/graphql"
+    detailed_question_url = leetcode_url + "graphql"
     question_headers = {'User-Agent': user_agent,
                         'Connection': 'keep-alive',
                         'Content-Type': 'application/json',
-                        'Referer': 'https://leetcode.cn/problems/' + simple_url + '/submissions/'}
+                        'Referer': leetcode_url + 'problems/' + simple_url + '/submissions/'}
     params = {'operationName': "questionData",
               'variables': {'titleSlug': simple_url},
               'query':
@@ -385,8 +392,8 @@ def get_question_detail(client, simple_url):
 
 # 保存题目
 def process_writing_question(content):
-    question_url = "https://leetcode.cn/problems/"
-    tag_url = "https://leetcode.cn/tag/"
+    question_url = leetcode_url + "problems/"
+    tag_url = leetcode_url + "tag/"
 
     frontend_id = content['data']['question']['questionFrontendId']
     title_cn = content['data']['question']['translatedTitle']
@@ -434,7 +441,7 @@ def downloadCode(submission, client):
              }
 
     param_json = json.dumps(param).encode("utf-8")
-    response = client.post("https://leetcode.cn/graphql/", data=param_json, headers=headers)
+    response = client.post(leetcode_url + "graphql/", data=param_json, headers=headers)
     submission_details = response.json()["data"]["submissionDetail"]
 
     return submission_details["code"]
@@ -503,9 +510,9 @@ def gitPush():
 
 
 def main():
-    print('获取 Paid_only')
+    print('获取 会员题目')
     getPaid_only()
-    print('Login')
+    print('登录')
     client = login(USERNAME, PASSWORD)
     print('获取 时间戳')
     getTimeStamp(client)
