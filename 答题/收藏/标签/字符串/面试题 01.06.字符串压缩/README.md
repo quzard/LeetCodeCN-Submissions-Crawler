@@ -1,4 +1,4 @@
-# [面试题 01.06. 字符串压缩](https://leetcode-cn.com/problems/compress-string-lcci)
+# [面试题 01.06. 字符串压缩](https://leetcode.cn/problems/compress-string-lcci)
 <p>字符串压缩。利用字符重复出现的次数，编写一种方法，实现基本的字符串压缩功能。比如，字符串<code>aabcccccaaa</code>会变为<code>a2b1c5a3</code>。若“压缩”后的字符串没有变短，则返回原先的字符串。你可以假设字符串中只包含大小写英文字母（a至z）。</p>
 
 <p> <strong>示例1:</strong></p>
@@ -22,4 +22,4 @@
 <li>字符串长度在[0, 50000]范围内。</li>
 </ol>
 
-**标签:**  [双指针](https://leetcode-cn.com/tag/two-pointers) [字符串](https://leetcode-cn.com/tag/string) 
+**标签:**  [双指针](https://leetcode.cn/tag/two-pointers) [字符串](https://leetcode.cn/tag/string) 

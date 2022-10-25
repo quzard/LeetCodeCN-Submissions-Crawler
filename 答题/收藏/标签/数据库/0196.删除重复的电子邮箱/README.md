@@ -1,4 +1,4 @@
-# [196. 删除重复的电子邮箱](https://leetcode-cn.com/problems/delete-duplicate-emails)
+# [196. 删除重复的电子邮箱](https://leetcode.cn/problems/delete-duplicate-emails)
 <p>表:&nbsp;<code>Person</code></p>
 
 <pre>
@@ -14,11 +14,13 @@ id是该表的主键列。
 
 <p>&nbsp;</p>
 
-<p>编写一个SQL查询来 <strong>删除</strong> 所有重复的电子邮件，只保留一个id最小的唯一电子邮件。</p>
+<p>编写一个 SQL <strong>删除语句</strong>来 <strong>删除</strong> 所有重复的电子邮件，只保留一个id最小的唯一电子邮件。</p>
 
-<p>以 <strong>任意顺序</strong> 返回结果表。</p>
+<p>以 <strong>任意顺序</strong> 返回结果表。 （<strong>注意</strong>： 仅需要写删除语句，将自动对剩余结果进行查询）</p>
 
 <p>查询结果格式如下所示。</p>
+
+<p>&nbsp;</p>
 
 <p>&nbsp;</p>
 
@@ -43,4 +45,4 @@ Person 表:
 +----+------------------+
 <strong>解释:</strong> john@example.com重复两次。我们保留最小的Id = 1。</pre>
 
-**标签:**  [数据库](https://leetcode-cn.com/tag/database) 
+**标签:**  [数据库](https://leetcode.cn/tag/database) 

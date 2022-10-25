@@ -1,4 +1,4 @@
-// 鏈�闀垮叕鍏卞瓙搴忓垪
+// 最长公共子序列
 func findLength(nums1 []int, nums2 []int) int {
     res := 0
     dp := make([][]int, len(nums1))

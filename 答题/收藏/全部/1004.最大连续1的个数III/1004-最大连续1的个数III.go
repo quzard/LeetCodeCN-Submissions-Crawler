@@ -1,9 +1,9 @@
 func longestOnes(nums []int, k int) (ans int) {
     var left, lsum, rsum int
     for right, v := range nums {
-        rsum += 1 - v // åˆ°æœ‰è¾¹ç•Œ0ä¸ªæ•°
-        for lsum < rsum-k { //0ä¸ªæ•°è¿‡å¤šã€‚å‘å³ç§»åŠ¨å·¦è¾¹ç•Œ
-            lsum += 1 - nums[left] // å·¦è¾¹ç•Œå·¦è¾¹0ä¸ªæ•° rsum - lsum = çª—å£å†…0çš„ä¸ªæ•°
+        rsum += 1 - v // µ½ÓÐ±ß½ç0¸öÊý
+        for lsum < rsum-k { //0¸öÊý¹ý¶à¡£ÏòÓÒÒÆ¶¯×ó±ß½ç
+            lsum += 1 - nums[left] // ×ó±ß½ç×ó±ß0¸öÊý rsum - lsum = ´°¿ÚÄÚ0µÄ¸öÊý
             left++
         }
         ans = max(ans, right-left+1)
