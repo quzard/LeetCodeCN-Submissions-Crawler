@@ -1,4 +1,4 @@
-name: SEU Auto Temperature
+name: update leetcode
 on:
   schedule:
     - cron: '05 22 * * *'
