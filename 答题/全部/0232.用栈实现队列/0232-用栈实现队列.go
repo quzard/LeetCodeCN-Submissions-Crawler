@@ -6,7 +6,7 @@ func Constructor() MyQueue {
 	return MyQueue{}
 }
 
-// ½«ÔªËØ x ÍÆµ½¶ÓÁĞµÄÄ©Î²
+// å°†å…ƒç´  x æ¨åˆ°é˜Ÿåˆ—çš„æœ«å°¾
 func (q *MyQueue) Push(x int) {
 	q.inStack = append(q.inStack, x)
 }
@@ -20,7 +20,7 @@ func (q *MyQueue) in2out() {
 	}
 }
 
-// ´Ó¶ÓÁĞµÄ¿ªÍ·ÒÆ³ı²¢·µ»ØÔªËØ
+// ä»é˜Ÿåˆ—çš„å¼€å¤´ç§»é™¤å¹¶è¿”å›å…ƒç´ 
 func (q *MyQueue) Pop() int {
 	if len(q.outStack) == 0 {
 		q.in2out()
@@ -30,7 +30,7 @@ func (q *MyQueue) Pop() int {
 	return x
 }
 
-// ·µ»Ø¶ÓÁĞ¿ªÍ·µÄÔªËØ
+// è¿”å›é˜Ÿåˆ—å¼€å¤´çš„å…ƒç´ 
 func (q *MyQueue) Peek() int {
 	if len(q.outStack) == 0 {
 		q.in2out()
@@ -38,7 +38,7 @@ func (q *MyQueue) Peek() int {
 	return q.outStack[len(q.outStack)-1]
 }
 
-// Èç¹û¶ÓÁĞÎª¿Õ£¬·µ»Ø true; ·ñÔò£¬·µ»Ø false
+// å¦‚æœé˜Ÿåˆ—ä¸ºç©ºï¼Œè¿”å› true; å¦åˆ™ï¼Œè¿”å› false
 func (q *MyQueue) Empty() bool {
 	return len(q.inStack) == 0 && len(q.outStack) == 0
 }

@@ -12,7 +12,7 @@ class Solution {
         return i + 1;
     }
     int randomized_partition(vector<int>& nums, int l, int r) {
-        int i = rand() % (r - l + 1) + l; // 随机选一个作为我们的主元
+        int i = rand() % (r - l + 1) + l; // 闅忔満閫変竴涓綔涓烘垜浠殑涓诲厓
         swap(nums[r], nums[i]);
         return partition(nums, l, r);
     }

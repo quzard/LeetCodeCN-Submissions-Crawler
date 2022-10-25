@@ -54,7 +54,7 @@ func movingCount(m int, n int, k int) int {
 
         matrix[i][j] = true
         cnt++
-        // Ö»ĞèÏòÓÒÏò×óËÑË÷¾Í¿ÉÒÔ
+        // åªéœ€å‘å³å‘å·¦æœç´¢å°±å¯ä»¥
         check(i+1, j)
         check(i, j+1)
     }

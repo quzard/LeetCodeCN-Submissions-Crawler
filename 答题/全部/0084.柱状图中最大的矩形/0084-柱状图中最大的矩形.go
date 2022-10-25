@@ -66,7 +66,7 @@ func min(a, b int) int{
     return b
 }
 
-// µ¥µ÷Õ»
+// å•è°ƒæ ˆ
 func largestRectangleArea(heights []int) int {
 	n := len(heights)
 	left, right := make([]int, n), make([]int, n)
@@ -75,11 +75,11 @@ func largestRectangleArea(heights []int) int {
 		for len(stack) > 0 && heights[stack[len(stack)-1]] >= heights[i] {
 			stack = stack[:len(stack)-1]
 		}
-        // ËµÃ÷ 0~i-1 ¶¼±È i ´ó
+        // è¯´æ˜ 0~i-1 éƒ½æ¯” i å¤§
 		if len(stack) == 0 {
 			left[i] = -1
 		} else {
-            // ËµÃ÷ stack[len(stack)-1] + 1 ~ i - 1 ¶¼±È i ´ó
+            // è¯´æ˜ stack[len(stack)-1] + 1 ~ i - 1 éƒ½æ¯” i å¤§
 			left[i] = stack[len(stack)-1]
 		}
 		stack = append(stack, i)
@@ -90,16 +90,16 @@ func largestRectangleArea(heights []int) int {
 		for len(stack) > 0 && heights[stack[len(stack)-1]] >= heights[i] {
 			stack = stack[:len(stack)-1]
 		}
-        // ËµÃ÷ i+1~n-1 ¶¼±È i ´ó
+        // è¯´æ˜ i+1~n-1 éƒ½æ¯” i å¤§
 		if len(stack) == 0 {
 			right[i] = n
 		} else {
-             // ËµÃ÷ i+1~stack[len(stack)-1] ¶¼±È i ´ó
+             // è¯´æ˜ i+1~stack[len(stack)-1] éƒ½æ¯” i å¤§
 			right[i] = stack[len(stack)-1]
 		}
 		stack = append(stack, i)
 	}
-    // Ãæ»ı= (right[i]-left[i]-1)*heights[i])
+    // é¢ç§¯= (right[i]-left[i]-1)*heights[i])
 	ans := 0
 	for i := 0; i < n; i++ {
 		ans = max(ans, (right[i]-left[i]-1)*heights[i])

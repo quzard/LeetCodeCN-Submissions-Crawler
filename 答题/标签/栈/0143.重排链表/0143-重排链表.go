@@ -14,7 +14,7 @@ func reorderList1(head *ListNode) {
 		fast = fast.Next.Next
 		slow = slow.Next
 	}
-	// ´æslow.Next ¶ø²»ÊÇslow
+	// å­˜slow.Next è€Œä¸æ˜¯slow
 	stack := []*ListNode{}
 	for slow.Next != nil {
 		stack = append(stack, slow.Next)

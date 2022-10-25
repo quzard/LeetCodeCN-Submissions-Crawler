@@ -11,7 +11,7 @@ func minCameraCover(root *TreeNode) int {
 		return 0
 	}
 	ans := 0
-	// ���ú�������������µĽڵ㿪ʼ������ýڵ�û���۲⵽�Ҵ��ڸ��ڵ㣬�͸����ڵ�װ����ͷ��
+	// 采用后后序遍历从最底下的节点开始，如果该节点没被观测到且存在父节点，就给父节点装摄像头。
 	var dfs func(node *TreeNode) int
 	dfs = func(node *TreeNode) int {
 		if node == nil {
@@ -21,25 +21,25 @@ func minCameraCover(root *TreeNode) int {
 		if node.Left == nil && node.Right == nil {
 			return 0
 		}
-		// 0 ��ʾҶ�ڵ�
-		// 1 ��ʾnil
-		// 2 ��ʾװ������ͷ
+		// 0 表示叶节点
+		// 1 表示nil
+		// 2 表示装了摄像头
 
 		l := dfs(node.Left)
 		r := dfs(node.Right)
 
-        //����û���۲���ӽڵ�, ��ǰ�ڵ�װ����ͷ
+        //存在没被观测的子节点, 当前节点装摄像头
 		if l == 0 || r == 0 {
 			ans++
 			return 2
 		}
 
-        //�ӽڵ�װ������ͷ, ���ڵ㲻�ù��ĵ�ǰ�ڵ�
+        //子节点装了摄像头, 父节点不用关心当前节点
 		if l == 2 || r == 2 {
 			return 1
 		}
 
-        //�ӽڵ㶼����Ҫ��ǰ����, ��ǰ�ڵ�ɼ���ΪҶ�ڵ�
+        //子节点都不需要当前关心, 则当前节点可假设为叶节点
 		return 0
 	}
 	if dfs(root) == 0 {

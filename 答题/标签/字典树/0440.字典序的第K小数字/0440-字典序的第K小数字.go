@@ -1,4 +1,4 @@
-//×ÖµäÊ÷
+//å­—å…¸æ ‘
 func findKthNumber(n int, k int) int {
     var getCount func(pre int) int
     getCount = func(pre int) int {

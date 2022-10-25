@@ -35,10 +35,10 @@ func avoidFlood(rains []int) []int {
 }
 
 func avoidFlood1(rains []int) []int {
-	// ±éÀúµ½·¢ºéË®µÄÏÂÓêÌì£¬ ´ÓĞ¡¶¥¶ÑÖĞÈ¡ÏÂ±ê£¬ ¿´Ç°ÃæÓĞÎŞ»ú»áÄÜ³éË®£¬ È¡²»µ½ÔªËØËµÃ÷¼Ä
+	// éå†åˆ°å‘æ´ªæ°´çš„ä¸‹é›¨å¤©ï¼Œ ä»å°é¡¶å †ä¸­å–ä¸‹æ ‡ï¼Œ çœ‹å‰é¢æœ‰æ— æœºä¼šèƒ½æŠ½æ°´ï¼Œ å–ä¸åˆ°å…ƒç´ è¯´æ˜å¯„
 	h := &IS{}
 	heap.Init(h)
-	// keyºş²´ºÍvalÏÂ±ê
+	// keyæ¹–æ³Šå’Œvalä¸‹æ ‡
 	m := make(map[int]int)
 	res := make([]int, len(rains))
 	for i := range res {
@@ -49,9 +49,9 @@ func avoidFlood1(rains []int) []int {
 			heap.Push(h, i)
 		} else if rainPoolIndex, ok := m[rainPool]; !ok {
 			m[rainPool] = i
-		} else { //ËµÃ÷µ±Ç°±éÀúµ½µÄÒª·¢ºéË®
+		} else { //è¯´æ˜å½“å‰éå†åˆ°çš„è¦å‘æ´ªæ°´
 			if h.Len() > 0 {
-				// µ±Ç°·¢ºéË®µÄÏÂ±ê£¬Ö»ÓĞÄÃµ½´óÓÚ¸ÃÏÂ±êµÄ³éË®ÈÕ²ÅÄÜ×èÖ¹
+				// å½“å‰å‘æ´ªæ°´çš„ä¸‹æ ‡ï¼Œåªæœ‰æ‹¿åˆ°å¤§äºè¯¥ä¸‹æ ‡çš„æŠ½æ°´æ—¥æ‰èƒ½é˜»æ­¢
 				left := []int{}
 				for h.Len() > 0 && rainPoolIndex >= h.IntSlice[0] {
 					left = append(left, heap.Pop(h).(int))
@@ -61,9 +61,9 @@ func avoidFlood1(rains []int) []int {
 				}
 				e := heap.Pop(h).(int)
 				res[e] = rainPool
-				// ¼ÇµÃ¸üĞÂÏÂ×îĞÂµÄÏÂÓêµÄÏÂ±ê
+				// è®°å¾—æ›´æ–°ä¸‹æœ€æ–°çš„ä¸‹é›¨çš„ä¸‹æ ‡
 				m[rainPool] = i
-				// ÍÆ»Ø¶ÑÀï
+				// æ¨å›å †é‡Œ
 				for i := range left {
 					heap.Push(h, left[i])
 				}
@@ -73,7 +73,7 @@ func avoidFlood1(rains []int) []int {
 		}
 	}
 
-	// ±ğÍüÁË£¬ÓĞ»ú»á³éË®µÄÊ£Óà²»ÈÃ²»³é£¬Ëæ±ãÌô¸öºş³éµô
+	// åˆ«å¿˜äº†ï¼Œæœ‰æœºä¼šæŠ½æ°´çš„å‰©ä½™ä¸è®©ä¸æŠ½ï¼Œéšä¾¿æŒ‘ä¸ªæ¹–æŠ½æ‰
 	for h.Len() > 0 {
 		e := heap.Pop(h).(int)
 		res[e] = 1

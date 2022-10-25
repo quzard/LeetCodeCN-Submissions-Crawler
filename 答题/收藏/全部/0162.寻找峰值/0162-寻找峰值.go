@@ -34,8 +34,8 @@ func findPeakElement(nums []int) int {
 func findPeakElement1(nums []int) int {
     n := len(nums)
 
-    // ¸¨Öúº¯Êı£¬ÊäÈëÏÂ±ê i£¬·µ»Ø nums[i] µÄÖµ
-    // ·½±ã´¦Àí nums[-1] ÒÔ¼° nums[n] µÄ±ß½çÇé¿ö
+    // è¾…åŠ©å‡½æ•°ï¼Œè¾“å…¥ä¸‹æ ‡ iï¼Œè¿”å› nums[i] çš„å€¼
+    // æ–¹ä¾¿å¤„ç† nums[-1] ä»¥åŠ nums[n] çš„è¾¹ç•Œæƒ…å†µ
     get := func(i int) int {
         if i == -1 || i == n {
             return math.MinInt64

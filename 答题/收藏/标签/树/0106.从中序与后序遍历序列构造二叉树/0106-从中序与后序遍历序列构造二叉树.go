@@ -7,8 +7,8 @@
  * }
  */
 func buildTree(inorder []int, postorder []int) *TreeNode {
-    // inorder   ÖĞĞò ×óÖĞÓÒ
-    // postorder ºóĞò ×óÓÒÖĞ
+    // inorder   ä¸­åº å·¦ä¸­å³
+    // postorder ååº å·¦å³ä¸­
     if len(postorder) == 0 {
         return nil
     }

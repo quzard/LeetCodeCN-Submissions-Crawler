@@ -3,8 +3,8 @@ import (
     "sort"
 )
 
-// Ë¼Â·Í¬ 15. ÈıÊıÖ®ºÍ
-// ÅÅĞò + Ë«Ö¸Õë
+// æ€è·¯åŒ 15. ä¸‰æ•°ä¹‹å’Œ
+// æ’åº + åŒæŒ‡é’ˆ
 func threeSumClosest(nums []int, target int) int {
     if len(nums) < 3 {
         return 0

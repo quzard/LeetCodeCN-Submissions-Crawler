@@ -13,7 +13,7 @@ func minRemoveToMakeValid(s string) string {
             }
         }
     }
-    //ÖØµã
+    //é‡ç‚¹
     arr := []byte(s)
     for i := len(stack) - 1; i>= 0; i-- {
         arr = append(arr[:stack[i]], arr[stack[i] + 1:]...)

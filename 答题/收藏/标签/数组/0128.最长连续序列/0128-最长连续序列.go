@@ -1,4 +1,4 @@
-// ²¢²é¼¯
+// å¹¶æŸ¥é›†
 func longestConsecutive1(nums []int) int {
     n := len(nums)
     if n < 2 {
@@ -62,7 +62,7 @@ func longestConsecutive(nums []int) int {
 
     var max = 0
     for k, _ := range m {
-        // ¹ýÂËÖØ¸´¼ÆËã, Ö»¼ÆËã×î×ó¶ËµÄÊý
+        // è¿‡æ»¤é‡å¤è®¡ç®—, åªè®¡ç®—æœ€å·¦ç«¯çš„æ•°
         if m[k-1] {
             continue
         }

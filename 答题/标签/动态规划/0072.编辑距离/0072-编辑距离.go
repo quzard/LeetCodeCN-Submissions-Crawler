@@ -5,16 +5,16 @@ func minDistance(word1 string, word2 string) int {
 		dp[i] = make([]int, n+1)
 	}
 	for i := 0; i < m+1; i++ {
-		dp[i][0] = i // word1[i] ±ä³É word2[0], É¾µô word1[i], ÐèÒª i ²¿²Ù×÷
+		dp[i][0] = i // word1[i] å˜æˆ word2[0], åˆ æŽ‰ word1[i], éœ€è¦ i éƒ¨æ“ä½œ
 	}
 	for j := 0; j < n+1; j++ {
-		dp[0][j] = j // word1[0] ±ä³É word2[j], ²åÈë word1[j]£¬ÐèÒª j ²¿²Ù×÷
+		dp[0][j] = j // word1[0] å˜æˆ word2[j], æ’å…¥ word1[j]ï¼Œéœ€è¦ j éƒ¨æ“ä½œ
 	}
 	for i := 1; i <= m; i++ {
 		for j := 1; j <= n; j++ {
 			if word1[i-1] == word2[j-1] {
 				dp[i][j] = dp[i-1][j-1]
-			} else { // Min(²åÈë£¬É¾³ý£¬Ìæ»»)
+			} else { // Min(æ’å…¥ï¼Œåˆ é™¤ï¼Œæ›¿æ¢)
 				dp[i][j] = Min(dp[i][j-1], dp[i-1][j], dp[i-1][j-1]) + 1
 			}
 		}

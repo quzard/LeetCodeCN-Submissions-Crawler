@@ -17,13 +17,13 @@ func min(a, b int) int {
     return b
 }
 
-// 判断是否为完全平方数
+// 鍒ゆ柇鏄惁涓哄畬鍏ㄥ钩鏂规暟
 func isPerfectSquare(x int) bool {
     y := int(math.Sqrt(float64(x)))
     return y*y == x
 }
 
-// 判断是否能表示为 4^k*(8m+7)
+// 鍒ゆ柇鏄惁鑳借〃绀轰负 4^k*(8m+7)
 func checkAnswer4(x int) bool {
     for x%4 == 0 {
         x /= 4

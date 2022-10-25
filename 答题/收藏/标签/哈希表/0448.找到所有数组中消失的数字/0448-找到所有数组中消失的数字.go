@@ -45,7 +45,7 @@ func findDisappearedNumbers(nums []int) (ans []int) {
     n := len(nums)
 
     for _, num := range nums {
-        num = (num - 1) % n // 取出原来的数
+        num = (num - 1) % n // 鍙栧嚭鍘熸潵鐨勬暟
         nums[num] += n
     }
     for i, num := range nums {

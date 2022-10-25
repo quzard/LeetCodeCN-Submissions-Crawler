@@ -50,16 +50,16 @@ func reverseKGroup1(head *ListNode, k int) *ListNode {
 
     for head != nil {
         tail := head
-        // ´ËÊ±tailÎªµÚk¸ö½Úµã
+        // æ­¤æ—¶tailä¸ºç¬¬kä¸ªèŠ‚ç‚¹
         for i := 1; i < k; i++ {
             tail = tail.Next
             if tail == nil {
                 return newHead.Next
             }
         }
-        //nextHeadÎªÏÂÒ»¸ö
+        //nextHeadä¸ºä¸‹ä¸€ä¸ª
         nextHead := tail.Next
-        //·´×ªµÚ1¸ö½Úµã~µÚk¸ö½Úµã
+        //åè½¬ç¬¬1ä¸ªèŠ‚ç‚¹~ç¬¬kä¸ªèŠ‚ç‚¹
         head, tail = myReverse(head, tail)
 
         cur.Next = head

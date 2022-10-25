@@ -11,7 +11,7 @@ func maxScore(nums []int) int {
     dp := make([]int, 1 << n)
 	for i := 0; i < len(dp); i++ {
 		cnt := getBitOneCnt(i)
-        // 如果 1 的位数不是偶数就跳过，当前的操作次数等于 cnt / 2
+        // 濡傛灉 1 鐨勪綅鏁颁笉鏄伓鏁板氨璺宠繃锛屽綋鍓嶇殑鎿嶄綔娆℃暟绛変簬 cnt / 2
 		if cnt % 2 == 1 {
 			continue
 		}

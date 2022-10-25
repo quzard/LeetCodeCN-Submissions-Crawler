@@ -50,21 +50,21 @@ func findAllRecipes1(recipes []string, ingredients [][]string, supplies []string
     return res
 }
 
-// 拓扑排序
+// 鎷撴墤鎺掑簭
 func findAllRecipes(recipes []string, ingredients [][]string, supplies []string) (ans []string) {
 	g := map[string][]string{}
 	deg := map[string]int{}
 	for i, r := range recipes {
 		for _, s := range ingredients[i] {
-			g[s] = append(g[s], r) // 从这道菜的原材料向这道菜连边
+			g[s] = append(g[s], r) // 浠庤繖閬撹彍鐨勫師鏉愭枡鍚戣繖閬撹彍杩炶竟
 			deg[r]++
 		}
 	}
-	for len(supplies) > 0 { // 拓扑排序
+	for len(supplies) > 0 { // 鎷撴墤鎺掑簭
 		s := supplies[0]
 		supplies = supplies[1:]
 		for _, r := range g[s] {
-			if deg[r]--; deg[r] == 0 { // 这道菜的所有原材料我们都有
+			if deg[r]--; deg[r] == 0 { // 杩欓亾鑿滅殑鎵�鏈夊師鏉愭枡鎴戜滑閮芥湁
 				supplies = append(supplies, r)
 				ans = append(ans, r)
 			}

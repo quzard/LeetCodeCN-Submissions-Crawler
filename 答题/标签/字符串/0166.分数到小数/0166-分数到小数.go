@@ -7,13 +7,13 @@ func fractionToDecimal(numerator, denominator int) string {
         res = append(res, '-')
     }
     
-    // 整数部分
+    // 鏁存暟閮ㄥ垎
     numerator = abs(numerator)
     denominator = abs(denominator)
     res = append(res, strconv.Itoa(numerator/denominator)...)
     res = append(res, '.')
 
-    // 小数部分
+    // 灏忔暟閮ㄥ垎
     m := map[int]int{}
     remainder := numerator % denominator * 10
     for remainder > 0 && m[remainder] == 0 {

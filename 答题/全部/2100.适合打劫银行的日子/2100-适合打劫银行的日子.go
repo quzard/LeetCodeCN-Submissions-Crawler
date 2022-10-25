@@ -10,7 +10,7 @@ func goodDaysToRobBank1(security []int, time int) []int {
     for i := 0; i < len(security); i++{
         dp[i] = make([]int, 2)
         if i == 0{
-            dp[i][1] = 1 // 从左到右递减
+            dp[i][1] = 1 // 浠庡乏鍒板彸閫掑噺
             continue
         }
         if security[i] <= security[i - 1]{
@@ -22,7 +22,7 @@ func goodDaysToRobBank1(security []int, time int) []int {
     
     for i := len(security) - 1; i >= 0; i--{
         if i == len(security) - 1{
-            dp[i][0] = 1 // 从右到左递减
+            dp[i][0] = 1 // 浠庡彸鍒板乏閫掑噺
             continue
         }
         if security[i] <= security[i + 1]{
@@ -56,7 +56,7 @@ func goodDaysToRobBank(a []int, time int) (ans []int) {
 
 	pre := 0
 	for i, v := range a {
-        // 减少一次遍历和空间
+        // 鍑忓皯涓�娆￠亶鍘嗗拰绌洪棿
 		if i == 0 || v > a[i-1] {
 			pre = 1
 		} else {

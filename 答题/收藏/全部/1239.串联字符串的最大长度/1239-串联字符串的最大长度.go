@@ -5,10 +5,10 @@ outer:
         mask := 0
         for _, ch := range s {
             ch -= 'a'
-            if mask>>ch&1 > 0 { // хТ mask рясп chё╛тРк╣цВ s ╨╛спжь╦╢вжд╦ё╛нч╥╗╧╧Ёи©ипп╫Б
+            if mask>>ch&1 > 0 { // Х▀╔ mask Е╥╡Ф°┴ chО╪▄Е┬≥Х╞╢Ф≤▌ s Е░╚Ф°┴И┤█Е╓█Е╜≈Ф╞█О╪▄Ф≈═ФЁ∙Ф·└Ф┬░Е▐╞Х║▄Х╖ё
                 continue outer
             }
-            mask |= 1 << ch // ╫╚ ch ╪схК mask жп
+            mask |= 1 << ch // Е╟├ ch Е┼═Е┘╔ mask Д╦╜
         }
         masks = append(masks, mask)
     }
@@ -19,7 +19,7 @@ outer:
             ans = max(ans, bits.OnesCount(uint(mask)))
             return
         }
-        if mask&masks[pos] == 0 { // mask ╨м masks[pos] нч╧╚╧╡т╙кь
+        if mask&masks[pos] == 0 { // mask Е▓▄ masks[pos] Ф≈═Е┘╛Е┘╠Е┘┐Г╢═
             backtrack(pos+1, mask|masks[pos])
         }
         backtrack(pos+1, mask)
@@ -37,19 +37,19 @@ func max(a, b int) int {
 
 
 func maxLength2(arr []string) (ans int) {
-    masks := []int{0} // 0 ╤тс╕©у╢╝
+    masks := []int{0} // 0 Е╞╧Е╨■Г╘╨Д╦╡
 outer:
     for _, s := range arr {
         mask := 0
         for _, ch := range s {
             ch -= 'a'
-            if mask>>ch&1 > 0 { // хТ mask рясп chё╛тРк╣цВ s ╨╛спжь╦╢вжд╦ё╛нч╥╗╧╧Ёи©ипп╫Б
+            if mask>>ch&1 > 0 { // Х▀╔ mask Е╥╡Ф°┴ chО╪▄Е┬≥Х╞╢Ф≤▌ s Е░╚Ф°┴И┤█Е╓█Е╜≈Ф╞█О╪▄Ф≈═ФЁ∙Ф·└Ф┬░Е▐╞Х║▄Х╖ё
                 continue outer
             }
-            mask |= 1 << ch // ╫╚ ch ╪схК mask жп
+            mask |= 1 << ch // Е╟├ ch Е┼═Е┘╔ mask Д╦╜
         }
         for _, m := range masks {
-            if m&mask == 0 { // m ╨м mask нч╧╚╧╡т╙кь
+            if m&mask == 0 { // m Е▓▄ mask Ф≈═Е┘╛Е┘╠Е┘┐Г╢═
                 masks = append(masks, m|mask)
                 ans = max(ans, bits.OnesCount(uint(m|mask)))
             }

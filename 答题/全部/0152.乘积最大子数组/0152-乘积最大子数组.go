@@ -3,8 +3,8 @@ func maxProduct(nums []int) int {
         return 0
     }
     res := nums[0]
-    num1 := nums[0] // ×î´ó
-    num2 := nums[0] // ×îĞ¡
+    num1 := nums[0] // æœ€å¤§
+    num2 := nums[0] // æœ€å°
     for i := 1; i < len(nums); i++{
         temp1 := num1
         temp2 := num2

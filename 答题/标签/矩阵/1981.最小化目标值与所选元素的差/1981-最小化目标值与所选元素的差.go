@@ -1,6 +1,6 @@
 func minimizeTheDifference1(a [][]int, tar int) int {
 	m := len(a)
-    // len(DP)=×î´óµÄºÍ=m*max(mat[i][j] )
+    // len(DP)=æœ€å¤§çš„å’Œ=m*max(mat[i][j] )
 	dp := make([]int, m*70+1)
 	for i := range dp {
 		dp[i] = -1e9
@@ -36,7 +36,7 @@ func abs(x int) int {
 }
 
 func minimizeTheDifference(mat [][]int, target int) int {
-	// ¼¯ºÏ+Ë³Ğò±éÀú+¼ôÖ¦+Î¬»¤×îĞ¡µÄ´óÓÚtargetµÄÖµ
+	// é›†åˆ+é¡ºåºéå†+å‰ªæ+ç»´æŠ¤æœ€å°çš„å¤§äºtargetçš„å€¼
 	min := func(a, b int) int {
 		if a < b {
 			return a

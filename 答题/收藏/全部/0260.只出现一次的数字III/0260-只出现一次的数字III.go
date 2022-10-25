@@ -3,7 +3,7 @@ func singleNumber(nums []int) []int {
     for _, num := range nums {
         xorSum ^= num
     }
-    // »ñÈ¡×îµÍÎ»µÄÖµ
+    // è·å–æœ€ä½ä½çš„å€¼
     lsb := xorSum & -xorSum
     type1, type2 := 0, 0
     for _, num := range nums {

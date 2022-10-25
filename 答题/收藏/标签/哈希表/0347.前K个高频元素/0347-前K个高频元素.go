@@ -2,7 +2,7 @@ import (
     "container/heap"
 )
 
-// ¶ÑÅÅĞò
+// å †æ’åº
 var res []int
 var hashTabe map[int]int
 var selected map[int]int
@@ -31,7 +31,7 @@ func topKFrequent(nums []int, k int) []int {
     return res[1:]
 }
 
-// ¸¸±È×Ó´ó
+// çˆ¶æ¯”å­å¤§
 func less(a, b int) bool {
     if hashTabe[res[a]] >= hashTabe[res[b]] {
         return true
@@ -39,7 +39,7 @@ func less(a, b int) bool {
     return false
 }
 
-// ´ÓÏÂÍùÉÏ¸¡ Ô½ÉÏÔ½Ğ¡
+// ä»ä¸‹å¾€ä¸Šæµ® è¶Šä¸Šè¶Šå°
 func swim(k int) {
     for k > 1 && less(int(k/2), k) {
         selected[res[int(k/2)]], selected[res[k]] = k, int(k/2)
@@ -48,12 +48,12 @@ func swim(k int) {
     }
 }
 
-// ´ÓÉÏÍùÏÂ³Á Ô½ÏÂÔ½´ó
+// ä»ä¸Šå¾€ä¸‹æ²‰ è¶Šä¸‹è¶Šå¤§
 func sink(k int) {
     for 2*k < len(res) {
         j := 2 * k
         if j < len(res)-1 && less(j, j+1) {
-            // È¡j ºÍ j+1 Ğ¡µÄÄÇ¸ö
+            // å–j å’Œ j+1 å°çš„é‚£ä¸ª
             j++
         }
         if !less(k, j) {

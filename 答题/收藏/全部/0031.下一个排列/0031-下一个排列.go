@@ -2,7 +2,7 @@ func nextPermutation(nums []int)  {
     if len(nums) < 2 {
         return
     }
-    // ÕÒµ½µÚÒ»¸ö nums[l] > nums[l-1]
+    // æ‰¾åˆ°ç¬¬ä¸€ä¸ª nums[l] > nums[l-1]
     l := len(nums) - 1
     for ; l > 0 && nums[l] <= nums[l-1]; l-- {
     }
@@ -10,9 +10,9 @@ func nextPermutation(nums []int)  {
         reverse(nums, 0, len(nums)-1)
         return
     }
-    //¼ÇÂ¼l-1Îªl, ´ËÊ± nums[l+1:]ÎªµÝ¼õÐòÁÐÇÒ nums[l] < nums[l+1]
+    //è®°å½•l-1ä¸ºl, æ­¤æ—¶ nums[l+1:]ä¸ºé€’å‡åºåˆ—ä¸” nums[l] < nums[l+1]
     l--
-    // ÕÒµ½µÚÒ»¸ö nums[l] < nums[r]
+    // æ‰¾åˆ°ç¬¬ä¸€ä¸ª nums[l] < nums[r]
     r := len(nums) - 1
     for ; r > l && nums[l] >= nums[r]; r-- {
     }

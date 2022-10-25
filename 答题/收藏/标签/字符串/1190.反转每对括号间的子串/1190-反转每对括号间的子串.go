@@ -1,4 +1,4 @@
-// Õ» n2
+// æ ˆ n2
 func reverseParentheses1(s string) string {
     stack := [][]byte{}
     str := []byte{}
@@ -7,7 +7,7 @@ func reverseParentheses1(s string) string {
             stack = append(stack, str)
             str = []byte{}
         } else if s[i] == ')' {
-            // ·´×ªstr
+            // åè½¬str
             for j, n := 0, len(str); j < n/2; j++ {
                 str[j], str[n-1-j] = str[n-1-j], str[j]
             }
@@ -20,7 +20,7 @@ func reverseParentheses1(s string) string {
     return string(str)
 }
 
-// Ô¤´¦ÀíÀ¨ºÅ
+// é¢„å¤„ç†æ‹¬å·
 func reverseParentheses(s string) string {
     n := len(s)
     pair := make([]int, n)

@@ -2,7 +2,7 @@ func rob(nums []int) int {
     dp := make([][]int, len(nums))
     res := 0
 
-    // 0 ͵ 1 ��͵
+    // 0 偷 1 不偷
     for i := 0; i < len(nums); i++ {
         dp[i] = make([]int, 2)
         if i == 0 {

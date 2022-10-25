@@ -13,7 +13,7 @@ func twoSum1(numbers []int, target int) []int {
     return []int{}
 }
 
-// ¶ş·Ö²éÕÒ o(nlgn)
+// äºŒåˆ†æŸ¥æ‰¾ o(nlgn)
 func twoSum(numbers []int, target int) []int {
     for i := 0; i < len(numbers); i++ {
         low, high := i + 1, len(numbers) - 1

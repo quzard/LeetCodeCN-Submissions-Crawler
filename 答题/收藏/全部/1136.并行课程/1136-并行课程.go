@@ -1,4 +1,4 @@
-// ½« 1 µ½ N£¬¸Ä³É 0 µ½ N - 1£¬·½±ãÊı×éË÷Òı
+// å°† 1 åˆ° Nï¼Œæ”¹æˆ 0 åˆ° N - 1ï¼Œæ–¹ä¾¿æ•°ç»„ç´¢å¼•
 func minimumSemesters(N int, relations [][]int) int {
     preClassCount := map[int]int{}
     nextClasses := make([][]int, N)
@@ -6,8 +6,8 @@ func minimumSemesters(N int, relations [][]int) int {
         preClassCount[i] = 0
     }
     for _, r := range relations {
-        nextClasses[r[0]-1] = append(nextClasses[r[0]-1], r[1]-1) // ¼ÇÂ¼ºóÖÃ¿Î³Ì
-        preClassCount[r[1]-1]++ // ¼ÆËã³õÊ¼Èë¶È
+        nextClasses[r[0]-1] = append(nextClasses[r[0]-1], r[1]-1) // è®°å½•åç½®è¯¾ç¨‹
+        preClassCount[r[1]-1]++ // è®¡ç®—åˆå§‹å…¥åº¦
     }
     term := 0
     for len(preClassCount) > 0 {
@@ -15,10 +15,10 @@ func minimumSemesters(N int, relations [][]int) int {
         learn := []int{}
         for class, count := range preClassCount {
             if count == 0 {
-                learn = append(learn, class) // Èë¶ÈÎª 0£¬¿ÉÒÔÑ§Ï°
+                learn = append(learn, class) // å…¥åº¦ä¸º 0ï¼Œå¯ä»¥å­¦ä¹ 
             }
         }
-        if len(learn) == 0 { // Ã»ÓĞ¿Î³Ì¿ÉÒÔÑ§ÁË£¬ËµÃ÷ÓĞÑ­»·
+        if len(learn) == 0 { // æ²¡æœ‰è¯¾ç¨‹å¯ä»¥å­¦äº†ï¼Œè¯´æ˜æœ‰å¾ªç¯
             return -1
         }
         for _, l := range learn {

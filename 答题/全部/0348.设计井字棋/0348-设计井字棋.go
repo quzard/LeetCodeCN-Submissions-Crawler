@@ -12,7 +12,7 @@ type TicTacToe struct {
 
 
 func Constructor(n int) TicTacToe {
-    // n Ϊ�߳�
+    // n 为边长
     return TicTacToe{
         x: make([][]int, n),
         y: make([][]int, n),

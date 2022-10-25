@@ -10,7 +10,7 @@ func abbreviateProduct(left, right int) string {
         suf = suf * x % 1e5
         if mul != -1 {
             mul *= x
-            if mul >= 1e10 { // ³¤¶È³¬¹ı 10
+            if mul >= 1e10 { // é•¿åº¦è¶…è¿‡ 10
                 mul = -1
             }
         }
@@ -19,23 +19,23 @@ func abbreviateProduct(left, right int) string {
     for i := left; i <= right; i++ {
         e += math.Log10(float64(i))
         x := i
-        tz := bits.TrailingZeros(uint(x)) // Òò×Ó 2 µÄ¸öÊı
+        tz := bits.TrailingZeros(uint(x)) // å› å­ 2 çš„ä¸ªæ•°
         cnt2 += tz
         x >>= tz
         for ; x%5 == 0; x /= 5 {
-            cnt5++ // Òò×Ó 5 µÄ¸öÊı
+            cnt5++ // å› å­ 5 çš„ä¸ªæ•°
         }
         update(x)
     }
     cnt10 := min(cnt2, cnt5)
     for i := cnt10; i < cnt2; i++ {
-        update(2) // ²¹ÉÏ¶à²ğ³öÀ´µÄ 2
+        update(2) // è¡¥ä¸Šå¤šæ‹†å‡ºæ¥çš„ 2
     }
     for i := cnt10; i < cnt5; i++ {
-        update(5) // ²¹ÉÏ¶à²ğ³öÀ´µÄ 5
+        update(5) // è¡¥ä¸Šå¤šæ‹†å‡ºæ¥çš„ 5
     }
 
-    if mul != -1 { // ²»ĞèÒªËõĞ´
+    if mul != -1 { // ä¸éœ€è¦ç¼©å†™
         return fmt.Sprintf("%de%d", mul, cnt10)
     }
     pre := int(math.Pow(10, e-math.Floor(e)+4))

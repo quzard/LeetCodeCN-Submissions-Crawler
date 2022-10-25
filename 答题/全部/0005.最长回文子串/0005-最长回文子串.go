@@ -25,9 +25,9 @@ func longestPalindrome(s string) string {
     }
     start, end := 0, 0
     for i := 0; i < len(s); i++ {
-        //ÒÔiÎªÖÐÐÄ
+        //ä»¥iä¸ºä¸­å¿ƒ
         left1, right1 := expandAroundCenter(s, i, i)
-        //ÒÔi, i+1 ÎªÖÐÐÄ
+        //ä»¥i, i+1 ä¸ºä¸­å¿ƒ
         left2, right2 := expandAroundCenter(s, i, i+1)
         if right1-left1 > end-start {
             start, end = left1, right1

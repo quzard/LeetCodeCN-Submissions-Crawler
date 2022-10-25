@@ -6,14 +6,14 @@ func subSort(array []int) []int {
     min := math.MaxInt32
     max := math.MinInt32
     for i := n - 1; i >= 0; i-- {
-        // 最后取到的是最靠左的满足条件的下标
+        // 鏈�鍚庡彇鍒扮殑鏄渶闈犲乏鐨勬弧瓒虫潯浠剁殑涓嬫爣
         if array[i] > min {
             l = i
         } else {
             min = array[i]
         }
 
-        // 取到的是最靠右的满足条件的下标
+        // 鍙栧埌鐨勬槸鏈�闈犲彸鐨勬弧瓒虫潯浠剁殑涓嬫爣
         num := array[n-1-i]
         if num < max {
             r = n-1-i

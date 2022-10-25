@@ -6,7 +6,7 @@
  *     Right *TreeNode
  * }
  */
-// ¶ş²æËÑË÷Ê÷
+// äºŒå‰æœç´¢æ ‘
 func inorderSuccessor(root *TreeNode, p *TreeNode) *TreeNode {
     found := false
     var res *TreeNode

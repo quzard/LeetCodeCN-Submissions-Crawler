@@ -30,11 +30,11 @@ func removeInvalidParentheses(s string) []string {
 				continue
 			}
 			if s[i] == '(' && lremove > 0 {
-                // ÒÆ³ýs[i]
+                // ç§»é™¤s[i]
 				dfs(s[:i]+s[i+1:], l-1, r, i, lremove-1, rremove)
 			}
 			if s[i] == ')' && rremove > 0 {
-                // ÒÆ³ýs[i]
+                // ç§»é™¤s[i]
 				dfs(s[:i]+s[i+1:], l, r-1, i, lremove, rremove-1)
 			}
 			if r > l {

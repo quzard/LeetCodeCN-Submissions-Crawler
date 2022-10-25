@@ -13,18 +13,18 @@ func Constructor() MedianFinder {
 
 func (mf *MedianFinder) AddNum(num int) {
 	minQ, maxQ := &mf.queMin, &mf.queMax
-	// queMax ºÍ queMin ·Ö±ð¼ÇÂ¼´óÓÚÖÐÎ»ÊýµÄÊýºÍÐ¡ÓÚµÈÓÚÖÐÎ»ÊýµÄÊý¡£
+	// queMax å’Œ queMin åˆ†åˆ«è®°å½•å¤§äºŽä¸­ä½æ•°çš„æ•°å’Œå°äºŽç­‰äºŽä¸­ä½æ•°çš„æ•°ã€‚
 
-	//´ËÊ± num Ð¡ÓÚµÈÓÚÖÐÎ»Êý£¬ÎÒÃÇÐèÒª½«¸ÃÊýÌí¼Óµ½queMin ÖÐ¡£
-	//ÐÂµÄÖÐÎ»Êý½«Ð¡ÓÚµÈÓÚÔ­À´µÄÖÐÎ»Êý£¬Òò´ËÎÒÃÇ¿ÉÄÜÐèÒª½« queMin ÖÐ×î´óµÄÊýÒÆ¶¯µ½ queMax ÖÐ¡£
+	//æ­¤æ—¶ num å°äºŽç­‰äºŽä¸­ä½æ•°ï¼Œæˆ‘ä»¬éœ€è¦å°†è¯¥æ•°æ·»åŠ åˆ°queMin ä¸­ã€‚
+	//æ–°çš„ä¸­ä½æ•°å°†å°äºŽç­‰äºŽåŽŸæ¥çš„ä¸­ä½æ•°ï¼Œå› æ­¤æˆ‘ä»¬å¯èƒ½éœ€è¦å°† queMin ä¸­æœ€å¤§çš„æ•°ç§»åŠ¨åˆ° queMax ä¸­ã€‚
 	if minQ.Len() == 0 || num <= -minQ.IntSlice[0] {
 		heap.Push(minQ, -num)
 		if maxQ.Len()+1 < minQ.Len() {
 			heap.Push(maxQ, -heap.Pop(minQ).(int))
 		}
 	} else {
-		//´ËÊ± num ´óÓÚÖÐÎ»Êý£¬ÎÒÃÇÐèÒª½«¸ÃÊýÌí¼Óµ½ queMin ÖÐ¡£
-		//ÐÂµÄÖÐÎ»Êý½«´óÓÚµÈÓÚÔ­À´µÄÖÐÎ»Êý£¬Òò´ËÎÒÃÇ¿ÉÄÜÐèÒª½« queMax ÖÐ×îÐ¡µÄÊýÒÆ¶¯µ½ queMin ÖÐ¡£
+		//æ­¤æ—¶ num å¤§äºŽä¸­ä½æ•°ï¼Œæˆ‘ä»¬éœ€è¦å°†è¯¥æ•°æ·»åŠ åˆ° queMin ä¸­ã€‚
+		//æ–°çš„ä¸­ä½æ•°å°†å¤§äºŽç­‰äºŽåŽŸæ¥çš„ä¸­ä½æ•°ï¼Œå› æ­¤æˆ‘ä»¬å¯èƒ½éœ€è¦å°† queMax ä¸­æœ€å°çš„æ•°ç§»åŠ¨åˆ° queMin ä¸­ã€‚
 		heap.Push(maxQ, num)
 		if maxQ.Len() > minQ.Len() {
 			heap.Push(minQ, -heap.Pop(maxQ).(int))
@@ -34,11 +34,11 @@ func (mf *MedianFinder) AddNum(num int) {
 
 func (mf *MedianFinder) FindMedian() float64 {
 	minQ, maxQ := mf.queMin, mf.queMax
-	// µ±ÀÛ¼ÆÌí¼ÓµÄÊýµÄÊýÁ¿ÎªÆæÊýÊ±£¬queMin ÖÐµÄÊýµÄÊýÁ¿±È queMax ¶àÒ»¸ö£¬´ËÊ±ÖÐÎ»ÊýÎª queMin µÄ¶ÓÍ·¡£
+	// å½“ç´¯è®¡æ·»åŠ çš„æ•°çš„æ•°é‡ä¸ºå¥‡æ•°æ—¶ï¼ŒqueMin ä¸­çš„æ•°çš„æ•°é‡æ¯” queMax å¤šä¸€ä¸ªï¼Œæ­¤æ—¶ä¸­ä½æ•°ä¸º queMin çš„é˜Ÿå¤´ã€‚
 	if minQ.Len() > maxQ.Len() {
 		return float64(-minQ.IntSlice[0])
 	}
-	// µ±ÀÛ¼ÆÌí¼ÓµÄÊýµÄÊýÁ¿ÎªÅ¼ÊýÊ±£¬Á½¸öÓÅÏÈ¶ÓÁÐÖÐµÄÊýµÄÊýÁ¿ÏàÍ¬£¬´ËÊ±ÖÐÎ»ÊýÎªËüÃÇµÄ¶ÓÍ·µÄÆ½¾ùÖµ¡£
+	// å½“ç´¯è®¡æ·»åŠ çš„æ•°çš„æ•°é‡ä¸ºå¶æ•°æ—¶ï¼Œä¸¤ä¸ªä¼˜å…ˆé˜Ÿåˆ—ä¸­çš„æ•°çš„æ•°é‡ç›¸åŒï¼Œæ­¤æ—¶ä¸­ä½æ•°ä¸ºå®ƒä»¬çš„é˜Ÿå¤´çš„å¹³å‡å€¼ã€‚
 	return float64(maxQ.IntSlice[0]-minQ.IntSlice[0]) / 2
 }
 

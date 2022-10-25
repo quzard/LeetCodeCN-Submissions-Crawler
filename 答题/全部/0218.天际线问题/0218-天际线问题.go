@@ -1,4 +1,4 @@
-// É¨ÃèÏß + ÓÅÏÈ¶ÓÁĞ
+// æ‰«æçº¿ + ä¼˜å…ˆé˜Ÿåˆ—
 type pair struct{ right, height int }
 type hp []pair
 
@@ -25,13 +25,13 @@ func getSkyline(buildings [][]int) [][]int {
 			if building[0] > boundary {
 				break
 			}
-            // »ñÈ¡×ó±ß½çÔÚboundary×ó²àµÄ½¨ÖşµÄÓÒ¶ËµãºÍ¸ß¶È
+            // è·å–å·¦è¾¹ç•Œåœ¨boundaryå·¦ä¾§çš„å»ºç­‘çš„å³ç«¯ç‚¹å’Œé«˜åº¦
 			heap.Push(&h, pair{building[1], building[2]})
 			idx++
 		}
         // left <= h[0] < right
 		for len(h) > 0 && h[0].right <= boundary {
-            // ÓÒ¶ËµãÔÚboundary×ó²à
+            // å³ç«¯ç‚¹åœ¨boundaryå·¦ä¾§
 			heap.Pop(&h)
 		}
 
@@ -56,7 +56,7 @@ func getSkyline(buildings [][]int) [][]int {
 
 
 
-// É¨ÃèÏß¼òµ¥Ò×¶®
+// æ‰«æçº¿ç®€å•æ˜“æ‡‚
 func getSkyline1(buildings [][]int) [][]int {
 	var (
 		res = [][]int{}
@@ -74,9 +74,9 @@ func getSkyline1(buildings [][]int) [][]int {
     
 	heights := []int{0}
 	for _, h := range pq {
-		if h[1] < 0 {// ×ó±ßÔµ
+		if h[1] < 0 {// å·¦è¾¹ç¼˜
 			heights = append(heights, -h[1])
-		} else { // ÓÒ±ßÔµ
+		} else { // å³è¾¹ç¼˜
 			heights = remove(heights, h[1])
 		}
 

@@ -1,4 +1,4 @@
-//°£ÊÏÉ¸
+//åŸƒæ°ç­›
 func countPrimes1(n int) int {
     notPrime := make([]bool, n)
     res := 0
@@ -12,7 +12,7 @@ func countPrimes1(n int) int {
     }
     return res
 }
-//°£ÊÏÉ¸ ÓÅ»¯
+//åŸƒæ°ç­› ä¼˜åŒ–
 func countPrimes2(n int) int {
 	var arr = make([]bool, n)
 	var count int
@@ -30,7 +30,7 @@ func countPrimes2(n int) int {
 	}
 	return count
 }
-//ÏßĞÔÉ¸
+//çº¿æ€§ç­›
 func countPrimes(n int) int {
     primes := []int{}
     notPrime := make([]bool, n)
