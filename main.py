@@ -23,6 +23,7 @@ if "CONFIG" in os.environ:
     USERNAME = config['username']
     PASSWORD = config['password']
     OUTPUT = config['outputDir']
+    COOKIE = config['cookie']
     TIME_CONTROL = 3600 * config['time']
 else:
     with open(config_path, "r", encoding='UTF-8') as f:  # 读取用户名，密码，本地存储目录
@@ -30,6 +31,7 @@ else:
         USERNAME = config['username']
         PASSWORD = config['password']
         OUTPUT = config['outputDir']
+        COOKIE = config['cookie']
         TIME_CONTROL = 3600 * config['time']
 
 FILE_FORMAT = {"C++": ".cpp", "Python3": ".py", "Python": ".py", "MySQL": ".sql", "Go": ".go", "Java": ".java",
@@ -55,24 +57,25 @@ def getPaid_only():
     client.close()
 
 # 登陆
-def login(username, password):  # 本函数修改自https://gist.github.com/fyears/487fc702ba814f0da367a17a2379e8ba，感谢@fyears
+def login(username, password, cookie):  # 本函数修改自https://gist.github.com/fyears/487fc702ba814f0da367a17a2379e8ba，感谢@fyears
     client = requests.session()
     client.encoding = "utf-8"
+    client.cookies.set('LEETCODE_SESSION', cookie)
 
-    while True:
-        try:
-            client.get(sign_in_url, verify=False)
-            login_data = {
-                'login': username,
-                'password': password
-            }
-            result = client.post(sign_in_url, data=login_data, headers=dict(Referer=sign_in_url))
-            if result.ok:
-                print("Login successfully!")
-                break
-        except:
-            print("登录失败！")
-            time.sleep(SLEEP_TIME)
+    # while True:
+    #     try:
+    #         client.get(sign_in_url, verify=False)
+    #         login_data = {
+    #             'login': username,
+    #             'password': password
+    #         }
+    #         result = client.post(sign_in_url, data=login_data, headers=dict(Referer=sign_in_url))
+    #         if result.ok:
+    #             print("Login successfully!")
+    #             break
+    #     except:
+    #         print("登录失败！")
+    #         time.sleep(SLEEP_TIME)
     return client
 
 
@@ -520,7 +523,7 @@ def main():
     print('获取 会员题目')
     getPaid_only()
     print('登录')
-    client = login(USERNAME, PASSWORD)
+    client = login(USERNAME, PASSWORD, COOKIE)
     print('获取 时间戳')
     getTimeStamp(client)
     print('获取 favorite')
